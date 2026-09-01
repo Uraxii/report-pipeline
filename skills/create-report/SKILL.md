@@ -110,9 +110,10 @@ visibly distinct.
 5. **Plan.** Build a skeleton plan (the order of arguments), then a final plan
    that correlates every note with the point it supports. No prose yet. A note
    supporting no point gets cut here, which enforces the exclusion rules before
-   drafting. Where the report recommends, this step also sets the criteria and
-   builds the decision matrix; treat both as standards the prior analysis must
-   already meet.
+   drafting. Where the report recommends, this step lays out the criteria and
+   the decision matrix the analysis already used; both are standards that
+   analysis must have met, not work to do here. Analysis that arrives without
+   them has a gap this skill cannot close: say so and send it back.
 6. **Draft.** Largely mechanical if step 5 was honest. Apply the exclusion
    list, the evidence rules, the sentence layer, and the uncertainty layer.
 7. **Revise.** Read the draft aloud, or have it read to you. Sweep for missing

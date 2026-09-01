@@ -206,9 +206,11 @@ drafting step has nothing left to decide.
 Any point that is divided must divide into at least two parts. A section with a
 single sub-point means the division was wrong; fold it back up.
 
-Where the report recommends among options, this step also sets the criteria
-and builds the decision matrix. Both are standards the finished analysis must
-already meet. The rest of this file specifies them.
+Where the report recommends among options, this step lays out the criteria and
+the decision matrix the analysis already used. Both are standards that analysis
+must have met, not work to do here. Analysis that arrives without them has a
+gap this skill cannot close: say so and send it back. The rest of this file
+specifies the standards.
 
 ---
 
