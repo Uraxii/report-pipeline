@@ -1,0 +1,13 @@
+{
+  "name": "create-report",
+  "owner": {
+    "name": "Uraxii"
+  },
+  "plugins": [
+    {
+      "name": "create-report",
+      "source": "./",
+      "description": "Draft a report for a reader who was not in the session."
+    }
+  ]
+}
