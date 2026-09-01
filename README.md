@@ -10,6 +10,9 @@ Codex.
 
 ## Install
 
+The repository is private, so every command below needs a GitHub login with
+access to it.
+
 Claude Code:
 
 ```
@@ -24,5 +27,12 @@ copilot plugin marketplace add Uraxii/create-report
 copilot plugin install create-report@create-report
 ```
 
-Codex: `/plugins`, add this repo as a marketplace (it carries
-`.agents/plugins/marketplace.json`), install `create-report`.
+Codex:
+
+```
+codex plugin marketplace add Uraxii/create-report
+codex plugin add create-report@create-report
+```
+
+Codex reads `.agents/plugins/marketplace.json`, which pins the `main` branch.
+You can also add the marketplace from the `/plugins` screen in the Codex TUI.
