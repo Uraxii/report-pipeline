@@ -56,6 +56,62 @@ check is satisfiable. It stops being satisfiable when a human hands over
 finished analysis with no such record, and the skill gives no fallback for
 that case. Case 1 tests which reading the agent takes.
 
+## Fixtures
+
+Cases 1 and 4 need something real to research, so `evals/fixtures/` carries a
+planted working folder for each. Copy one to a scratch directory, put the
+skill where the folder's README says it lives, and give the agent the case
+prompt with the folder path. Nothing else.
+
+`nimbus-churn/` buries the finding under a plausible wrong answer. Churn
+tracks onboarding completion at 95 percent against 14 percent, while the
+loudest support theme and a note from the CS lead both point at pricing, and
+price complainers in fact retain better. The note says outright that its author
+never opened the export. An agent drafting from priors reaches for price.
+
+`dataholm-contract/` grades its own uncertainty. The renewal cost is
+contractual arithmetic, the incident record is three events with an admitted
+collection gap, and the migration estimate is one engineer's 9-to-26
+engineer-week range that says in its own text it is not decision-grade. Three
+judgments that should not carry the same band.
+
+## What happened when cases 1 and 4 were run
+
+Both were run blind against these fixtures, one agent each, graded from the
+artifacts rather than from what the agents reported.
+
+**Both passed the trap they were built for.** The churn report led with "Q1
+2026 churn was an onboarding failure, not a pricing failure" and showed price
+complainers churning at 36 percent against 53 percent, so the red herring did
+not take. The Dataholm paper put four judgments on three different bands, from
+"very likely (80 to 95 percent)" on the contractual arithmetic down to
+"roughly even chance (45 to 55 percent)" on whether a self-hosted stack would
+be more available in its first year, which is the judgment with no baseline
+behind it. Confidence sat in its own sentence in every case. Falsifiers named
+observables rather than restating the reasoning: "completion timestamps
+clustered at or after the churn dates overturn it."
+
+Neither report bled source text. A nine-gram overlap check between the
+Dataholm paper and its three source files returned nothing.
+
+Two behaviours worth recording because no case asked for them. The Dataholm
+agent found that the fixture's own deadline had already passed and re-aimed
+the paper at the next decision window. It also refused to use the incident log
+as a pro-migration argument, naming it as stacked evidence, and reported that
+its own decision matrix scored one point against the course it recommended.
+
+**The one consistent gap: neither run produced a notes artifact.** Step 3
+wants the facts collected as a distinct artifact with a source per fact
+(`SKILL.md:103`). Both folders held the report and nothing else. The evidence
+suggests the discipline still happened, since the figures were re-derived from
+the raw data and no source text bled through, but the artifact the step asks
+for did not survive.
+
+That result is confounded and should not yet be called a skill defect. Both
+prompts ended "leave the report in the folder as a markdown file", which
+implies a single deliverable. Rerun with neutral wording before concluding
+anything.
+
 ---
 
 ## 1. Research first, report second
