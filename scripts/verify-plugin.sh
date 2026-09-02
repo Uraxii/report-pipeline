@@ -48,6 +48,16 @@ agents_ref=$(python3 -c "import json; print(json.load(open('.agents/plugins/mark
 [ "$agents_ref" = "main" ] ||
 	fail ".agents/plugins/marketplace.json ref is '$agents_ref', want main"
 
+for ref in $(grep -o 'Uraxii/[A-Za-z0-9_.-]*' README.md | sort -u); do
+	[ "$ref" = "Uraxii/$plugin_name" ] ||
+		fail "README.md installs from '$ref', want Uraxii/$plugin_name"
+done
+
+for ref in $(grep -oE '[A-Za-z0-9_.-]+@[A-Za-z0-9_.-]+' README.md | sort -u); do
+	[ "$ref" = "$plugin_name@$plugin_name" ] ||
+		fail "README.md installs '$ref', want $plugin_name@$plugin_name"
+done
+
 for skill_dir in skills/*/; do
 	skill=$(basename "$skill_dir")
 	skill_md="${skill_dir}SKILL.md"
