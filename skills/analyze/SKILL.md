@@ -8,6 +8,9 @@ description: >-
 
 Per-question instructions from the operator outrank every rule here. Where the
 operator's instruction differs from anything below, the instruction wins.
+Following the instruction against a rule here is a deviation, and handover
+section 12 records it. The record's three fields are below the handover
+contract.
 
 ## Scope: this skill analyzes
 
@@ -43,14 +46,17 @@ catch.
    definitions. Evaluation criteria with all five parts, a weight, a rationale
    for that weight, a direction, and a normalization scheme.
 6. **Option set.** Each option, why it is distinct, and its screening verdict
-   with the reason. Or the single-option defense.
+   with the reason. Or the single-option defense. Or, where the gate killed
+   every option, the record that nothing survived and the screen each one
+   failed.
 7. **Per-option analysis.** Each surviving option against each criterion's
    benchmark, measured alone.
 8. **Decision matrix.** Options across, criteria down, a rank or score per
    cell, an unweighted total, a weighted total, and the weight re-run result.
 9. **Judgment lines.** The likelihood ladder in use printed at the head, then
    each major judgment with its band, its confidence in a separate sentence,
-   and its falsifier.
+   and its falsifier. A judgment that is not empirical takes the substitute
+   form the clauses below set out.
 10. **Method log.** Two parts, kept apart. Escalation methods: which ran and
     which trigger fired. Challenge techniques: which ran and who named it.
     Then both key-assumptions-check outputs and the evidence-sensitivity
@@ -65,9 +71,10 @@ catch.
     Write each row as you reach the check. A blanket "all checks passed" is
     not a record, because it is the artifact an agent that skipped the gate
     also produces. Never record a check you did not run: an unrun check is a
-    verdict of not run. Section 12 is the one section that always applies.
+    verdict of not run. A check that stays failed is a deviation, and its
+    block sits here. Section 12 is the one section that always applies.
 
-Five clauses that bind across all twelve.
+Six clauses that bind across all twelve.
 
 - Every section appears at every depth tier. Only its form changes. At the
   cheap tier a section is a table, a row set, or a line, and prose appears
@@ -84,6 +91,34 @@ Five clauses that bind across all twelve.
   while analyzing produces a winner out of a field of bad options.
 - The recommendation is one course, worded so the decision-maker has only to
   approve or disapprove.
+- A judgment that is not empirical carries no likelihood band. It is a
+  judgment no observation could confirm or disconfirm, because it rests on a
+  definition, a policy, a legal or ethical standard, or a value the
+  authorizing party set. Putting a percentage on one invents a number. Write
+  the premise as a premise, name where the premise comes from, and in place of
+  a falsifier name what would have to change for the judgment to stop holding.
+  Confidence still applies and still gets its own sentence. That shape is what
+  check 10 passes on for such a judgment; a band is not.
+
+## When a fix is barred
+
+Step 9 says a failed check is a fix, not a note. Two situations bar the fix,
+and only these two. The operator's instruction overrides the check, under the
+Meta-rule. Or two rules in this skill collide and no rewriting satisfies both.
+A fix that is merely expensive is not barred.
+
+A barred fix is a deviation, and it goes into handover section 12 as its own
+block. Three fields, all required:
+
+- Which check, by its number in references/handover-check.md.
+- What authorises it, quoted. Quote the operator's instruction in the
+  operator's own words, or quote both colliding rules and name the side you
+  took. A rule named but not quoted authorises nothing.
+- What the consumer loses by it.
+
+A deviation missing a field is an unrecorded fail. Material the research never
+delivered is not a deviation: that is a hole this skill cannot fill, so say so
+and send it back before the analysis runs on it.
 
 ## Do not
 
@@ -147,8 +182,10 @@ stop being checkable.
    and references/methods.md for the routed methods.
 8. **Compare and commit.** Build the matrix, show both totals, re-run the
    scoring under plausibly different weights, and record whether the ranking
-   held. Commit to one course. Run the key assumptions check a second time and
-   the evidence-sensitivity test, record both, and assemble the handover.
+   held. Commit to one course. Where screening left no survivor, the
+   Collisions ruling on an empty field names the course you commit to. Run the
+   key assumptions check a second time and the evidence-sensitivity test,
+   record both, and assemble the handover.
    references/comparison.md.
 9. **Check.** Run references/handover-check.md against the assembled handover.
    Every check is pass or fail. A fail is a fix, not a note: go back to the
@@ -169,7 +206,7 @@ report opens will write criteria that suit the opening.
 
 ## Collisions
 
-Four points the rules leave in tension. One ruling each.
+Five points the rules leave in tension. One ruling each.
 
 - **Two options versus one real option.** The demand is two genuinely distinct
   options. A manufactured straw option satisfies the count and destroys the
@@ -184,6 +221,17 @@ Four points the rules leave in tension. One ruling each.
   inside the noise, still name one. State that the margin is inside the noise,
   name the observable that would break the tie, and hand the runner-up over
   alongside. Never hand over an unresolved pair.
+- **An empty field versus one committed course.** Screening can kill every
+  option. That is a finding, and the handover still commits to one thing.
+  Record the screen each option failed. Then name the single change that would
+  put an admissible option back in the field, ordered as a course the way a
+  sequenced package is, and hand that over as the recommendation. Where
+  several changes would each work, take the one you judge cheapest to reach
+  and say in one line why the others lose. The matrix does not apply, and
+  section 8 says so for the same reason the single-option defense does. Never
+  soften a screen to keep an option alive, never score a screened-out option,
+  and never hand the empty field over on its own: a field with no course
+  attached is "recommend further study" under another name.
 - **One root cause versus the single-cause fallacy.** Naming exactly one root
   cause is correct, and stopping at the first uncorroborated cause is the
   fallacy. They are different failures. The single root-cause label is earned
