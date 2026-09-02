@@ -1,4 +1,4 @@
-# create-report
+# report-pipeline
 
 Three independent skills for a research-to-report pipeline: `research`
 gathers material and its sources, `analyze` turns that material into a
