@@ -10,7 +10,8 @@ and the handover looks complete either way.
 Every check is pass or fail. A fail is a fix, not a note: go back to the step
 the check names, produce the missing thing, and run the check again. Each
 verdict goes into handover section 12; SKILL.md states what that section
-holds.
+holds. Two situations bar the fix, and SKILL.md names both. A check that stays
+failed under one of them is a deviation, and check 17 says what to record.
 
 ## The checks
 
@@ -38,9 +39,13 @@ holds.
    rationale is a preference wearing a number.
 
 4. Every option carries a pass or fail screening verdict with its reason,
-   including the options that were dropped.
+   including the options that were dropped. Where the gate killed every
+   option, the record of each failed screen stands in place of the surviving
+   set, section 11 commits to the single change that would readmit an option
+   as the one course, and checks 6 through 9 do not apply.
    Protects the record of what was ruled out. Failing it means a dropped option
-   left no trace and the field looks smaller than it was. Write the verdict.
+   left no trace and the field looks smaller than it was. Write the verdict. An
+   empty field handed over with no course attached fails check 15 as well.
 
 5. No option that failed a mandatory criterion was carried into the matrix with
    a low score. Each one was dropped, with the criterion it failed recorded.
@@ -50,34 +55,44 @@ holds.
 
 6. Each surviving option was measured against every criterion's benchmark on
    its own, and section 7 shows that measurement before section 8 compares
-   anything.
+   anything. Where no option survived screening, check 4 governs and this
+   check does not apply.
    Protects the measurement from the comparison. Failing it means the winner
    came out of a field rather than out of a benchmark, so redo the per-option
    analysis before you trust the matrix.
 
 7. The matrix shows an unweighted total and a weighted total for every option.
-   Both, per option.
+   Both, per option. Where no option survived screening, check 4 governs and
+   this check does not apply.
    Protects the reader's ability to see what the weights did. Failing it means
    the weights are doing invisible work. Compute the missing total.
 
 8. The weight re-run is recorded: the different weights used, the totals under
-   them, and whether the ranking held.
+   them, and whether the ranking held. Where no option survived screening,
+   check 4 governs and this check does not apply.
    Protects against a ranking that only exists at one weighting. Failing it
    means nobody knows how fragile the result is. Run it and record the answer.
 
 9. The option-set re-run is recorded: each non-winning option dropped in turn,
    the matrix recomputed, and whether the ranking of the remaining options
-   changed. Any change is disclosed in section 11.
+   changed. Any change is disclosed in section 11. Where no option survived
+   screening, check 4 governs and this check does not apply.
    Protects against rank reversal, which nothing else in this skill guards.
    Failing it means a ranking that a bookkeeping choice could flip went out
    undisclosed. Run it. "No reversal" is a claim only after you have looked.
 
-10. Every major judgment carries three separate things: a likelihood band from
-    the ladder printed at the head of section 9, a confidence stated in its own
-    sentence, and a falsifier. Read each judgment line and find all three.
-    Protects the reader from a number that hides how much it is worth. Failing
-    it means an inference is dressed as a fact. A judgment missing any of the
-    three is not finished; finish it or cut it.
+10. Every major empirical judgment carries three separate things: a likelihood
+    band from the ladder printed at the head of section 9, a confidence stated
+    in its own sentence, and a falsifier. Read each judgment line and find all
+    three. A judgment that is not empirical carries no band, and a band on one
+    fails this check. It takes the substitute form instead: the premise
+    written as a premise, the source of that premise named, and, in place of a
+    falsifier, what would have to change for the judgment to stop holding.
+    Confidence still gets its own sentence either way.
+    Protects the reader from a number that hides how much it is worth, and
+    from an invented number on a judgment no observation could settle. Failing
+    it means an inference is dressed as a fact. A judgment missing any of its
+    three pieces is not finished; finish it or cut it.
 
 11. Every assumption is marked as an assumption and states what follows if it
     is wrong. Critical assumptions are marked as critical.
@@ -111,7 +126,9 @@ holds.
     is one. The losing options, the contrary evidence, and any surviving
     disagreement are handed over, not omitted. The thesis is one sentence, and
     section 11 states the matrix result in a paragraph a reader can follow
-    without opening the matrix.
+    without opening the matrix. Where no option survived screening, the single
+    change that would readmit an option is that one course, no matrix result
+    is due, and an empty field handed over without that course fails here.
     Protects the decision-maker's job, which is to approve or disapprove.
     Failing it means the decision came back unmade. A sequenced package is one
     course only if it is named as one and its parts are ordered.
@@ -124,6 +141,18 @@ holds.
     Protects the consumer from reading twelve essays for a decision worth a
     page. Failing it means the handover is padded, so convert the section to
     its table.
+
+17. Every check that stays failed appears in section 12 as its own deviation
+    block carrying all three fields: the check's number on this list, the
+    authorising rule quoted, and what the consumer loses. A block whose
+    authoriser is named but not quoted fails here. This check does not apply
+    to itself: an unrecorded deviation needs no deviation record of its own,
+    or the check could never close. Where checks 1 through 16 all pass and no
+    fix was barred, there is nothing to record; hand over no deviation block,
+    and an absent block is what a clean handover looks like, not a fail.
+    Protects the consumer from inheriting a broken rule without being told.
+    Failing it means the handover reads as clean while a check stayed failed.
+    Write the block, or go back and fix the check.
 
 ## What a fail looks like
 

@@ -35,8 +35,8 @@ list. Three fields, all required:
   checklist is cited by name instead. Never a file:line in the report; the
   number or the name is the citation.
 - The rule that authorises it, quoted: the operator's instruction in the
-  operator's own words, or both colliding rules with their file and line and
-  the side you took. A rule named but not quoted is not an authoriser.
+  operator's own words, or both colliding rules and the side you took. A rule
+  named but not quoted is not an authoriser.
 - What the reader loses by it.
 
 A deviation missing a field is an unrecorded fail.
