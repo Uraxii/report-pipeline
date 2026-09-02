@@ -1,6 +1,6 @@
 {
   "name": "create-report",
   "version": "1.0.0",
-  "description": "Draft a report for a reader who was not in the session.",
+  "description": "Analyze a question, then draft the report for a reader who was not in the session.",
   "skills": "./skills/"
 }
