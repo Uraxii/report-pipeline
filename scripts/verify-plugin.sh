@@ -17,14 +17,12 @@ for f in .claude-plugin/plugin.json .claude-plugin/marketplace.json \
 done
 
 plugin_name=$(python3 -c "import json; print(json.load(open('.claude-plugin/plugin.json'))['name'])")
-[ "$plugin_name" = "create-report" ] ||
-	fail ".claude-plugin/plugin.json name is '$plugin_name', want create-report"
 
 mkt_name=$(python3 -c "import json; print(json.load(open('.claude-plugin/marketplace.json'))['name'])")
 [ "$mkt_name" != "Uraxii" ] ||
 	fail ".claude-plugin/marketplace.json name is Uraxii, collides with the dotai marketplace"
-[ "$mkt_name" = "create-report" ] ||
-	fail ".claude-plugin/marketplace.json name is '$mkt_name', want create-report"
+[ "$mkt_name" = "$plugin_name" ] ||
+	fail ".claude-plugin/marketplace.json name is '$mkt_name', want $plugin_name"
 
 owner=$(python3 -c "import json; print(json.load(open('.claude-plugin/marketplace.json')).get('owner', {}).get('name', ''))")
 [ -n "$owner" ] ||
@@ -35,16 +33,16 @@ source=$(python3 -c "import json; print(json.load(open('.claude-plugin/marketpla
 	fail ".claude-plugin/marketplace.json plugins[0].source is '$source', want './' (Copilot resolves it as a path)"
 
 codex_name=$(python3 -c "import json; print(json.load(open('.codex-plugin/plugin.json'))['name'])")
-[ "$codex_name" = "create-report" ] ||
-	fail ".codex-plugin/plugin.json name is '$codex_name', want create-report"
+[ "$codex_name" = "$plugin_name" ] ||
+	fail ".codex-plugin/plugin.json name is '$codex_name', want $plugin_name"
 
 codex_skills=$(python3 -c "import json; print(json.load(open('.codex-plugin/plugin.json'))['skills'])")
 [ -d "${codex_skills#./}" ] ||
 	fail ".codex-plugin/plugin.json skills path '$codex_skills' does not exist"
 
 agents_url=$(python3 -c "import json; print(json.load(open('.agents/plugins/marketplace.json'))['plugins'][0]['source']['url'])")
-[ "$agents_url" = "https://github.com/Uraxii/create-report.git" ] ||
-	fail ".agents/plugins/marketplace.json url is '$agents_url'"
+[ "$agents_url" = "https://github.com/Uraxii/$plugin_name.git" ] ||
+	fail ".agents/plugins/marketplace.json url is '$agents_url', want https://github.com/Uraxii/$plugin_name.git"
 
 agents_ref=$(python3 -c "import json; print(json.load(open('.agents/plugins/marketplace.json'))['plugins'][0]['source']['ref'])")
 [ "$agents_ref" = "main" ] ||

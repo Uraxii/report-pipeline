@@ -1,5 +1,5 @@
 {
-  "name": "create-report",
+  "name": "report-pipeline",
   "version": "1.0.0",
   "description": "Research a question, analyze it, then draft the report for a reader who was not in the session.",
   "skills": "./skills/"
