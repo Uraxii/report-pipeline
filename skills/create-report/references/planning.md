@@ -263,6 +263,17 @@ verbatim from FM 5-0:
 Apply these as a pass/fail gate before any scoring. An option that fails one is
 out, and the report says so rather than scoring it low and keeping it.
 
+Every option can fail. When none survives, the comparison has no admissible
+course, and that is the finding. Do not soften a screen to keep an option
+alive, do not present a screened-out option as a recommendation, and do not
+supply a number that makes one look admissible. A set where nothing survives
+is analysis with a gap this skill cannot close: say so and send it back (step
+5 in SKILL.md). Where the report still has to go out, it states that no option
+passed screening, names the screen each option failed, and names what would
+have to change for one to pass. That statement is the report's commitment. It
+is not "recommend further study", which hands the decision back; it tells the
+decision-maker what the options are and what it would take to get one.
+
 ### Evaluation criteria: differentiate the survivors
 
 A well-formed evaluation criterion has five parts (FM-s3 / `8725de6c1699`,

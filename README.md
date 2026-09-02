@@ -1,9 +1,10 @@
 # create-report
 
-A skill that drafts a report for a reader who was not in the session: a
-decision-maker, a client, or a reviewer reading alone. It covers planning,
-structure, style, evidence, and a review checklist, and it never analyzes
-data itself, only writes up analysis you give it.
+Three independent skills for a research-to-report pipeline: `research`
+gathers material and its sources, `analyze` turns that material into a
+framed decision, and `create-report` drafts the report for a reader who
+was not in the session: a decision-maker, a client, or a reviewer reading
+alone. Each skill covers its own step in full, and only its own step.
 
 Ships as an agent-skill plugin for Claude Code, GitHub Copilot CLI, and
 Codex.

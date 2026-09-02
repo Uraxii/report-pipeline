@@ -15,6 +15,8 @@ Per-report instructions from the operator outrank every rule in this skill.
 Writing is more often appropriate or inappropriate than right or wrong. Where
 the operator's instruction differs from anything below, the instruction wins.
 This is why the per-report instructions you gather in step 1 govern the rest.
+Following the instruction against a rule here is a deviation, and the report
+records it. The record's shape is in references/checklist.md.
 
 ## Scope: this skill drafts, it does not analyze
 
@@ -45,14 +47,17 @@ Four more clauses, in the contract's own voice:
 
 - Every major judgment states its likelihood on the ladder the report
   publishes, and states confidence in the judgment separately. Likelihood and
-  confidence never share a sentence.
+  confidence never share a sentence. A judgment that is not empirical carries
+  no band; it states its premise as a premise and names where the premise
+  comes from.
 - Assumptions are marked as assumptions and never presented as information.
   Each critical assumption states what follows if it is wrong.
 - Where a recommendation is asked for, at least two genuinely distinct options
   were compared against criteria set before the options were generated. One
   option is not a recommendation, because nothing was compared.
 - Every major judgment names what would change it. A judgment with no stated
-  falsifier is not finished.
+  falsifier is not finished. A judgment that is not empirical names instead
+  what would have to change for it to stop holding.
 
 Design mark on those four. ICD 203 writes several as "should" and "as
 appropriate"; the contract states them as musts. Hardening a discretionary
@@ -100,10 +105,11 @@ visibly distinct.
    absorb). Default reader: intelligent, suspicious, busy. Address four roles,
    not one reader: primary receivers, secondary receivers, key decision
    makers, and gatekeepers.
-3. **Notes.** Collect the facts the report will use as a distinct artifact.
-   Transform each idea into your own words rather than copying text, and record
-   each fact with its source. This is the counter to pasting session context
-   into the report.
+3. **Notes.** Collect the facts the report will use in their own file beside
+   the report, named `<report-name>.notes.md`. Transform each idea into your
+   own words rather than copying text, and record each fact with its source.
+   This is the counter to pasting session context into the report. Check 22
+   fails when the file is not there.
 4. **Thesis.** Form it from the notes, after them, never as a starting
    assumption. State it with its primary supporting reasons grouped into major
    categories.
@@ -129,7 +135,7 @@ visibly distinct.
 
 ## Collisions
 
-Four points an agent will otherwise rule on wrong. One line each.
+Five points an agent will otherwise rule on wrong. One line each.
 
 - Data plural. Strunk rules "data" plural; Daniel routes around the fight.
   Adopt Daniel's dodge ("statistics are," "information is"). An agent has no
@@ -147,6 +153,14 @@ Four points an agent will otherwise rule on wrong. One line each.
   thinking. The conclusion in the first paragraph is the order of writing.
   These are not a conflict. Do the work in the analytic order, present it in
   the reader's order.
+- A named format versus the exclusion list. A background paper is background
+  by construction, and a staff study's Part 1 states the problem and its
+  Part 2 defines terms. Where the operator names a format, the format wins for
+  exactly the elements its skeleton requires, and the exclusion list governs
+  everything else. Name in one line the excluded elements the format claimed,
+  by their names on the exclusion list, not by the format's part names. The
+  conclusion still leads: put it in the first paragraph whatever number the
+  skeleton gives it. This is a tie-break, so it needs no deviation record.
 
 ## Failure modes
 
