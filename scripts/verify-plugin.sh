@@ -50,19 +50,16 @@ agents_ref=$(python3 -c "import json; print(json.load(open('.agents/plugins/mark
 [ "$agents_ref" = "main" ] ||
 	fail ".agents/plugins/marketplace.json ref is '$agents_ref', want main"
 
-skill_md=skills/create-report/SKILL.md
-[ -f "$skill_md" ] || fail "missing $skill_md"
-grep -q '^name: create-report$' "$skill_md" ||
-	fail "$skill_md has no 'name: create-report' in its frontmatter"
+for skill in create-report analyze research; do
+	skill_md=skills/$skill/SKILL.md
+	[ -f "$skill_md" ] || fail "missing $skill_md"
+	grep -q "^name: $skill\$" "$skill_md" ||
+		fail "$skill_md has no 'name: $skill' in its frontmatter"
 
-skill_md=skills/analyze/SKILL.md
-[ -f "$skill_md" ] || fail "missing $skill_md"
-grep -q '^name: analyze$' "$skill_md" ||
-	fail "$skill_md has no 'name: analyze' in its frontmatter"
-
-for ref in $(grep -o 'references/[A-Za-z0-9_.-]*\.md' "$skill_md" | sort -u); do
-	[ -f "skills/analyze/$ref" ] ||
-		fail "$skill_md points at skills/analyze/$ref, which does not exist"
+	for ref in $(grep -o 'references/[A-Za-z0-9_.-]*\.md' "$skill_md" | sort -u); do
+		[ -f "skills/$skill/$ref" ] ||
+			fail "$skill_md points at skills/$skill/$ref, which does not exist"
+	done
 done
 
 echo "OK: all checks passed"

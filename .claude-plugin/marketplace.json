@@ -7,7 +7,7 @@
     {
       "name": "create-report",
       "source": "./",
-      "description": "Analyze a question, then draft the report for a reader who was not in the session."
+      "description": "Research a question, analyze it, then draft the report for a reader who was not in the session."
     }
   ]
 }
