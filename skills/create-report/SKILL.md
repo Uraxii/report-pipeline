@@ -52,9 +52,13 @@ Four more clauses, in the contract's own voice:
   comes from.
 - Assumptions are marked as assumptions and never presented as information.
   Each critical assumption states what follows if it is wrong.
-- Where a recommendation is asked for, at least two genuinely distinct options
-  were compared against criteria set before the options were generated. One
-  option is not a recommendation, because nothing was compared.
+- Where a recommendation is asked for and the analysis compared options, at
+  least two genuinely distinct options were compared against criteria set
+  before the options were generated. Where the analysis instead states that no
+  matrix applies and gives its reason, a defended single option, a screening
+  that emptied the field, or a question of fact, this clause is met and the
+  report owes no deviation entry. A single option handed over with no such
+  reason is not a recommendation, because nothing was compared.
 - Every major judgment names what would change it. A judgment with no stated
   falsifier is not finished. A judgment that is not empirical names instead
   what would have to change for it to stop holding.
@@ -118,8 +122,12 @@ visibly distinct.
    supporting no point gets cut here, which enforces the exclusion rules before
    drafting. Where the report recommends, this step lays out the criteria and
    the decision matrix the analysis already used; both are standards that
-   analysis must have met, not work to do here. Analysis that arrives without
-   them has a gap this skill cannot close: say so and send it back. Writing a
+   analysis must have met, not work to do here. Analysis that arrives stating
+   the matrix does not apply, with its reason, a defended single option, a
+   screening that emptied the field, or a question of fact, has met the
+   standard: draft from what it handed over. Analysis that owed a matrix and
+   arrives without one has a gap this skill cannot close: say so and send it
+   back. Writing a
    criterion, setting a weight, or building a matrix at this step is doing the
    analysis, which this skill never does. Manufacturing them is the violation
    this clause forbids, and a plausible set is the worst form of it, because

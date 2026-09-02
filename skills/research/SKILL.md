@@ -230,9 +230,14 @@ here collide and no wording satisfies both at once. Nothing else bars a fix,
 and a fail that is only tedious to clear is still a fail.
 
 Where the fix is barred, the handover carries a deviation block, and contract
-item 8 is where it sits. Three fields, none optional:
+item 8 is where it sits. Each failed check carries a block of its own: two
+failed checks are two blocks, never one covering both. Three fields, none
+optional:
 
-- Which check, by its number in the four checks above.
+- Which check, by its number in the four checks above. Where the instruction
+  overrode something other than one of the four, a contract item or a rule
+  from this file, name that instead. Those carry no number, and a deviation
+  with nothing named in this field is an unrecorded fail.
 - What authorises the deviation, quoted. The operator's instruction in the
   operator's own words, or both colliding rules with the side you took. A
   paraphrase authorises nothing.

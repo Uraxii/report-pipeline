@@ -67,7 +67,8 @@ catch.
     the reasons grouped into categories, what was close, surviving
     disagreement, the losing options, and the contrary evidence.
 12. **Check record.** One row per check in references/handover-check.md: the
-    check's number, its verdict, and for a fail what was fixed and where.
+    check's number, its verdict, and for a fail either what was fixed and
+    where, or the deviation block.
     Write each row as you reach the check. A blanket "all checks passed" is
     not a record, because it is the artifact an agent that skipped the gate
     also produces. Never record a check you did not run: an unrun check is a
@@ -110,7 +111,11 @@ A fix that is merely expensive is not barred.
 A barred fix is a deviation, and it goes into handover section 12 as its own
 block. Three fields, all required:
 
-- Which check, by its number in references/handover-check.md.
+- Which check, by its number in references/handover-check.md. Where what the
+  instruction overrode is not one of those checks, cite it by name instead:
+  the contract item, the binding clause, the step, or the Collisions ruling,
+  in the words this skill gives it. A number is not available for those, and
+  a deviation left uncited is an unrecorded fail.
 - What authorises it, quoted. Quote the operator's instruction in the
   operator's own words, or quote both colliding rules and name the side you
   took. A rule named but not quoted authorises nothing.
@@ -180,9 +185,11 @@ stop being checkable.
    criterion's benchmark on its own merits. No cross-option comparison yet.
    Escalation methods fire here if step 3 routed them. references/options.md,
    and references/methods.md for the routed methods.
-8. **Compare and commit.** Build the matrix, show both totals, re-run the
-   scoring under plausibly different weights, and record whether the ranking
-   held. Commit to one course. Where screening left no survivor, the
+8. **Compare and commit.** Where two or more options survived screening, build
+   the matrix, show both totals, re-run the scoring under plausibly different
+   weights, and record whether the ranking held. Where fewer than two
+   survived, section 8 says the matrix does not apply and gives the reason.
+   Commit to one course either way. Where screening left no survivor, the
    Collisions ruling on an empty field names the course you commit to. Run the
    key assumptions check a second time and the evidence-sensitivity test,
    record both, and assemble the handover.
@@ -250,7 +257,11 @@ Five points the rules leave in tension. One ruling each.
 - **The menu handover.** Two recommendations, or a recommendation to study
   further. Both hand the decision back.
 - **False confidence.** A judgment with no likelihood, no separate confidence,
-  or no falsifier. Or an inference written in the register of a fact.
+  or no falsifier. Or an inference written in the register of a fact. A
+  judgment that is not empirical fails this way on its own three pieces: no
+  premise written as a premise, no source named for it, or nothing said about
+  what would have to change for it to stop holding. A likelihood band on one
+  of those is the opposite failure, an invented number.
 
 ## Stated limits
 

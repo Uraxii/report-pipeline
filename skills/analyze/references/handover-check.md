@@ -18,6 +18,10 @@ block is the record of a fail, not a way to score one clean.
 
 ## The checks
 
+Some checks open with the condition they apply under. Where that condition
+does not hold, the check passes and its row still gets written. No check is
+skipped, and none returns a third verdict.
+
 1. All twelve sections of the handover contract carry content. Count them
    against SKILL.md. A section that does not apply is named, with the reason
    it does not apply. Section 1 records who approved the problem statement, or
@@ -44,8 +48,8 @@ block is the record of a fail, not a way to score one clean.
 4. Every option carries a pass or fail screening verdict with its reason,
    including the options that were dropped. Where the gate killed every
    option, the record of each failed screen stands in place of the surviving
-   set, section 11 commits to the single change that would readmit an option
-   as the one course, and checks 6 through 9 do not apply.
+   set, and section 11 commits to the single change that would readmit an
+   option as the one course.
    Protects the record of what was ruled out. Failing it means a dropped option
    left no trace and the field looks smaller than it was. Write the verdict. An
    empty field handed over with no course attached fails check 15 as well.
@@ -56,34 +60,32 @@ block is the record of a fail, not a way to score one clean.
    option bought its way back on unrelated strengths. Drop it and rebuild the
    matrix.
 
-6. Each surviving option was measured against every criterion's benchmark on
-   its own, and section 7 shows that measurement before section 8 compares
-   anything. Where no option survived screening, check 4 governs and this
-   check does not apply.
+6. Where at least one option survived screening: each survivor was measured
+   against every criterion's benchmark on its own, and section 7 shows that
+   measurement before section 8 compares anything.
    Protects the measurement from the comparison. Failing it means the winner
    came out of a field rather than out of a benchmark, so redo the per-option
    analysis before you trust the matrix.
 
-7. The matrix shows an unweighted total and a weighted total for every option.
-   Both, per option. Where no option survived screening, check 4 governs and
-   this check does not apply. Where the single-option defense applies,
-   section 6 governs and this check does not apply.
+7. Where two or more options survived screening: the matrix shows an
+   unweighted total and a weighted total for every option. Both, per option.
+   Fewer than two survivors is the case where no matrix is due, whether the
+   gate emptied the field, the gate left one option standing, or the
+   single-option defense stood in for a second option.
    Protects the reader's ability to see what the weights did. Failing it means
    the weights are doing invisible work. Compute the missing total.
 
-8. The weight re-run is recorded: the different weights used, the totals under
-   them, and whether the ranking held. Where no option survived screening,
-   check 4 governs and this check does not apply. Where the single-option
-   defense applies, section 6 governs and this check does not apply.
+8. Where two or more options survived screening: the weight re-run is
+   recorded, the different weights used, the totals under them, and whether
+   the ranking held. Under two survivors there is no matrix to re-weigh.
    Protects against a ranking that only exists at one weighting. Failing it
    means nobody knows how fragile the result is. Run it and record the answer.
 
-9. The option-set re-run is recorded: each non-winning option dropped in turn,
-   the matrix recomputed, and whether the ranking of the remaining options
-   changed. Any change is disclosed in section 11. Where no option survived
-   screening, check 4 governs and this check does not apply. Where the
-   single-option defense applies, section 6 governs and this check does not
-   apply.
+9. Where two or more options survived screening: the option-set re-run is
+   recorded, each non-winning option dropped in turn, the matrix recomputed,
+   and whether the ranking of the remaining options changed. Any change is
+   disclosed in section 11. Under two survivors there is no non-winning
+   option to drop.
    Protects against rank reversal, which nothing else in this skill guards.
    Failing it means a ranking that a bookkeeping choice could flip went out
    undisclosed. Run it. "No reversal" is a claim only after you have looked.
@@ -131,11 +133,12 @@ block is the record of a fail, not a way to score one clean.
 
 15. Exactly one course is recommended. Count the recommended courses; the answer
     is one. The losing options, the contrary evidence, and any surviving
-    disagreement are handed over, not omitted. The thesis is one sentence, and
-    section 11 states the matrix result in a paragraph a reader can follow
-    without opening the matrix. Where no option survived screening, the single
-    change that would readmit an option is that one course, no matrix result
-    is due, and an empty field handed over without that course fails here.
+    disagreement are handed over, not omitted. The thesis is one sentence.
+    Where two or more options survived screening, section 11 states the
+    matrix result in a paragraph a reader can follow without opening the
+    matrix; under two survivors no matrix result is due. Where no option
+    survived screening, the single change that would readmit an option is that
+    one course, and an empty field handed over without that course fails here.
     Protects the decision-maker's job, which is to approve or disapprove.
     Failing it means the decision came back unmade. A sequenced package is one
     course only if it is named as one and its parts are ordered.
@@ -150,15 +153,20 @@ block is the record of a fail, not a way to score one clean.
     its table.
 
 17. Every check that stays failed appears in section 12 as its own deviation
-    block carrying all three fields: the check's number on this list, the
-    authorising rule quoted, and what the consumer loses. A block whose
-    authoriser is named but not quoted fails here. Each check's recorded
+    block, and so does every rule outside this list that an operator
+    instruction overrode. Each block carries all three fields: what was
+    deviated from, the authorising rule quoted, and what the consumer loses.
+    The first field is the check's number on this list, or, where the rule
+    deviated from is not a check on this list, that rule's name in the words
+    SKILL.md uses for it. A block whose authoriser is named but not quoted
+    fails here. Each check's recorded
     verdict and its block agree: a check carrying a deviation block reads
     failed in section 12, and a check recorded as passed carries no block, so
     a Pass verdict beside a block on the same check fails here. This check
     does not apply to itself: an unrecorded deviation needs no deviation
     record of its own, or the check could never close. Where every other check
-    on this list passes and no fix was barred, there is nothing to record;
+    on this list passes, no rule outside it was overridden, and no fix was
+    barred, there is nothing to record;
     hand over no deviation block, and an absent block is what a clean handover
     looks like, not a fail.
     Protects the consumer from inheriting a broken rule without being told.

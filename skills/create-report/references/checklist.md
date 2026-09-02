@@ -28,10 +28,12 @@ A fix that is barred is a recorded deviation. A fix is barred when an operator
 instruction overrides the check, or when two rules in this skill collide with
 no way to satisfy both by any rewriting. Nothing else is barred.
 
-Record each deviation in the report as its own block at the end beside the
-source list. One report can owe several. Every check that stays failed gets a
-block of its own, so two failed checks are two blocks, never one merged entry
-covering both. Three fields per block, all required:
+Record the deviations in the deviations block, one item of end matter at the
+end of the report beside the source list. Every check that stays failed gets
+its own entry in that block, so two failed checks are two entries, never one
+merged entry covering both. However many entries it holds, the deviations
+block stays one item of end matter and check 2 counts it as one. Three fields
+per entry, all required:
 
 - The check not met, by its number on this list. A rule outside the numbered
   checklist is cited by name instead. Never a file:line in the report; the
@@ -41,7 +43,7 @@ covering both. Three fields per block, all required:
   named but not quoted is not an authoriser.
 - What the reader loses by it.
 
-A deviation missing a field is an unrecorded fail.
+An entry missing a field is an unrecorded fail.
 
 The numbered checks:
 
@@ -145,23 +147,24 @@ The numbered checks:
     returning to step 3 and writing the notes from the sources; a notes file
     written by copying facts back out of the finished report still fails this
     check, since it proves nothing about what the draft was built from. A
-    criterion, a weight, or a matrix cell that traces to no line in the notes
-    was manufactured while drafting, and it fails this check. The remedy is
-    the send-back in step 5, never a line added to the notes to cover it.
+    criterion, a weight, or a matrix cell traces to a notes line whose source
+    is the analysis handover, the same way a fact traces to the document it
+    came from. One that traces to no such line was manufactured while
+    drafting, and it fails this check. The remedy is the send-back in step 5,
+    never a line added to the notes to cover it.
     (The notes discipline is step 3.) [contract, Part III]
 23. Every check this report does not meet appears in the deviations block as
     its own entry, with its authorising rule quoted and what the reader loses.
     Count the checks that stayed failed, count the entries, and the two counts
-    match or this check fails. A deviation with no quoted authoriser fails this
+    match or this check fails. An entry with no quoted authoriser fails this
     check. One entry covering two failed checks records neither and fails it
     too. This check records what you already found; a check you scored met
     that the report does not meet is caught by a second reader, not here. This
     check does not apply to itself: a missed deviation record needs no
     deviation record of its own, or the check could never close. Where every
     other check on this list passes, there is nothing to record; leave the
-    deviations
-    block out of the report, and an absent block is what a clean report looks
-    like, not a fail. [contract]
+    deviations block out of the report, and an absent block is what a clean
+    report looks like, not a fail. [contract]
 
 One check catching one line, so you know what a fail looks like. Check 13
 against "We have high confidence that costs are very likely to rise": one

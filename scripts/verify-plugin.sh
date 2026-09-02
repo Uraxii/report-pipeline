@@ -57,7 +57,7 @@ for skill_dir in skills/*/; do
 	grep -q "^name: $skill\$" "$skill_md" ||
 		fail "$skill_md has no 'name: $skill' in its frontmatter"
 
-	for ref in $(grep -o 'references/[A-Za-z0-9_.-]*\.md' "$skill_md" | sort -u); do
+	for ref in $(grep -o 'references/[A-Za-z0-9_./-]*\.md' "$skill_md" | sort -u); do
 		[ -f "${skill_dir}${ref}" ] ||
 			fail "$skill_md points at ${skill_dir}${ref}, which does not exist"
 	done
@@ -67,7 +67,7 @@ for skill_dir in skills/*/; do
 	# unreferenced.
 	while IFS= read -r file; do
 		rel=${file#"$skill_dir"}
-		grep -rq -- "$rel" "$skill_dir" ||
+		grep -rqF -- "$rel" "$skill_dir" ||
 			fail "$file is not referenced by any file in $skill_dir (orphan)"
 	done < <(find "$skill_dir" -type f ! -name SKILL.md)
 done
