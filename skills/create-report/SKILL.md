@@ -52,9 +52,13 @@ Four more clauses, in the contract's own voice:
   comes from.
 - Assumptions are marked as assumptions and never presented as information.
   Each critical assumption states what follows if it is wrong.
-- Where a recommendation is asked for, at least two genuinely distinct options
-  were compared against criteria set before the options were generated. One
-  option is not a recommendation, because nothing was compared.
+- Where a recommendation is asked for and the analysis compared options, at
+  least two genuinely distinct options were compared against criteria set
+  before the options were generated. Where the analysis instead states that no
+  matrix applies and gives its reason, a defended single option, a screening
+  that emptied the field, or a question of fact, this clause is met and the
+  report owes no deviation entry. A single option handed over with no such
+  reason is not a recommendation, because nothing was compared.
 - Every major judgment names what would change it. A judgment with no stated
   falsifier is not finished. A judgment that is not empirical names instead
   what would have to change for it to stop holding.
@@ -118,8 +122,18 @@ visibly distinct.
    supporting no point gets cut here, which enforces the exclusion rules before
    drafting. Where the report recommends, this step lays out the criteria and
    the decision matrix the analysis already used; both are standards that
-   analysis must have met, not work to do here. Analysis that arrives without
-   them has a gap this skill cannot close: say so and send it back.
+   analysis must have met, not work to do here. Analysis that arrives stating
+   the matrix does not apply, with its reason, a defended single option, a
+   screening that emptied the field, or a question of fact, has met the
+   standard: draft from what it handed over. Analysis that owed a matrix and
+   arrives without one has a gap this skill cannot close: say so and send it
+   back. Writing a
+   criterion, setting a weight, or building a matrix at this step is doing the
+   analysis, which this skill never does. Manufacturing them is the violation
+   this clause forbids, and a plausible set is the worst form of it, because
+   the reader cannot tell a manufactured set from the analyst's own. Two moves
+   are compliant here and no third one is: send the work back, or draft from
+   what was handed over.
 6. **Draft.** Largely mechanical if step 5 was honest. Apply the exclusion
    list, the evidence rules, the sentence layer, and the uncertainty layer.
 7. **Revise.** Read the draft aloud, or have it read to you. Sweep for missing
@@ -157,10 +171,12 @@ Five points an agent will otherwise rule on wrong. One line each.
   by construction, and a staff study's Part 1 states the problem and its
   Part 2 defines terms. Where the operator names a format, the format wins for
   exactly the elements its skeleton requires, and the exclusion list governs
-  everything else. Name in one line the excluded elements the format claimed,
-  by their names on the exclusion list, not by the format's part names. The
-  conclusion still leads: put it in the first paragraph whatever number the
-  skeleton gives it. This is a tie-break, so it needs no deviation record.
+  everything else. Name in one line, in the format-elements note (the end
+  matter check 2 defines), every excluded element the format claimed, by their
+  names on the exclusion list, not by the format's part names. Every one the
+  skeleton claimed, not the ones you noticed first; a subset fails check 5.
+  The conclusion still leads: put it in the first paragraph whatever number
+  the skeleton gives it. This is a tie-break, so it needs no deviation record.
 
 ## Failure modes
 

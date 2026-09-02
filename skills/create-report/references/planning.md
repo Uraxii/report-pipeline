@@ -208,9 +208,12 @@ single sub-point means the division was wrong; fold it back up.
 
 Where the report recommends among options, this step lays out the criteria and
 the decision matrix the analysis already used. Both are standards that analysis
-must have met, not work to do here. Analysis that arrives without them has a
-gap this skill cannot close: say so and send it back. The rest of this file
-specifies the standards.
+must have met, not work to do here. Analysis that states the matrix does not
+apply, with its reason, that defends a single option, or that reports a
+screening which emptied the field, has met that standard: draft from what it
+handed over. A matrix that was owed and arrives absent, with no such
+statement, has a gap this skill cannot close: say so and send it back. The
+rest of this file specifies the standards.
 
 ---
 
@@ -266,13 +269,15 @@ out, and the report says so rather than scoring it low and keeping it.
 Every option can fail. When none survives, the comparison has no admissible
 course, and that is the finding. Do not soften a screen to keep an option
 alive, do not present a screened-out option as a recommendation, and do not
-supply a number that makes one look admissible. A set where nothing survives
-is analysis with a gap this skill cannot close: say so and send it back (step
-5 in SKILL.md). Where the report still has to go out, it states that no option
-passed screening, names the screen each option failed, and names what would
-have to change for one to pass. That statement is the report's commitment. It
-is not "recommend further study", which hands the decision back; it tells the
+supply a number that makes one look admissible. That finding meets the
+standard step 5 sets, provided the analysis hands it over as one: it states
+that no option passed screening, names the screen each option failed, and
+names what would have to change for one to pass (step 5 in SKILL.md). That
+statement is the report's commitment. It is not "recommend further study",
+which hands the decision back; it tells the
 decision-maker what the options are and what it would take to get one.
+Screening that emptied the field but left no such statement, only a silent
+absence, has a gap this skill cannot close: say so and send it back.
 
 ### Evaluation criteria: differentiate the survivors
 

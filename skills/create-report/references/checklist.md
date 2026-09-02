@@ -28,16 +28,22 @@ A fix that is barred is a recorded deviation. A fix is barred when an operator
 instruction overrides the check, or when two rules in this skill collide with
 no way to satisfy both by any rewriting. Nothing else is barred.
 
-Record a deviation in the report, as a block at the end beside the source
-list. Three fields, all required:
+Record the deviations in the deviations block, one item of end matter at the
+end of the report beside the source list. Every check that stays failed gets
+its own entry in that block, so two failed checks are two entries, never one
+merged entry covering both. However many entries it holds, the deviations
+block stays one item of end matter and check 2 counts it as one. Three fields
+per entry, all required:
 
-- The check or the rule not met, by number or by name.
+- The check not met, by its number on this list. A rule outside the numbered
+  checklist is cited by name instead. Never a file:line in the report; the
+  number or the name is the citation.
 - The rule that authorises it, quoted: the operator's instruction in the
-  operator's own words, or both colliding rules with their file and line and
-  the side you took. A rule named but not quoted is not an authoriser.
+  operator's own words, or both colliding rules and the side you took. A rule
+  named but not quoted is not an authoriser.
 - What the reader loses by it.
 
-A deviation missing a field is an unrecorded fail.
+An entry missing a field is an unrecorded fail.
 
 The numbered checks:
 
@@ -45,8 +51,10 @@ The numbered checks:
    grouped into categories, not a flat list. [contract]
 2. The first paragraph announces the order; the body follows it exactly, with
    nothing beyond what the paragraph promised. A section bolted on the end
-   fails this. The source list and the deviations block are required end
-   matter and sit outside the announced body; nothing else does. [contract]
+   fails this. Three items sit outside the announced body as end matter, and
+   nothing else does: the source list, the deviations block, and the
+   format-elements note check 5 requires when a named format claims an
+   excluded element. [contract]
 3. The title states the conclusion, and the subheads, read alone, carry the
    argument; each subhead states a sub-conclusion, not a topic. [contract,
    Part I, Part V]
@@ -56,10 +64,16 @@ The numbered checks:
    footnoted own-conclusions, and no inference stated in the grammatical form
    of a fact. The exclusion list itself lives in SKILL.md; scan against it.
    Where the operator named a format whose skeleton requires an excluded
-   element, that element passes this check, and the report names the excluded
-   elements the format claimed, by their names on the exclusion list.
-   Announcing the format's parts is not naming them. (The tie-break: the
-   Collisions section of SKILL.md.)
+   element, that element passes this check, and the report names every
+   excluded element the format claimed, by their names on the exclusion list.
+   All of them: count the excluded elements the skeleton claims, count the
+   names in the note, and the two counts match or this check fails. Naming
+   some of the claimed elements and leaving the rest unnamed is a fail, not a
+   partial pass. Announcing the format's parts is not naming them. That
+   naming goes in the format-elements note, one line of end matter beside the
+   source list and the deviations block (check 2), never in the notes file and
+   never folded into the body. (The tie-break: the Collisions section of
+   SKILL.md.)
    [Part I, Part III, ICD-D / `4b0f9a500133`]
 6. Every number is compared to another number, and every figure carries its
    context. The reader never has to wonder good-or-bad. A number the report
@@ -129,13 +143,28 @@ The numbered checks:
     report; every fact appears as transformed notes with its source recorded.
     The step 3 notes exist as their own file beside the report, named
     `<report-name>.notes.md`, and every fact in the report traces to a line in
-    it that names the source. No notes file is a fail.
+    it that names the source. No notes file is a fail. The remedy is
+    returning to step 3 and writing the notes from the sources; a notes file
+    written by copying facts back out of the finished report still fails this
+    check, since it proves nothing about what the draft was built from. A
+    criterion, a weight, or a matrix cell traces to a notes line whose source
+    is the analysis handover, the same way a fact traces to the document it
+    came from. One that traces to no such line was manufactured while
+    drafting, and it fails this check. The remedy is the send-back in step 5,
+    never a line added to the notes to cover it.
     (The notes discipline is step 3.) [contract, Part III]
-23. Every check this report does not meet appears in the deviations block with
-    its authorising rule quoted and what the reader loses. A deviation with no
-    quoted authoriser fails this check. This check records what you already
-    found; a check you scored met that the report does not meet is caught by a
-    second reader, not here. [contract]
+23. Every check this report does not meet appears in the deviations block as
+    its own entry, with its authorising rule quoted and what the reader loses.
+    Count the checks that stayed failed, count the entries, and the two counts
+    match or this check fails. An entry with no quoted authoriser fails this
+    check. One entry covering two failed checks records neither and fails it
+    too. This check records what you already found; a check you scored met
+    that the report does not meet is caught by a second reader, not here. This
+    check does not apply to itself: a missed deviation record needs no
+    deviation record of its own, or the check could never close. Where every
+    other check on this list passes, there is nothing to record; leave the
+    deviations block out of the report, and an absent block is what a clean
+    report looks like, not a fail. [contract]
 
 One check catching one line, so you know what a fail looks like. Check 13
 against "We have high confidence that costs are very likely to rise": one
