@@ -157,10 +157,11 @@ Five points an agent will otherwise rule on wrong. One line each.
   by construction, and a staff study's Part 1 states the problem and its
   Part 2 defines terms. Where the operator names a format, the format wins for
   exactly the elements its skeleton requires, and the exclusion list governs
-  everything else. Name in one line the excluded elements the format claimed,
-  by their names on the exclusion list, not by the format's part names. The
-  conclusion still leads: put it in the first paragraph whatever number the
-  skeleton gives it. This is a tie-break, so it needs no deviation record.
+  everything else. Name in one line, in the format-elements note (the end
+  matter check 2 defines), the excluded elements the format claimed, by their
+  names on the exclusion list, not by the format's part names. The conclusion
+  still leads: put it in the first paragraph whatever number the skeleton
+  gives it. This is a tie-break, so it needs no deviation record.
 
 ## Failure modes
 

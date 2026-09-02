@@ -50,16 +50,26 @@ agents_ref=$(python3 -c "import json; print(json.load(open('.agents/plugins/mark
 [ "$agents_ref" = "main" ] ||
 	fail ".agents/plugins/marketplace.json ref is '$agents_ref', want main"
 
-for skill in create-report analyze research; do
-	skill_md=skills/$skill/SKILL.md
+for skill_dir in skills/*/; do
+	skill=$(basename "$skill_dir")
+	skill_md="${skill_dir}SKILL.md"
 	[ -f "$skill_md" ] || fail "missing $skill_md"
 	grep -q "^name: $skill\$" "$skill_md" ||
 		fail "$skill_md has no 'name: $skill' in its frontmatter"
 
 	for ref in $(grep -o 'references/[A-Za-z0-9_.-]*\.md' "$skill_md" | sort -u); do
-		[ -f "skills/$skill/$ref" ] ||
-			fail "$skill_md points at skills/$skill/$ref, which does not exist"
+		[ -f "${skill_dir}${ref}" ] ||
+			fail "$skill_md points at ${skill_dir}${ref}, which does not exist"
 	done
+
+	# Reverse check: every file in the skill besides SKILL.md must be named
+	# by its references/... path in some .md file in the skill, or it ships
+	# unreferenced.
+	while IFS= read -r file; do
+		rel=${file#"$skill_dir"}
+		grep -rq -- "$rel" "$skill_dir" ||
+			fail "$file is not referenced by any file in $skill_dir (orphan)"
+	done < <(find "$skill_dir" -type f ! -name SKILL.md)
 done
 
 echo "OK: all checks passed"

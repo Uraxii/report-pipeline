@@ -31,7 +31,9 @@ no way to satisfy both by any rewriting. Nothing else is barred.
 Record a deviation in the report, as a block at the end beside the source
 list. Three fields, all required:
 
-- The check or the rule not met, by number or by name.
+- The check not met, by its number on this list. A rule outside the numbered
+  checklist is cited by name instead. Never a file:line in the report; the
+  number or the name is the citation.
 - The rule that authorises it, quoted: the operator's instruction in the
   operator's own words, or both colliding rules with their file and line and
   the side you took. A rule named but not quoted is not an authoriser.
@@ -45,8 +47,10 @@ The numbered checks:
    grouped into categories, not a flat list. [contract]
 2. The first paragraph announces the order; the body follows it exactly, with
    nothing beyond what the paragraph promised. A section bolted on the end
-   fails this. The source list and the deviations block are required end
-   matter and sit outside the announced body; nothing else does. [contract]
+   fails this. Three items sit outside the announced body as end matter, and
+   nothing else does: the source list, the deviations block, and the
+   format-elements note check 5 requires when a named format claims an
+   excluded element. [contract]
 3. The title states the conclusion, and the subheads, read alone, carry the
    argument; each subhead states a sub-conclusion, not a topic. [contract,
    Part I, Part V]
@@ -58,8 +62,10 @@ The numbered checks:
    Where the operator named a format whose skeleton requires an excluded
    element, that element passes this check, and the report names the excluded
    elements the format claimed, by their names on the exclusion list.
-   Announcing the format's parts is not naming them. (The tie-break: the
-   Collisions section of SKILL.md.)
+   Announcing the format's parts is not naming them. That naming goes in the
+   format-elements note, one line of end matter beside the source list and
+   the deviations block (check 2), never in the notes file and never folded
+   into the body. (The tie-break: the Collisions section of SKILL.md.)
    [Part I, Part III, ICD-D / `4b0f9a500133`]
 6. Every number is compared to another number, and every figure carries its
    context. The reader never has to wonder good-or-bad. A number the report
@@ -129,13 +135,20 @@ The numbered checks:
     report; every fact appears as transformed notes with its source recorded.
     The step 3 notes exist as their own file beside the report, named
     `<report-name>.notes.md`, and every fact in the report traces to a line in
-    it that names the source. No notes file is a fail.
+    it that names the source. No notes file is a fail. The remedy is
+    returning to step 3 and writing the notes from the sources; a notes file
+    written by copying facts back out of the finished report still fails this
+    check, since it proves nothing about what the draft was built from.
     (The notes discipline is step 3.) [contract, Part III]
 23. Every check this report does not meet appears in the deviations block with
     its authorising rule quoted and what the reader loses. A deviation with no
     quoted authoriser fails this check. This check records what you already
     found; a check you scored met that the report does not meet is caught by a
-    second reader, not here. [contract]
+    second reader, not here. This check does not apply to itself: a missed
+    deviation record needs no deviation record of its own, or the check could
+    never close. Where checks 1 through 22 all pass, there is nothing to
+    record; leave the deviations block out of the report, and an absent block
+    is what a clean report looks like, not a fail. [contract]
 
 One check catching one line, so you know what a fail looks like. Check 13
 against "We have high confidence that costs are very likely to rise": one
