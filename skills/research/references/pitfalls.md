@@ -10,14 +10,16 @@ document is worth.
   and false authority, in AFH 33-337, *The Tongue and Quill*, chapter 5.
 - **Memory laundering.** A note with no document behind it, sourced to general
   knowledge. Every figure looks sourced.
-- **Circular reporting read as corroboration.** Heuer chapter 10: consistent
-  material misleads when it is correlated or redundant, because agreement
-  between two copies of one source is not agreement.
+- **Circular reporting read as corroboration.** Heuer, *Psychology of
+  Intelligence Analysis*, chapter 10: consistent material misleads when it is
+  correlated or redundant, because agreement between two copies of one source
+  is not agreement.
 - **The self-portrait taken as fact.** An originator's own account of itself
   entered without the discount it needs.
 - **Confidence growing with volume.** Covered in the skill under when to stop.
-- **The vivid case beating the aggregate.** Heuer chapter 10: one memorable
-  example outweighs the numbers unless you make it not.
+- **The vivid case beating the aggregate.** Heuer, *Psychology of Intelligence
+  Analysis*, chapter 10: one memorable example outweighs the numbers unless you
+  make it not.
 
 ## Stated limits
 
