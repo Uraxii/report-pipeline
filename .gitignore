@@ -5,3 +5,10 @@
 *.db
 .beads-credential-key
 .beads/proxieddb/
+/staging/
+
+# Knowledge base: local-only, never committed (llm-wiki .kb)
+.kb/
+
+# Agent scratch space
+.nikki-agents/
