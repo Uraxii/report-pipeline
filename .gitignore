@@ -4,7 +4,7 @@
 .dolt/
 *.db
 .beads-credential-key
-.beads/proxieddb/
+.beads/
 /staging/
 
 # Knowledge base: local-only, never committed (llm-wiki .kb)
