@@ -17,22 +17,22 @@ access to it.
 Claude Code:
 
 ```
-/plugin marketplace add Uraxii/create-report
-/plugin install create-report@create-report
+/plugin marketplace add Uraxii/report-pipeline
+/plugin install report-pipeline@report-pipeline
 ```
 
 Copilot CLI:
 
 ```
-copilot plugin marketplace add Uraxii/create-report
-copilot plugin install create-report@create-report
+copilot plugin marketplace add Uraxii/report-pipeline
+copilot plugin install report-pipeline@report-pipeline
 ```
 
 Codex:
 
 ```
-codex plugin marketplace add Uraxii/create-report
-codex plugin add create-report@create-report
+codex plugin marketplace add Uraxii/report-pipeline
+codex plugin add report-pipeline@report-pipeline
 ```
 
 Codex reads `.agents/plugins/marketplace.json`, which pins the `main` branch.
