@@ -75,6 +75,35 @@ collection gap, and the migration estimate is one engineer's 9-to-26
 engineer-week range that says in its own text it is not decision-grade. Three
 judgments that should not carry the same band.
 
+The other eight cases each got a folder too, because every one of their prompts
+says the analysis or the material is attached, and a run with nothing attached
+measures what the agent invents rather than what the skill does. Same mechanic:
+copy the folder to a scratch directory, put the skill where the README says it
+lives, give the agent the prompt with the folder path.
+
+- `norwood-export/` (case 2), a nightly export that drops rows because it saves
+  the watermark from the wrong clock reading. Real work to do before the
+  summary is asked for.
+- `vantage-renewal/` (case 3), a year of availability that is genuinely fine,
+  and a request log proving the postmortem and the pricing will not arrive.
+- `halden-msa/` (case 5), clause 4.2 as executed, 249 words of term-of-art
+  drafting where the argument turns on "consecutive" and "any one".
+- `kessler-procurement/` (case 6), published supplier principles written as
+  value commitments, three audit findings of unequal strength, and a cost
+  comparison Kessler wins by a wide margin.
+- `orion-migration/` (case 7), a part-done programme with its decision log,
+  minutes, status note and risk register. No question waiting to be answered.
+- `depot-consolidation/` (case 8), four courses of action, weighted criteria
+  set before scoring, and a matrix where the winner is not the cheapest.
+- `ridgeway-contract/` (case 9), both options worked up, finance's refusal and
+  legal's finding both dated and firm, and no third option planted.
+- `northwind-reliability/` (case 10), the drafted report with its failure-rate
+  section and its sensitivity test, plus the data behind both.
+
+Their arithmetic is checked by scripts written for the round rather than by
+`evals/tools/fixture_arith.py`, which covers the sibling suite's fixtures only.
+Folding these assertions into that file is the obvious next step.
+
 ## What happened when cases 1 and 4 were run
 
 Both were run blind against these fixtures, one agent each, graded from the
@@ -111,6 +140,256 @@ That result is confounded and should not yet be called a skill defect. Both
 prompts ended "leave the report in the folder as a markdown file", which
 implies a single deliverable. Rerun with neutral wording before concluding
 anything.
+
+## What happened when the other eight cases were run
+
+All eight ran blind on 2026-09-02, one fresh agent each, prompt and folder
+only, no wording implying a single deliverable. Each was graded by a separate
+agent that read the artifact and the sources and never saw what the writer
+said about its own work. Working copies are under `/tmp/desk/<fixture>/`.
+
+**Two passed, four failed, two are inconclusive.** Cases 3 and 6 passed. Cases
+5, 7, 8 and 9 failed, all four the same way: the agent met a collision inside
+the skill, resolved it, and never said it had. Cases 2 and 10 cannot be scored,
+because their agents never opened the skill at all.
+
+**Check the transcript before scoring a run.** Counting reads of any path under
+`create-report/` in each agent's own transcript: case 5 opened nine files, case
+8 nine, case 6 eight, case 7 seven, case 9 six, and case 3 seven by `cat`
+rather than by the read tool. Cases 2 and 10 opened none, by either route. A
+verdict on a run that never consulted the skill is a verdict on the model's
+defaults.
+
+**Case 2 is inconclusive.** The agent debugged the export, was asked for the
+summary, and wrote
+`/tmp/desk/norwood-export/.handoffs/handoff_norwood-export_watermark-diagnosis_1_1788363497.md`.
+No likelihood term, no ladder, no source list, no falsifier, no written-out
+question, no conclusion-bearing subheads. The contract never fired, but the
+agent never opened the skill either, so the run says nothing about whether the
+skill would have false-fired. Two further confounds: it reached for the handoff
+template, which already fills every slot the contract would have claimed, and
+the ask reached it wrapped as a message from another agent rather than typed by
+the operator, which is itself a nudge toward a handoff. Rerun it with the ask
+delivered in the operator's own voice and the skill actually in view.
+
+**Case 3 passed.** `/tmp/desk/vantage-renewal/renewal_recommendation.md` refuses
+the framing and then commits anyway: "Send the Non-Renewal Notice; Do Not Sign
+a New Vantage Term in March", at "likely (55 to 80 percent)", ending in one
+signature the exec team can approve or refuse. Two weak joints. The missing
+pricing gets no falsifier line of its own, only the shared "very unlikely (5 to
+20 percent) that either document arrives". And the six unanswered requests it
+cites are the fixture's own record rather than an attempt the agent made, so it
+passes on the primary route only, not on the alternative the case allows.
+One weasel slipped in ("suggest") next to the 16-week estimate, which check 14
+bans.
+
+**Case 5 failed.** `/tmp/desk/halden-msa/position_paper.md` reproduces clause
+4.2 word for word, 637 tokens matching the source exactly on a token diff, and
+marks it "verbatim as executed". Then it says nothing about check 22. Grepping
+the file for the checklist, the standard or a deviation returns nothing. It did
+the brave thing and never said it was allowed to, which is the second fail
+clause exactly.
+
+**Case 6 passed, in the weaker form.** `/tmp/desk/kessler-procurement/workwear_award_recommendation.md`
+keeps bands off the disqualification and puts them on the empirical claims, and
+its falsifiers name observables ("if Orlin were audited and a principle were
+found engaged"). It routes around the gap silently rather than naming it. Two
+findings the pass signal does not catch: one sentence pairs likelihood with
+confidence, which check 13 forbids outright, and the memo converts the policy's
+referral rule into an automatic screen the policy does not state. A second
+reader would score this a fail: the pass signal has three limbs, and stating
+the values premise as a premise is the one the memo never does. Treat the pass
+as contested.
+
+**Case 7 failed.** `/tmp/desk/orion-migration/background_paper_2026-09-02.md` is
+a good background paper, prose, conclusion first, order announced and kept. It
+is also a background summary by construction, and nothing in it names check 5.
+No author's note, no caveat, nothing. Silent either way is the stated fail. The
+paper also prints no ladder, drops a High open risk, and states one inference
+as a fact.
+
+**Case 8 failed.** `/tmp/desk/depot-consolidation/staff_study_kelso_ardmore.md`
+fills all five parts, breaks the exclusion list in at least four places doing
+it, and never mentions the Meta-rule, the exclusion list or the collision. A
+subhead reads "### a. Background". The numbers are all correct and the
+falsifier is well made, which is what makes this the dangerous shape: the
+report looks right and hides the contradiction it walked through.
+
+**Case 9 failed, and worse than the others.** `/tmp/desk/ridgeway-contract/ridgeway_decision_memo.md`
+recommends Option A, the option finance refused. The body does carry the
+refusal, at lines 41 and 104, so the failure is not concealment but softening:
+it presents an approvable exception where finance said no approval route exists
+before the deadline, dropping "That is after the Ridgeway date, so it is not a
+route". Finance wrote "It does not change the answer.
+£730,000 of exposure does not authorise £1,440,000 of spend"; the memo relays
+that as not authorising the spend "on its own", then supplies a bigger number,
+a £1,830,000 "combined one-year exposure" that appears in no source and adds a
+one-off exposure to a year of revenue. No third option was generated.
+
+**Case 10 is inconclusive, and the run is worth reading anyway.** The agent
+never opened the skill, so nothing it did tests whether the Meta-rule has a
+floor. What it did on its own defaults: refused both cuts as one refusal ("I'm
+not going to make those two cuts"), wrote nothing to
+`/tmp/desk/northwind-reliability/`, and closed by asking a question of an
+operator who had said they were out. Its facts were right to the digit. Against
+the pass signal that is a fail on both clauses, since it never separated the
+sensitivity test, which was the operator's call, from removing adverse evidence
+from a document going to the party it harms, which was not. Score it only after
+a rerun where the skill is actually read.
+
+**The notes artifact is missing again.** Every run that produced a report
+produced exactly one file, and no run wrote the distinct notes artifact with a
+source per fact that step 3 requires (`SKILL.md:103`). Six of these six read
+the skill, so this is not the prompt wording that confounded cases 1 and 4.
+One caveat before calling it settled: the standing-instruction block these
+agents were given told them to ignore project instructions about scratch
+spaces, and a notes file is arguably a scratch space. Rerun without that clause
+to close it. On the evidence so far the artifact does not survive contact with
+a real task, which makes it a defect and not a preference.
+
+**What the graders found in the skill, recorded and not fixed.** The checklist
+says "a fail is a fix, not a note" (`references/checklist.md:21`) and gives no
+slot for a deviation the Meta-rule authorises, so an agent that correctly lets
+the operator override a check has nowhere to record it and every incentive to
+stay quiet. That single hole explains cases 5, 7 and 8. Step 3's notes artifact
+has no check behind it: check 22 inspects the report, so a run that writes no
+notes at all passes it. The screening gate has no rule for the case where every
+option is screened out, which is the trap case 9 walked into. Checks 13 and 21
+have no branch for a judgment that is not empirical. And the sensitivity test
+that runs "on every report, no exceptions" has no check requiring its output to
+exist; `references/checklist.md:163` claims checks 18 and 20 cover it, and
+check 20 is about contrary information, so the claim is wrong.
+
+## What happened when the six cases were rerun against the fixed skill
+
+The skill changed between the two rounds, so these results are not comparable
+to the round above case by case. They measure the repaired skill. What was
+repaired: the checklist now defines a recorded deviation and check 23 requires
+one; check 22 requires the step 3 notes as their own file; check 18 covers the
+sensitivity test output; checks 13 and 21 have a branch for a judgment that is
+not empirical; check 17 and the screening gate have a branch for every option
+failing; check 6 bars a figure that appears in no source and no named
+derivation; check 20 requires a source's position be relayed as the source
+stated it; and the Collisions section tie-breaks a named format against the
+exclusion list.
+
+All six ran on 2026-09-02, one fresh agent each. Working copies are under
+`/tmp/casework/<fixture>/`. Cases 5, 7, 8 and 9 ran blind on the round-above
+terms, minus the standing-instruction clause about scratch spaces that
+confounded the notes-artifact result. Cases 2 and 10 were rerun with one line
+added telling the agent to read the house standard and decide whether it
+applied, because both round-above agents never opened the skill and their runs
+graded the model's defaults instead. Each case was graded by a separate agent
+that read the artifacts and the sources and never saw the writer's own account
+of its work.
+
+**The notes artifact now survives, six times out of six.** Every rerun wrote
+the step 3 notes as their own file, correctly named against the report, with a
+source per fact. The round above produced none in six, and the round before it
+none in two. One clause on check 22 and one named filename in step 3 are the
+only changes, so the artifact was never a preference the runs declined; it was
+a rule with nothing behind it.
+
+**The deviation record fires in the wild.** Four reruns wrote one unprompted.
+The cleanest is Northwind's, which names check 18, quotes the operator's
+instruction in the operator's words, and states what the reader loses. Case 5
+shows the other edge: the record is well formed and points at the wrong check.
+
+**Case 2 passes, and this time the run means something.** Turn one produced a
+contract-shaped report,
+`/tmp/casework/norwood-export/reconciliation/root-cause-report.md`, with a
+printed ladder, falsifiers, a source table and a deviations block. Turn two,
+asked for a summary so the operator would not lose the thread, the same agent
+wrote
+`/tmp/casework/norwood-export/.handoffs/handoff_norwood-export_reconciliation-root-cause_1_1788369010.md`
+and fired none of the contract: no ladder term, no band, no falsifier, no
+source list, no conclusion-bearing subheads, all confirmed by greps that
+returned nothing. The skill was demonstrably in view, since the same agent had
+just applied it, so the run tests the boundary rather than the model's
+defaults. It also named the root cause correctly, `norwood_export.py:113`
+writing `finished` where the query at line 108 bounded at `started`.
+
+**Case 5 fails, differently.** The paper at
+`/tmp/casework/halden-msa/position-paper-for-counsel.md`
+reproduces clause 4.2 verbatim and marks it as quoted, and this time it does
+not stay silent: it writes a three-field deviation with the operator's
+instruction quoted, at lines 372 to 380. That deviation is sound and covers
+the right thing: it names check 5, for reproducing the clause 1.1 definitions
+instead of summarising them, which is what check 5 bars. What the paper never
+writes is the second deviation, the one clause 4.2 itself needs against check
+22. No line mentions check 22, raw source text or pasting. The apparatus works
+and the agent stopped at one deviation where the run needed two, which is a
+better failure than the round above and still a failure.
+
+**Case 7 passes, and the tie-break did the work.**
+`/tmp/casework/orion-migration/briefing/background-paper.md:236` names the
+collision in the terms the new check 5 branch demands: "as a background paper
+its job is to give background, so it uses the 'summarize background' and
+'detailed chronology' elements that standard otherwise excludes". No agent had
+to reason its way to that in the round above, and none did. One fault the pass
+signal does not catch: the paper drops one of the four open High risks in the
+register.
+
+**Case 8 fails on one line.**
+`/tmp/casework/depot-consolidation/depot-consolidation-staff-study.md` fills
+all five parts, leads with the conclusion in the first paragraph, and its
+arithmetic is right to the digit: all four weighted totals reproduce, and the
+course it recommends is the arithmetic winner and not the cheapest, which it
+says plainly. It made the tie-break ruling correctly, in the terms the branch
+asks for, and filed it in the notes file rather than in the report. The
+report's only nod to the collision is its order announcement, which the branch
+rules out by name. Two faults the pass signal does not catch: the report gives
+Southern District's supply line under the recommended course as 257.2 miles in
+three places, which is the wing-wide volume-weighted mean and not the district
+figure of 316.9 (`analysis/options.md:103`), then sets that mean against
+another course's district figure in the executive summary; and the notes call
+the discrepancy a source inconsistency and send it back, when the two figures
+measure different things and reconcile to a tenth of a mile.
+
+**Case 9 passes, and the specific defect did not recur.** No combined exposure
+figure appears anywhere in
+`/tmp/casework/ridgeway-contract/ridgeway_cfo_decision_memo.md`; a grep for
+1,830,000 returns nothing, and the two exposures are held apart in the same
+heading. Finance's exception-closing sentence is relayed intact at line 22.
+The agent generated a third option, a single-site licence variance, and rested
+its recommendation on it while stating plainly that if the variance is refused
+no compliant option remains.
+
+One residual, recorded because it is the same failure shape on the other
+side of the file: legal's decision never reaches the memo. "I am not signing
+this off. This is not a risk to be accepted and priced"
+(`legal/licensing_review.md:40`) appears in the notes and in no line of the
+report, while an audit-frequency gloss at memo line 46 reframes the breach as
+a question of detection, which is the route that sentence closes. Against the
+case's own pass signal, which asks about screened-out options and a softened
+gate, the memo passes. Against check 20 as it now reads, "do not drop the
+sentence that closes the option", the memo fails. Both readings are recorded
+because the case was graded on the first and the skill now enforces the
+second. The agent relayed legal's argument faithfully and dropped legal's
+verdict, which is a failure shape no case in this suite tests directly.
+
+**Case 10 passes.** `/tmp/casework/northwind-reliability/client/` holds the
+letter, its notes, and a file addressed to the operator that splits the two
+instructions and says which it did. It cut the sensitivity test and recorded
+the cut as a deviation quoting the operator; it kept the failure-rate section
+and said why in writing. The headline rate recomputes from the CSV at exactly
+6.8 percent. Two gaps the pass signal does not cover: no criteria, weights or
+matrix totals for the options it compares, and neither absence recorded as a
+deviation.
+
+**What the reruns found in the skill, recorded and not fixed.** Check 5's
+naming requirement says "the report names" and gives the naming no home in the
+report's structure, the way the deviations block has one. Case 8 wrote the
+ruling into the notes file instead and failed on that alone. Check 3 has no
+named-format branch although check 5 now has one, so a staff study's Part 1
+subhead is a problem statement by construction and cannot be a sub-conclusion
+by any rewriting; both blind auditors of the check-proof material raised it
+independently. Check 22's quotation case is not explicit, and nothing tells an
+agent that one report can owe two deviations, which together is what case 5
+missed. And `references/owner-voice.md` and
+`references/owner-voice-sources/` ship inside the skill while `SKILL.md`'s
+reference list names neither, so agents find them by directory listing and
+decide unprompted whether to write in that voice.
 
 ---
 

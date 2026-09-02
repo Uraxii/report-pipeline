@@ -123,14 +123,26 @@ Checklist coverage. Each check catches at least the line named here.
 | 15 | "Our volume is 8,000 parcels a month" stated as bare fact |
 | 16 | No criteria, no weights, no decision matrix |
 | 17 | "it is really up to you" hands the decision back |
-| 18 | Volume stated with no assumptions check behind it |
+| 18 | Volume stated with no assumptions check behind it; the whole cost |
+|    | case rests on the $0.70 gap and nothing says what breaks if the |
+|    | fuel surcharge closes it |
 | 19 | Typos and the append show no three-pass edit ran |
 | 20 | Coastal's weakness and the losing options are never faced |
+| 21 | "Meridian will keep its 94 percent on-time rate" and "Meridian is |
+|    | the best value" name nothing that would change either |
+| 22 | "in Tuesday's standup" and "As I said in Slack this morning" paste |
+|    | session context; "websites and a report someone in ops shared with |
+|    | me" is the whole sourcing, with no notes file behind any figure |
+| 23 | The report misses most of the checks above and records not one of |
+|    | them as an authorised deviation |
 
-Checks 18 and 19 are process checks, not lines of report text. The bad report
-fails them by evidence: the unmarked volume figure shows no assumptions check
-informed it, and the blind-spot typos plus the append show the edit passes
-never ran.
+Checks 18, 19 and 23 are process checks, not lines of report text. The bad
+report fails them by evidence: the unmarked volume figure shows no assumptions
+check informed it, no "if X is wrong, Y breaks" line shows the sensitivity
+test ran, the blind-spot typos plus the append show the edit passes never ran,
+and the absent deviations block shows nothing was authorised. Check 22 is half
+a text check and half a process check: the pasted session talk is on the page,
+and the missing notes file is not.
 
 ## The good report, as written
 
