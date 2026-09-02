@@ -63,20 +63,24 @@ failed under one of them is a deviation, and check 17 says what to record.
 
 7. The matrix shows an unweighted total and a weighted total for every option.
    Both, per option. Where no option survived screening, check 4 governs and
-   this check does not apply.
+   this check does not apply. Where the single-option defense applies,
+   section 6 governs and this check does not apply.
    Protects the reader's ability to see what the weights did. Failing it means
    the weights are doing invisible work. Compute the missing total.
 
 8. The weight re-run is recorded: the different weights used, the totals under
    them, and whether the ranking held. Where no option survived screening,
-   check 4 governs and this check does not apply.
+   check 4 governs and this check does not apply. Where the single-option
+   defense applies, section 6 governs and this check does not apply.
    Protects against a ranking that only exists at one weighting. Failing it
    means nobody knows how fragile the result is. Run it and record the answer.
 
 9. The option-set re-run is recorded: each non-winning option dropped in turn,
    the matrix recomputed, and whether the ranking of the remaining options
    changed. Any change is disclosed in section 11. Where no option survived
-   screening, check 4 governs and this check does not apply.
+   screening, check 4 governs and this check does not apply. Where the
+   single-option defense applies, section 6 governs and this check does not
+   apply.
    Protects against rank reversal, which nothing else in this skill guards.
    Failing it means a ranking that a bookkeeping choice could flip went out
    undisclosed. Run it. "No reversal" is a claim only after you have looked.
@@ -147,9 +151,10 @@ failed under one of them is a deviation, and check 17 says what to record.
     authorising rule quoted, and what the consumer loses. A block whose
     authoriser is named but not quoted fails here. This check does not apply
     to itself: an unrecorded deviation needs no deviation record of its own,
-    or the check could never close. Where checks 1 through 16 all pass and no
-    fix was barred, there is nothing to record; hand over no deviation block,
-    and an absent block is what a clean handover looks like, not a fail.
+    or the check could never close. Where every other check on this list
+    passes and no fix was barred, there is nothing to record; hand over no
+    deviation block, and an absent block is what a clean handover looks like,
+    not a fail.
     Protects the consumer from inheriting a broken rule without being told.
     Failing it means the handover reads as clean while a check stayed failed.
     Write the block, or go back and fix the check.
