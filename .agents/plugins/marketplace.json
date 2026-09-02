@@ -1,14 +1,14 @@
 {
-  "name": "create-report",
+  "name": "report-pipeline",
   "interface": {
     "displayName": "Uraxii"
   },
   "plugins": [
     {
-      "name": "create-report",
+      "name": "report-pipeline",
       "source": {
         "source": "url",
-        "url": "https://github.com/Uraxii/create-report.git",
+        "url": "https://github.com/Uraxii/report-pipeline.git",
         "ref": "main"
       },
       "policy": {
