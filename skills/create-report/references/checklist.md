@@ -28,8 +28,10 @@ A fix that is barred is a recorded deviation. A fix is barred when an operator
 instruction overrides the check, or when two rules in this skill collide with
 no way to satisfy both by any rewriting. Nothing else is barred.
 
-Record a deviation in the report, as a block at the end beside the source
-list. Three fields, all required:
+Record each deviation in the report as its own block at the end beside the
+source list. One report can owe several. Every check that stays failed gets a
+block of its own, so two failed checks are two blocks, never one merged entry
+covering both. Three fields per block, all required:
 
 - The check not met, by its number on this list. A rule outside the numbered
   checklist is cited by name instead. Never a file:line in the report; the
@@ -60,12 +62,16 @@ The numbered checks:
    footnoted own-conclusions, and no inference stated in the grammatical form
    of a fact. The exclusion list itself lives in SKILL.md; scan against it.
    Where the operator named a format whose skeleton requires an excluded
-   element, that element passes this check, and the report names the excluded
-   elements the format claimed, by their names on the exclusion list.
-   Announcing the format's parts is not naming them. That naming goes in the
-   format-elements note, one line of end matter beside the source list and
-   the deviations block (check 2), never in the notes file and never folded
-   into the body. (The tie-break: the Collisions section of SKILL.md.)
+   element, that element passes this check, and the report names every
+   excluded element the format claimed, by their names on the exclusion list.
+   All of them: count the excluded elements the skeleton claims, count the
+   names in the note, and the two counts match or this check fails. Naming
+   some of the claimed elements and leaving the rest unnamed is a fail, not a
+   partial pass. Announcing the format's parts is not naming them. That
+   naming goes in the format-elements note, one line of end matter beside the
+   source list and the deviations block (check 2), never in the notes file and
+   never folded into the body. (The tie-break: the Collisions section of
+   SKILL.md.)
    [Part I, Part III, ICD-D / `4b0f9a500133`]
 6. Every number is compared to another number, and every figure carries its
    context. The reader never has to wonder good-or-bad. A number the report
@@ -138,17 +144,24 @@ The numbered checks:
     it that names the source. No notes file is a fail. The remedy is
     returning to step 3 and writing the notes from the sources; a notes file
     written by copying facts back out of the finished report still fails this
-    check, since it proves nothing about what the draft was built from.
+    check, since it proves nothing about what the draft was built from. A
+    criterion, a weight, or a matrix cell that traces to no line in the notes
+    was manufactured while drafting, and it fails this check. The remedy is
+    the send-back in step 5, never a line added to the notes to cover it.
     (The notes discipline is step 3.) [contract, Part III]
-23. Every check this report does not meet appears in the deviations block with
-    its authorising rule quoted and what the reader loses. A deviation with no
-    quoted authoriser fails this check. This check records what you already
-    found; a check you scored met that the report does not meet is caught by a
-    second reader, not here. This check does not apply to itself: a missed
-    deviation record needs no deviation record of its own, or the check could
-    never close. Where checks 1 through 22 all pass, there is nothing to
-    record; leave the deviations block out of the report, and an absent block
-    is what a clean report looks like, not a fail. [contract]
+23. Every check this report does not meet appears in the deviations block as
+    its own entry, with its authorising rule quoted and what the reader loses.
+    Count the checks that stayed failed, count the entries, and the two counts
+    match or this check fails. A deviation with no quoted authoriser fails this
+    check. One entry covering two failed checks records neither and fails it
+    too. This check records what you already found; a check you scored met
+    that the report does not meet is caught by a second reader, not here. This
+    check does not apply to itself: a missed deviation record needs no
+    deviation record of its own, or the check could never close. Where every
+    other check on this list passes, there is nothing to record; leave the
+    deviations
+    block out of the report, and an absent block is what a clean report looks
+    like, not a fail. [contract]
 
 One check catching one line, so you know what a fail looks like. Check 13
 against "We have high confidence that costs are very likely to rise": one

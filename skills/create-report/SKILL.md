@@ -119,7 +119,13 @@ visibly distinct.
    drafting. Where the report recommends, this step lays out the criteria and
    the decision matrix the analysis already used; both are standards that
    analysis must have met, not work to do here. Analysis that arrives without
-   them has a gap this skill cannot close: say so and send it back.
+   them has a gap this skill cannot close: say so and send it back. Writing a
+   criterion, setting a weight, or building a matrix at this step is doing the
+   analysis, which this skill never does. Manufacturing them is the violation
+   this clause forbids, and a plausible set is the worst form of it, because
+   the reader cannot tell a manufactured set from the analyst's own. Two moves
+   are compliant here and no third one is: send the work back, or draft from
+   what was handed over.
 6. **Draft.** Largely mechanical if step 5 was honest. Apply the exclusion
    list, the evidence rules, the sentence layer, and the uncertainty layer.
 7. **Revise.** Read the draft aloud, or have it read to you. Sweep for missing
@@ -158,10 +164,11 @@ Five points an agent will otherwise rule on wrong. One line each.
   Part 2 defines terms. Where the operator names a format, the format wins for
   exactly the elements its skeleton requires, and the exclusion list governs
   everything else. Name in one line, in the format-elements note (the end
-  matter check 2 defines), the excluded elements the format claimed, by their
-  names on the exclusion list, not by the format's part names. The conclusion
-  still leads: put it in the first paragraph whatever number the skeleton
-  gives it. This is a tie-break, so it needs no deviation record.
+  matter check 2 defines), every excluded element the format claimed, by their
+  names on the exclusion list, not by the format's part names. Every one the
+  skeleton claimed, not the ones you noticed first; a subset fails check 5.
+  The conclusion still leads: put it in the first paragraph whatever number
+  the skeleton gives it. This is a tie-break, so it needs no deviation record.
 
 ## Failure modes
 

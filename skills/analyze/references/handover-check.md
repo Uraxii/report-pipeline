@@ -11,7 +11,10 @@ Every check is pass or fail. A fail is a fix, not a note: go back to the step
 the check names, produce the missing thing, and run the check again. Each
 verdict goes into handover section 12; SKILL.md states what that section
 holds. Two situations bar the fix, and SKILL.md names both. A check that stays
-failed under one of them is a deviation, and check 17 says what to record.
+failed under one of them is a deviation, and check 17 says what to record. The
+verdict recorded is the verdict the check reached: a check that stays failed
+under a barred fix is recorded failed, never passed, because the deviation
+block is the record of a fail, not a way to score one clean.
 
 ## The checks
 
@@ -149,12 +152,15 @@ failed under one of them is a deviation, and check 17 says what to record.
 17. Every check that stays failed appears in section 12 as its own deviation
     block carrying all three fields: the check's number on this list, the
     authorising rule quoted, and what the consumer loses. A block whose
-    authoriser is named but not quoted fails here. This check does not apply
-    to itself: an unrecorded deviation needs no deviation record of its own,
-    or the check could never close. Where every other check on this list
-    passes and no fix was barred, there is nothing to record; hand over no
-    deviation block, and an absent block is what a clean handover looks like,
-    not a fail.
+    authoriser is named but not quoted fails here. Each check's recorded
+    verdict and its block agree: a check carrying a deviation block reads
+    failed in section 12, and a check recorded as passed carries no block, so
+    a Pass verdict beside a block on the same check fails here. This check
+    does not apply to itself: an unrecorded deviation needs no deviation
+    record of its own, or the check could never close. Where every other check
+    on this list passes and no fix was barred, there is nothing to record;
+    hand over no deviation block, and an absent block is what a clean handover
+    looks like, not a fail.
     Protects the consumer from inheriting a broken rule without being told.
     Failing it means the handover reads as clean while a check stayed failed.
     Write the block, or go back and fix the check.
