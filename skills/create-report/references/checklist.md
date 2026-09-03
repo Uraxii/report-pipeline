@@ -11,8 +11,13 @@ Order of the step:
 
 1. Run the key assumptions check, second run (below). Record its output.
 2. Run the sensitivity test (below). Record its output.
-3. Run the checks (below) against the draft and the artifacts.
-4. Run the three-pass edit, in order.
+3. Run the checks (below) against the draft and the artifacts. Score every
+   one of them on the scoreboard (below) as you go, before you write the
+   deviations block.
+4. Run `bash <this-skill-directory>/scripts/check-report.sh <report>`. Fix
+   what it names, then run it again. A report you send while it still fails
+   is unfinished.
+5. Run the three-pass edit, in order.
 
 ## The checks
 
