@@ -5,15 +5,8 @@ Steps 4 and 5. Load when the first candidate is open.
 ## Vary the kind, not the count
 
 Every class of document has one weakness built into what it is for. Another
-class covers it. Three documents of one class is one class's blind spot,
-tripled, and it reads as thorough.
-
-So the question to ask of a candidate is not "is this true" but "what would
-this never tell me".
-
-ATP 2-22.9, *Open-Source Intelligence*, chapters 2 and 3, is where the habit
-comes from. It weighs the kind of source before the content, and it treats
-what a publisher chose to put out as itself a fact about the publisher.
+class covers it. So the question to ask of a candidate is not "is this true"
+but "what would this never tell me".
 
 Seven classes, each with what it is good for and what it structurally
 withholds.
@@ -50,39 +43,30 @@ data over anyone reporting on it.
 
 ## Rate the document on two axes, never one
 
-These are two different questions and collapsing them loses information.
+Two different questions. Collapsing them loses information.
 
 **Originator reliability.** How far this body's output has held up in the past,
-independent of what this particular document says. An originator with a record
-of accuracy stays reliable on the day it publishes something wrong.
-
-Two documents in this corpus set the pattern. ATP 2-22.9, *Open-Source
-Intelligence*, chapter 2 section III, rates open-source reliability and
-open-source information content credibility as two separate considerations. FM
-2-22.3, *Human Intelligence Collector Operations*, appendix B, gives the matrix
-form: a letter for the source's reliability, a separate numeral for the
-credibility of the individual piece of information, with a value at each end
-meaning "cannot be judged" rather than "poor". Copy that shape. A document you
-cannot rate is not a document you rate badly.
+independent of what this document says. An originator with a record of accuracy
+stays reliable on the day it publishes something wrong.
 
 **Document credibility.** How far this particular document is to be trusted, on
 its own. A reliable originator publishes an early estimate; a poor originator
 publishes a verbatim court transcript.
+
+Copy the matrix form of FM 2-22.3, *Human Intelligence Collector Operations*,
+appendix B: a letter for originator reliability, a separate numeral for the
+individual document's credibility, with a value at each end meaning "cannot be
+judged" rather than "poor". A document you cannot rate is not a document you
+rate badly.
 
 Rate them separately, on whatever scale you state at the top of the table, and
 say which is which. Do not average them into one number: the average of "solid
 body, weak document" and "weak body, solid document" is the same number and
 they are not the same situation.
 
-ICD 203, *Analytic Standards*, section D, is the standard being met here: what
-rests on a source has to travel with a statement of that source's quality and
-credibility, including its strengths and its weaknesses, so the reader can
-weigh the claim rather than take it.
-
 Where the originator's reliability is genuinely unknown, say unknown. Do not
 fully accept or fully reject a document of uncertain reliability; carry the
-uncertainty forward in its row, which is the only place it can still change
-anything.
+uncertainty forward in its row, the only place it can still change anything.
 
 ## Corroboration, and the thing that impersonates it
 
@@ -90,31 +74,27 @@ Two documents agreeing is worth something only if they could have disagreed.
 
 Fill the `Derives` column on every row. Name the document this one took its
 facts from, or `none` when it is reporting its own observation. Do it while the
-document is open: it is visible in the text and invisible an hour later.
+document is open: visible in the text, invisible an hour later.
 
 Circular reporting is the failure this column exists for. Three trade articles,
-one press release, one fact. Signs to look for: identical figures to identical
-precision, the same unusual phrasing, the same error, a citation chain that
-converges. Heuer, *Psychology of Intelligence Analysis*, chapter 10, gives the
-underlying reason this fools people. Consistency is read as confirmation, so a
-set of documents that is consistent because it is redundant produces more
-confidence than an independent set of the same size would deserve.
+one press release, one fact. Signs: identical figures to identical precision,
+the same unusual phrasing, the same error, a citation chain that converges.
 
-Two more discounts from the same chapter, both worth applying at collection
-time rather than hoping someone catches them later.
+Two more discounts from Heuer, *Psychology of Intelligence Analysis*, chapter
+10, both worth applying at collection time rather than hoping someone catches
+them later.
 
 - A vivid single case outweighs aggregate data in the reader's head. Record it,
   and record the aggregate next to it.
 - One anecdote is worth little unless it is known to be typical. Say whether
   you know that or not.
 
-Where a claim is critical to the eventual answer, say in its row whether it is
-corroborated by a document that derives from something else, and say plainly
-when it is not. A critical claim resting on one uncorroborated document is not
-a reason to stop. It is a reason to write it down.
+Where a claim is critical to the eventual answer, say in its row whether a
+document deriving from something else corroborates it, and say plainly when
+none does. A critical claim resting on one uncorroborated document is not a
+reason to stop. It is a reason to write it down.
 
 ## What to do with a document you reject
 
 Give it a consulted-log line saying why. "Only current state, no history" and
-"paywalled, title and abstract only" are both useful to the next run. A
-rejected document that leaves no trace gets reopened by whoever comes next.
+"paywalled, title and abstract only" are both useful to the next run.
