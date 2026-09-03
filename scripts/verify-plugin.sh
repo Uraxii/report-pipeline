@@ -18,9 +18,17 @@ done
 
 plugin_name=$(python3 -c "import json; print(json.load(open('.claude-plugin/plugin.json'))['name'])")
 
-repo_name=$(git remote get-url origin 2>/dev/null | sed -E 's#.*/##; s/\.git$//')
+# The anchor lives in .git/config, inside the checkout, so it catches an
+# unsynchronised rename, not a hostile edit (remote and manifests changed
+# together still pass).
+if ! origin_url=$(git remote get-url origin 2>&1); then
+	fail "cannot resolve repo name from git remote origin: $origin_url"
+fi
+repo_name=${origin_url%/}
+repo_name=${repo_name%.git}
+repo_name=${repo_name##*/}
 [ -n "$repo_name" ] ||
-	fail "cannot resolve repo name from git remote origin"
+	fail "cannot resolve repo name from git remote origin '$origin_url'"
 [ "$repo_name" = "$plugin_name" ] ||
 	fail ".claude-plugin/plugin.json name is '$plugin_name', want '$repo_name' (repo name via git remote origin, the external anchor)"
 
@@ -54,20 +62,27 @@ agents_ref=$(python3 -c "import json; print(json.load(open('.agents/plugins/mark
 [ "$agents_ref" = "main" ] ||
 	fail ".agents/plugins/marketplace.json ref is '$agents_ref', want main"
 
-marketplace_refs=$(grep -o 'Uraxii/[A-Za-z0-9_.-]*' README.md | sort -u || true)
+[ -f README.md ] || fail "missing README.md"
+
+# Match the command form (`plugin marketplace add Uraxii/<name>`), not a
+# bare 'Uraxii/<name>' token, so a profile link or prose mention can't
+# either false-trip this or hide a missing install section.
+marketplace_refs=$(grep -oE 'plugin marketplace add Uraxii/[A-Za-z0-9_.-]+' README.md |
+	sed -E 's/^plugin marketplace add //' | sort -u || true)
 [ -n "$marketplace_refs" ] ||
-	fail "README.md has no Uraxii/<repo> marketplace reference (install section missing?)"
+	fail "README.md has no 'plugin marketplace add Uraxii/<repo>' line (install section missing?)"
 for ref in $marketplace_refs; do
 	[ "$ref" = "Uraxii/$plugin_name" ] ||
 		fail "README.md installs from '$ref', want Uraxii/$plugin_name"
 done
 
-# Only the install/add commands, not any '<name>@<name>'-shaped string
-# (a plain email address has the same shape and must not trip this).
-install_refs=$(grep -oE '(install|add)[[:space:]]+[A-Za-z0-9_.-]+@[A-Za-z0-9_.-]+' README.md |
+# Match the command form (`plugin install <name>@<name>` / `plugin add
+# <name>@<name>`), not a bare '<name>@<name>' string, so a pinned dependency
+# version or an email address in prose can't false-trip this.
+install_refs=$(grep -oE 'plugin (install|add) [A-Za-z0-9_.-]+@[A-Za-z0-9_.-]+' README.md |
 	awk '{print $NF}' | sort -u || true)
 [ -n "$install_refs" ] ||
-	fail "README.md has no install/add command (install section missing?)"
+	fail "README.md has no 'plugin install/add <name>@<name>' command (install section missing?)"
 for ref in $install_refs; do
 	[ "$ref" = "$plugin_name@$plugin_name" ] ||
 		fail "README.md installs '$ref', want $plugin_name@$plugin_name"
