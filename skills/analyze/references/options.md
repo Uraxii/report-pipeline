@@ -81,8 +81,9 @@ not evidence.
 
 Step 3 routed to risk, causation, probability, or cost: those methods run
 inside the per-option analysis rather than beside it. Load the one file that
-fired, method-risk.md, method-root-cause.md, method-causal-claims.md, or
-method-cost.md. Record which ran and which trigger fired.
+fired, references/method-risk.md, references/method-root-cause.md,
+references/method-causal-claims.md, or references/method-cost.md. Record which
+ran and which trigger fired.
 
 ### Test against the alternative futures
 

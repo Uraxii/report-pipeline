@@ -85,7 +85,7 @@ produce.
 - **Ill structured.** People disagree on what the true problem is, on the
   desired end state, or on whether that end state is reachable. Expect a
   package of measures rather than a single lever. That package is still one
-  course; see the close-call and package rulings in comparison.md.
+  course; see the close-call and package rulings in references/comparison.md.
 
 ## Step 3: size the work and route the methods
 
@@ -113,10 +113,10 @@ question calls for it.
 | A stated likelihood in the answer | Probability derivation |
 | A risk register asked for | Risk rating and register |
 
-One file each: method-cost.md, method-root-cause.md or
-method-causal-claims.md, evidence.md for probability, method-risk.md. Load only
-the one that fired. Record which trigger fired for each you run, in the method
-log's escalation half.
+One file each: references/method-cost.md, references/method-root-cause.md or
+references/method-causal-claims.md, references/evidence.md for probability,
+references/method-risk.md. Load only the one that fired. Record which trigger
+fired for each you run, in the method log's escalation half.
 
 **Stop** when the next method would change neither the recommendation nor its
 confidence.
@@ -126,7 +126,7 @@ competing hypotheses, Team A and Team B, devil's advocacy, and red team run
 only when the operator names one. Never trigger one because the question looked
 contested. One runs -> method log's other half, recorded with who named it.
 Confuse the two halves and an auto-routed cost method ends up labelled as
-something the operator asked for. See challenge-techniques.md.
+something the operator asked for. See references/challenge-techniques.md.
 
 ### Picking a technique
 
@@ -142,7 +142,7 @@ Weigh cost before running. Brainstorming and devil's advocacy cheap to
 understand and run. Rest demand more skill, more time, more commitment.
 
 Routed to causation: pick the technique by the job. Table and procedures in
-method-root-cause.md.
+references/method-root-cause.md.
 
 ## Hands forward
 

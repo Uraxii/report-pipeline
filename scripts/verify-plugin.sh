@@ -97,6 +97,21 @@ for skill_dir in skills/*/; do
 		done
 		[ -z "$unreached" ] ||
 			fail "$skill names these only in its trailing reference list, so no step loads them:$unreached"
+
+		# Prefix check: the load-moment check above matches on the
+		# references/ prefix, so a pointer written as a bare basename
+		# leaves the file it names reading as unreached. Only a file's
+		# own title may name it bare.
+		bare=
+		for file in "${skill_dir}references"/*.md; do
+			base=$(basename "$file")
+			if grep -rqE "(^|[^/A-Za-z0-9_.-])${base%.md}\.md" \
+				--exclude="$base" -- "$skill_dir"; then
+				bare="$bare $base"
+			fi
+		done
+		[ -z "$bare" ] ||
+			fail "$skill points at these without the references/ prefix, so the load-moment check cannot see the pointer:$bare"
 	fi
 done
 
