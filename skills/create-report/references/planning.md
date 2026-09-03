@@ -1,19 +1,11 @@
-# Planning: steps 1 to 5, and the recommendation machinery
+# Planning: steps 1 to 5
 
-Load this file when working steps 1 to 5, or when the report recommends among
-options. It covers the planning half of the report: assignment, audience,
-notes, thesis, and plan, then the criteria, options, and decision matrix a
-recommendation rests on.
-
-This file plans; it does not analyze. Assume the analysis is work already
-done. Where a rule below names an analysis procedure (the key assumptions
-check, the criteria, the decision matrix), it is a standard the finished work
-must meet and record, not a fresh task to run from scratch. You are writing
-down what the analysis established, and checking that it established it.
+Load when working steps 1 to 5: assignment, audience, notes, thesis, plan. The
+recommendation machinery is in references/recommendation.md.
 
 Content owned elsewhere, linked never copied:
 
-- Paragraph template, skeletons, cover letter, and the paper formats:
+- Paragraph template, cover letter, and the paper formats:
   `references/structure.md`.
 - Sentence layer, numbers, the likelihood ladder, and the weasel list:
   `references/style.md`.
@@ -50,8 +42,8 @@ cannot say which purpose a sentence serves, cut it.
 ### Get the problem statement approved
 
 Where the question came from someone else, get the problem statement approved
-before you work on it. This is an enforcement step, not a courtesy: it ensures
-you and the decision-maker agree on the problem before effort is spent.
+before you work on it. Enforcement step, not courtesy: you and the
+decision-maker agree on the problem before effort is spent.
 
 Cast the problem statement as who, what, when, why, and how, then state it in
 one of three forms (from Tongue and Quill, TQ-17 / `998664c6e1ca`):
@@ -124,13 +116,6 @@ one you happen to be writing to. From Tongue and Quill (TQ-3 /
   before it reaches your intended audience." Knowing their expectations "can
   save you embarrassment."
 
-- Bad: the report is pitched only at the analyst who requested it, and dies at
-  the gatekeeper who reviews it first because it ignored what that reviewer
-  needs to pass it on.
-- Good: the report answers the decision-maker's question, survives the
-  gatekeeper's review, and reads correctly to the secondary receivers who see
-  it last.
-
 Sentence-level tone, jargon density, and the choice of paper format follow
 from the audience. The formats are in `references/structure.md`.
 
@@ -148,11 +133,6 @@ Two rules make notes notes and not a transcript:
 - Transform each idea into your own words. Understand the author's point and
   restate it. Do not copy the text.
 - Record each fact with its source, so every note can be traced later.
-
-- Bad: the note is the source paragraph pasted verbatim, and it reaches the
-  draft still wearing the source's voice and framing.
-- Good: the note is one line in your own words, "Q3 margin fell to 4 percent,"
-  with the source and date attached, ready to be correlated to a point.
 
 The reliability of a source and the mechanics of citing it live in
 `references/evidence.md`. This step only requires that the source is captured
@@ -206,201 +186,7 @@ drafting step has nothing left to decide.
 Any point that is divided must divide into at least two parts. A section with a
 single sub-point means the division was wrong; fold it back up.
 
-Where the report recommends among options, this step lays out the criteria and
-the decision matrix the analysis already used. Both are standards that analysis
-must have met, not work to do here. Analysis that states the matrix does not
-apply, with its reason, that defends a single option, or that reports a
-screening which emptied the field, has met that standard: draft from what it
-handed over. A matrix that was owed and arrives absent, with no such
-statement, has a gap this skill cannot close: say so and send it back. The
-rest of this file specifies the standards.
-
----
-
-## The recommendation machinery
-
-Load this section when the report recommends a course of action. It records
-what a sound analysis must contain: at least two options, criteria fixed
-before the options, per-option analysis, a decision matrix, and a single
-committed recommendation. If the analysis did not do these, the gap is
-findable here before the report is written.
-
-### At least two distinct options
-
-One option is not a recommendation, because nothing was compared. The analysis
-must have generated at least two genuinely distinct alternatives.
-
-- Bad: the report presents one course of action and calls it the
-  recommendation. Nothing was weighed against it, so nothing was recommended.
-- Good: the report compares at least two real alternatives, and the
-  recommendation is the winner of that comparison.
-
-A single option is admissible only in the rare case where you can defend why no
-alternative exists; stand ready to defend it (TQ-17 / `998664c6e1ca`).
-
-### Set the criteria before the options, and freeze them
-
-Criteria come before options and take no new member once analysis has started.
-Adding a criterion mid-analysis is how a preferred option gets rescued.
-
-- Bad: after the options are on the table, a new criterion appears that the
-  favored option happens to win on.
-- Good: the criteria are fixed first, and every option is judged against that
-  same fixed set.
-
-Use two kinds of criteria, in order: screening first, then evaluation.
-
-### Screening criteria: is the option admissible at all
-
-Screening criteria "define the limits of an acceptable solution"; an option
-may be rejected on these alone (FM-s3 / `8725de6c1699`). Five categories, quoted
-verbatim from FM 5-0:
-
-- Feasible: fits within available resources.
-- Acceptable: worth the cost or risk.
-- Suitable: solves the problem and is legal and ethical.
-- Distinguishable: differs significantly from other solutions.
-- Complete: contains the critical aspects of solving the problem from start to
-  finish.
-
-Apply these as a pass/fail gate before any scoring. An option that fails one is
-out, and the report says so rather than scoring it low and keeping it.
-
-Every option can fail. When none survives, the comparison has no admissible
-course, and that is the finding. Do not soften a screen to keep an option
-alive, do not present a screened-out option as a recommendation, and do not
-supply a number that makes one look admissible. That finding meets the
-standard step 5 sets, provided the analysis hands it over as one: it states
-that no option passed screening, names the screen each option failed, and
-names what would have to change for one to pass (step 5 in SKILL.md). That
-statement is the report's commitment. It is not "recommend further study",
-which hands the decision back; it tells the
-decision-maker what the options are and what it would take to get one.
-Screening that emptied the field but left no such statement, only a silent
-absence, has a gap this skill cannot close: say so and send it back.
-
-### Evaluation criteria: differentiate the survivors
-
-A well-formed evaluation criterion has five parts (FM-s3 / `8725de6c1699`,
-FM-crit / `ef7984f51683`), verbatim:
-
-- Short title: the criterion name.
-- Definition: a clear description of the feature being evaluated.
-- Unit of measure: a standard element used to quantify the criterion. Examples
-  are U.S. dollars, miles per gallon, and feet.
-- Benchmark: a value that defines the desired state or "good" for a solution in
-  terms of a particular criterion.
-- Formula: an expression of how changes in the value of the criterion affect
-  the desirability of the solution, stated in comparative terms ("less is
-  better") or absolute terms ("a night movement is better than a day
-  movement").
-
-A criterion missing any of the five is an opinion wearing a label. "Cost" with
-no unit, no benchmark, and no direction is not a criterion; it is a place to
-hide a preference.
-
-Worked example, one evaluation criterion in full (FM-s3 / `8725de6c1699`):
-
-```
-Short title:      Casualties
-Definition:       Casualties taken during the entire operation
-Unit of measure:  Number of casualties
-Benchmark:        136 casualties
-Formula:          Less than 136 is an advantage; greater than 136 is a
-                  disadvantage. Less is better.
-```
-
-Set the benchmark by reasoning, historical precedent, or a current example.
-Averaging is the least preferred method, because it "essentially duplicates
-the process of comparison" (FM-s3 / `8725de6c1699`).
-
-### Weight the criteria, and state each weight's rationale
-
-Criteria are almost never of equal importance, so weight them. The rule that
-matters: state the rationale for every weight. FM 5-0 (FM-crit /
-`ef7984f51683`): "Regardless of the method used to assign criteria weights,
-leaders state the rationale for each when recommending a solution to the
-decision maker."
-
-- Bad: the matrix multiplies each criterion by a weight, and the weights
-  arrive with no explanation of why one criterion outranks another.
-- Good: each weight carries one line saying why, so the reader can challenge
-  the weighting rather than take it on faith.
-
-### Analyze each option alone before comparing any
-
-Analyze every option on its own merits first. Comparing while analyzing tempts
-you to jump to the answer. FM 5-0 (FM-s5 / `a5bd6eef23dc`): "Comparing
-solutions during analysis undermines the integrity of the process and tempts
-problem solvers to jump to conclusions."
-
-- Bad: the options are set side by side from the start, and each is judged only
-  against the others, so a field of weak options produces a false winner.
-- Good: each option is measured against the benchmark on its own, and only then
-  compared, so the report can also say "all options fail on cost" when they do.
-
-This is the analytic order, and it does not conflict with putting the
-conclusion first in the writing. Do the work in the analytic order; present it
-in the reader's order.
-
-### The decision matrix
-
-Compare with a decision matrix: options across, criteria down, a rank per cell,
-and both unweighted and weighted totals shown. Worked example, adapted verbatim
-from FM 5-0 (FM-s6 / `79c5593207c0`, lower total is preferred):
-
-```
-Criterion (weight):    Simplicity(1) Maneuver(2) Fires(1) Civil(1) Mass(2)
-Option 1 rank:         2             2 (4)       2        1        1 (2)
-Option 2 rank:         1             1 (2)       1        2        2 (4)
-
-Option 1 total:  8 unweighted, 11 weighted
-Option 2 total:  7 unweighted, 10 weighted
-```
-
-How to read and build it (FM-s6 / `79c5593207c0`, FM-comp / `2c2057b2b0bc`):
-rank each option per criterion, lower rank preferred. Add the unweighted ranks
-across each row for the unweighted total. Multiply each rank by its criterion
-weight, shown in parentheses, and add those across for the weighted total. Show
-both totals; a weight of 1 needs no parenthetical.
-
-The matrix is where the decision starts, not where it ends. FM 5-0 (FM-s6 /
-`79c5593207c0`) on the quantitative techniques: "They are not the analysis and
-comparison themselves." Say in the text where the judgment was subjective, and
-that comparing option by option is often more useful than comparing totals.
-
-Summarize the result in the body. FM-s6 (`79c5593207c0`): the quantitative
-techniques "should be summarized clearly so the reader need not refer to an
-attachment for the results." The reader learns the answer from the report, not
-from an opened attachment.
-
-- Bad: the matrix lives in an appendix, and the body says "see Attachment 3 for
-  the comparison."
-- Good: the body states the winner and the margin, and the matrix backs it up
-  for a reader who wants to check the arithmetic.
-
-### Commit to one course
-
-Having compared, commit. Recommend one course of action and make the
-decision-maker's job approval or disapproval, nothing more. This is completed
-staff work: answers, not questions.
-
-TQ-17 (`998664c6e1ca`): "The solution should be complete enough that the
-decision maker has only to approve or disapprove." And: "your job is to advise
-your boss what should be done, provide answers, not questions." And: "Do not
-recommend alternatives."
-
-- Bad: the recommendation reads "Recommend further study" or "Either solution A
-  or B should be implemented." Both hand the decision back.
-- Good: the recommendation names one course and is worded so the decision-maker
-  need only sign for action.
-
-Where significant disagreement survives the comparison, name it and put it in
-front of the decision-maker rather than smoothing it away. Committing to one
-course is not the same as hiding that the call was close. The losing options
-and the contrary evidence are acknowledged, not omitted; the check for that is
-in `references/checklist.md`.
-
-The sharpest wording of the recommendation itself, be absolutely clear what
-response you expect, what steps, when, and by whom, is specified with the cover
-letter in `references/structure.md`.
+Where the report recommends, this step lays out the criteria and the decision
+matrix the analysis already used; both are standards, not work to do here. The
+send-back and the four forms that meet the standard are in SKILL.md step 5.
+`references/recommendation.md` specifies those standards.

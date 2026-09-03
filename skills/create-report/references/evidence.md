@@ -7,10 +7,10 @@ Routed elsewhere, do not duplicate here:
 
 - Number formatting (words to nine, "0.2", percent), the likelihood ladder,
   the weasel list, and table typography live in references/style.md.
-- Steps, audience, criteria, and the decision matrix live in
-  references/planning.md.
-- The paragraph template, skeletons, and paper formats live in
-  references/structure.md.
+- Steps and audience live in references/planning.md; criteria and the
+  decision matrix live in references/recommendation.md.
+- The paragraph template and paper formats live in references/structure.md;
+  the two verbatim skeletons live in references/skeletons.md.
 - The pre-ship checks and the structured challenge live in
   references/checklist.md.
 - The exclusion list, including the ban on footnoting your own conclusions,
@@ -23,9 +23,9 @@ artifact.
 ## The comparison mandate
 
 "Every number must be compared to another number" (Daniel). A bare figure
-tells the reader nothing, because they cannot judge good from bad without a
-second number to hold it against. Give every figure its context: a prior
-period, a rival, a target, a total, or an average.
+tells the reader nothing: no second number, no way to judge good from bad.
+Give every figure its context, a prior period, a rival, a target, a total, or
+an average.
 
 Bad: Revenue was $4.2 million.
 Good: Revenue was $4.2 million, up from $3.1 million the year before and
@@ -74,8 +74,8 @@ split by segment.
 
 ## Footnote policy
 
-Document to persuade. Without documentation the suspicious reader stays
-unconvinced, so the footnote is an instrument of persuasion, not decoration.
+Document to persuade. No documentation, suspicious reader stays unconvinced.
+The footnote is an instrument of persuasion, not decoration.
 
 Document these:
 
@@ -85,10 +85,8 @@ Document these:
 - Not only quotations, but paraphrases, borrowed ideas, and any fact that is
   not common knowledge.
 
-Do not footnote your own conclusions, your explanations of presentation, or
-your summaries. That prohibition is in SKILL.md's exclusion list; obey it
-there. A footnote on your own conclusion is agent narration wearing a
-citation.
+Never footnote your own conclusions (SKILL.md exclusion list). A footnote on
+your own conclusion is agent narration wearing a citation.
 
 Scale the mechanism to the report:
 

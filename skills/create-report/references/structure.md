@@ -1,29 +1,27 @@
 # Structure: shape of the whole report
 
 Organization pattern, the internal/external fork, the paragraph template, the
-six paper formats, the two public-domain skeletons, the external cover letter,
-and the executive-summary default. Load when choosing a shape or building the
-skeleton.
+six paper formats, the external cover letter, and the executive-summary
+default. Load when choosing a shape or building the skeleton.
 
 This file owns the shape one level above the sentence. It does not own:
 
-- Steps 1 to 5, audience roles, criteria, options, the decision matrix ->
-  references/planning.md.
+- Steps 1 to 5 and audience roles -> references/planning.md.
+- Criteria, options, and the decision matrix ->
+  references/recommendation.md.
 - The sentence layer, numbers, the likelihood ladder, the weasel list, table
   typography -> references/style.md.
 - The comparison mandate, graphs, footnotes, source credibility, the citation
   template -> references/evidence.md.
 - The step 8 checks and the structured challenge -> references/checklist.md.
 
-The four-level container law (title states the conclusion, subhead states its
-sub-conclusion, paragraph opens by saying its point, graph is titled with its
-thesis) is stated in the contract in SKILL.md. This file details the subhead
-and paragraph levels; it does not restate the whole law.
+The four-level container law is stated in the contract in SKILL.md. This file
+details the subhead and paragraph levels.
 
 ## Organization pattern
 
-Use one pattern for a business report: thesis first, then subheaded segments,
-in the order the first paragraph announced. It is the standard and least
+One pattern for a business report: thesis first, then subheaded segments, in
+the order the first paragraph announced. It is the standard and least
 misunderstandable organization. [Daniel, RFR-org]
 
 - The first paragraph states the thesis and names what the report covers and
@@ -39,14 +37,6 @@ A subhead states a point, not a topic:
 
 - Bad: `Financial Performance`. Names the topic, withholds the point.
 - Good: `Mediocre Performance`. States the sub-conclusion the segment proves.
-
-The first paragraph's promise is a contract the body must keep:
-
-- Bad: the first paragraph promises finances, labor, and public relations, and
-  the body delivers labor, then a new section on litigation, then finances.
-  The promise is broken and the reader is lost.
-- Good: the first paragraph promises finances, labor, and public relations,
-  and the body delivers those three, under those subheads, in that order.
 
 ## Internal versus external
 
@@ -123,143 +113,13 @@ function. [TQ-16 / `0b9a1d752d40`, staff study TQ-17 / `998664c6e1ca`]
 - Voice: prose, detailed discussion carried to conclusions and
   recommendations.
 - Job: the full problem-to-recommendation report, the problem-solving thought
-  process in written form. Its five-part body is the next section.
+  process in written form. Its five-part body is a skeleton, below.
 
-## Skeleton: the staff study body (verbatim)
+## Skeletons
 
-Reproduced verbatim from the public-domain source, a US government work. Words
-and punctuation are the source's; line breaks are rewrapped to 80 columns and
-curly quotes are shown straight. Source digest:
-`998664c6e1cad93e7faac46f47480939014d764da393aa4754729cc9b3aed6f2`
-[TQ-17 / `998664c6e1ca`].
-
-The body contains five parts: (1) Problem, (2) Factors Bearing on the Problem,
-(3) Discussion, (4) Conclusion and (5) Action Recommended.
-
-1. Problem: The statement of the problem tells the reader what you are trying
-   to solve. No discussion is necessary at this point; a simple statement of
-   the problem is sufficient. You have ample opportunity to discuss all
-   aspects of the problem later in the report.
-
-2. Factors Bearing on the Problem: This part contains the facts, assumptions,
-   criteria and definitions you used to build possible solutions to your
-   problem. Devote separate paragraphs to facts, assumptions, criteria and
-   definitions as shown in the sample study report. Obviously, if you write a
-   report in which you have no assumptions or definitions, omit either or
-   both. Include only those important factors you used to solve your problem.
-   Briefly state whatever you include. Put lengthy support material in
-   attachments. Write each sentence completely so you don't force the reader
-   to refer to the attachments to understand what you've written.
-
-3. Discussion: This part of the report is crucial; it shows the logic used to
-   solve the problem. Generally, some background information is necessary to
-   properly introduce your problem. The introduction may be one or several
-   paragraphs, depending on the detail required. Once the intro is complete,
-   use one of the following outlines to discuss your thought process.
-   a. When using the single best possible solution:
-      (1) List all possible solutions you think will interest the decision
-          maker.
-      (2) Show how you tested each possible solution against the criteria,
-          listing both the advantages and disadvantages. Use the same
-          criteria to test each possible solution.
-      (3) Show how you weighed each possible solution against the others to
-          select the best possible solution.
-      (4) Clearly indicate the best possible solution.
-   b. When using a combination of possible solutions:
-      (1) List all the possible solutions you think will interest the
-          decision maker.
-      (2) Show how you tested each possible solution against the criteria,
-          listing both the advantages and disadvantages. Use the same
-          criteria to test each possible solution.
-      (3) Show how you weighed each possible solution against the other
-          possible solutions and why you retained certain ones as a partial
-          solution to the problem.
-      (4) Show how and why you combined the retained possible solutions.
-   c. When using the single possible solution:
-      (1) List your single solution.
-      (2) Test it against the criteria.
-      (3) Show how and why this solution will solve the problem.
-
-4. Conclusion: The conclusion must provide a complete, workable solution to
-   the problem. The conclusion is nothing more than a brief restatement of the
-   best possible solution or solutions. The conclusion must not continue the
-   discussion. It should completely satisfy the requirements of the problem;
-   it should never introduce new material.
-
-5. Action Recommended: Word the recommendations so your boss need only sign
-   for action. Do not recommend alternatives. This does not mean you cannot
-   consider alternative solutions in the "Discussion." It means you commit
-   yourself to the line of action you judge best. You must relieve the
-   decision maker of the research and study necessary to decide from several
-   alternatives. Give precise guidance on what you want the decision maker to
-   do; i.e., "Sign the implementing letter at attachment 1." (Normally,
-   implementing documents should be the first attachment.) Recommendations
-   like "Recommend further study" or "Either solution A or B should be
-   implemented" indicate the decision maker picked the wrong person to do the
-   study.
-
-Long support goes to attachments, tabbed so the reader can find one item; the
-body must read on its own. The criteria and the decision matrix that feed the
-Discussion are built in references/planning.md; do not rebuild them here.
-
-## Skeleton: the running estimate (verbatim)
-
-For a standing or recurring report that is updated as a situation moves. The
-source is military; read "courses of action" as the options under comparison
-and "functional area" as the report's own remit. Reproduced verbatim from the
-public-domain source, a US government work; line breaks rewrapped to 80
-columns. Source digest:
-`2d50bb6cfe3d1ccbb1e27251f839bc3331c66972d96e2a177a08c56e36e3e948`
-[FM-appC / `2d50bb6cfe3d`].
-
-GENERIC BASE RUNNING ESTIMATE FORMAT
-
-1. SITUATION AND CONSIDERATIONS.
-   a. Area of interest. Identify and describe those factors of the area of
-      interest that affect functional area considerations.
-   b. Characteristics of the assigned area.
-      (1) Terrain. State how terrain affects a functional area's capabilities.
-      (2) Weather. State how weather affects a functional area's capabilities.
-      (3) Enemy forces. Describe enemy disposition, composition, strength, and
-          systems within a functional area. Describe enemy capabilities and
-          possible courses of action (COAs) and their effects on a functional
-          area.
-      (4) Friendly forces. List current functional area resources in terms of
-          equipment, personnel, and systems. Identify additional resources
-          available for the functional area located at higher echelon,
-          adjacent, or other units. List those capabilities from other
-          military and civilian partners that may be available to provide
-          support in the functional area. Compare requirements to current
-          capabilities and suggest solutions for satisfying discrepancies.
-      (5) Civilian considerations. Describe civil considerations that may
-          affect the functional area, including possible support needed by
-          civil authorities from the functional area and possible interference
-          from civil aspects.
-   c. Facts and assumptions. List all facts and assumptions that affect the
-      functional area.
-
-2. MISSION. Show the restated mission resulting from mission analysis.
-
-3. COURSES OF ACTION.
-   a. List friendly COAs that were wargamed.
-   b. List enemy actions or COAs that were templated that impact the
-      functional area.
-   c. List the evaluation criteria identified during COA analysis. All staffs
-      use the same criteria.
-
-4. ANALYSIS. Analyze each COA using the evaluation criteria from COA analysis.
-   Review enemy actions that impact the functional area as they relate to
-   COAs. Identify issues, risks, and deficiencies these enemy actions may
-   create with respect to the functional area.
-
-5. COMPARISON. Compare COAs. Rank order COAs for each key consideration. Use a
-   decision matrix to aid the comparison process.
-
-6. RECOMMENDATIONS AND CONCLUSIONS.
-   a. Recommend the most supportable COAs from the functional area
-      perspective.
-   b. Prioritize and list issues, deficiencies, and risks and provide
-      recommendations on how to mitigate them.
+references/skeletons.md. The staff-study five-part body and the
+running-estimate format, verbatim. Load only when the operator names a staff
+study or a running estimate.
 
 ## The external cover letter
 
@@ -280,22 +140,10 @@ That last rule is the sharpest statement of a recommendation in the whole
 corpus. It belongs in every report's recommendation, external or internal, not
 only in the letter: name the action, the actor, and the date.
 
-Pairs:
-
-- Bad: "Thank you for the opportunity to work with your team. We hope this
-  finds you well. Enclosed please find our report." Three sentences, no
-  purpose.
-- Good: "This report recommends against acquiring the Schlerg Company, for the
-  three reasons set out in the enclosure." Purpose in sentence one.
-
 - Bad: "Please respond as soon as possible so we can proceed." Who does what,
   by when, is unstated.
 - Good: "Sign and return the enclosed authorization by March 14 so the audit
   can begin the following week." Response, actor, and date are all fixed.
-
-- Bad: "We will need your decision shortly, ideally today." "Today" means
-  nothing to a reader opening the letter next week.
-- Good: "We will need your decision by 5 p.m. on March 14."
 
 ## Executive summary (design default)
 

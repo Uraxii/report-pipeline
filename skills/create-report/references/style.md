@@ -10,9 +10,11 @@ is the bad half, the ladder term is the good half.
 
 Owned elsewhere, referenced here, never duplicated:
 
-- Paragraph template (Say it, Explain it, Detail it, Say it again), skeletons,
-  cover letter, paper formats: references/structure.md.
-- Steps, audience, options, the decision matrix: references/planning.md.
+- Paragraph template (Say it, Explain it, Detail it, Say it again), cover
+  letter, paper formats: references/structure.md; skeletons,
+  references/skeletons.md.
+- Steps and audience: references/planning.md; options and the decision matrix,
+  references/recommendation.md.
 - Graphs, footnotes, source credibility, the citation template, evidence
   tests: references/evidence.md.
 - The three-pass edit, the connective sweep as a check, the structured
@@ -86,9 +88,9 @@ near 17 words. Treat anything over 20 as a sentence to split.
 
 ## The three Strunk supplements
 
-Marked AS supplements to the Daniel layer. Daniel has no equivalent for these
-three. Author is Strunk, *The Elements of Style*, 1918. Every pair below is
-copied verbatim from the source files, never reconstructed from memory.
+Supplements to the Daniel layer, which has no equivalent for these three.
+Strunk, *The Elements of Style*, 1918; every pair below copied verbatim from
+the source files.
 
 ### Supplement 1: put statements in positive form
 
