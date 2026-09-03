@@ -67,6 +67,10 @@ merits. Do not compare options here. Comparing while analyzing tempts you
 toward the answer you already like, and it hides the case where every option
 fails.
 
+Concrete: measure option A against the 4-hour restore benchmark, write what it
+does. Do not write down that A restores faster than B. That sentence belongs
+at step 8.
+
 ```
 Option A, in-region cold storage
   Compliance posture   High. Meets the DPA and the retention schedule.

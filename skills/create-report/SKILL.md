@@ -122,9 +122,9 @@ visibly distinct.
 6. **Draft.** Largely mechanical if step 5 was honest. Apply the exclusion
    list, the evidence rules, the sentence layer, and the uncertainty layer.
 7. **Revise.** Read the draft aloud, or have it read to you. Run the
-   connective sweep. Check the words a spell-checker passes but the sentence
-   misuses. Pause before you send. Three passes, in order: big picture, then
-   paragraphs, then sentences and words.
+   connective sweep: references/style.md. Check the words a spell-checker
+   passes but the sentence misuses. Pause before you send. Three passes, in
+   order: big picture, then paragraphs, then sentences and words.
 8. **Check.** Run references/checklist.md against the finished draft. Run the
    key assumptions check a second time and run the sensitivity test; record
    both outputs. The heavy challenge techniques (competing hypotheses, Team A

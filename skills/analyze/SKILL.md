@@ -212,7 +212,8 @@ being checkable.
 
 ## Collisions
 
-Five points the rules leave in tension. One ruling each.
+Five points the rules leave in tension. One ruling each. Two of the five are
+summarized here and ruled in full at references/comparison.md.
 
 - **Two options versus one real option.** Demand is two genuinely distinct
   options. Manufactured straw option satisfies the count and destroys the
