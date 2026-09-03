@@ -190,7 +190,11 @@ being checkable.
 7. **Analyze each option alone.** Measure each survivor against each
    criterion's benchmark on its own merits. No cross-option comparison yet.
    Escalation methods fire here if step 3 routed them. references/options.md,
-   plus the one escalation file step 3 routed to.
+   plus the one escalation file step 3 routed to. That file is one of
+   references/method-cost.md, references/method-risk.md,
+   references/method-root-cause.md, references/method-causal-claims.md.
+   Operator named a challenge technique -> it runs here too, against this
+   analysis. references/challenge-techniques.md.
 8. **Compare and commit.** Where two or more options survived screening, build
    the matrix, show both totals, re-run the scoring under plausibly different
    weights, and record whether the ranking held. Where fewer than two
