@@ -65,38 +65,63 @@ for skill_dir in skills/*/; do
 	grep -q "^name: $skill\$" "$skill_md" ||
 		fail "$skill_md has no 'name: $skill' in its frontmatter"
 
-	for ref in $(grep -rho 'references/[A-Za-z0-9_./-]*\.md' "$skill_dir" | sort -u); do
-		[ -f "${skill_dir}${ref}" ] ||
-			fail "$skill points at $ref, which does not exist (dangling)"
-	done
+	while IFS= read -r src; do
+		for ref in $(grep -o 'references/[A-Za-z0-9_./-]*\.md' "$src" |
+			sort -u); do
+			[ -f "${skill_dir}${ref}" ] ||
+				fail "$src points at $ref, which does not exist (dangling)"
+		done
+	done < <(find "$skill_dir" -type f -name '*.md')
 
 	# Reverse check: every file in the skill besides SKILL.md must be named
-	# by its references/... path in some .md file in the skill, or it ships
-	# unreferenced.
+	# by its references/... path in some OTHER .md file in the skill, or it
+	# ships unreferenced. A file naming its own path does not count.
 	while IFS= read -r file; do
 		rel=${file#"$skill_dir"}
-		grep -rqF -- "$rel" "$skill_dir" ||
+		grep -rqF --exclude="$(basename "$file")" -- "$rel" "$skill_dir" ||
 			fail "$file is not referenced by any file in $skill_dir (orphan)"
 	done < <(find "$skill_dir" -type f ! -name SKILL.md)
 
 	# Load-moment check: a reference named only in SKILL.md's trailing
 	# "## Reference files" catalog never gets loaded at the step that needs
-	# it. Require one mention in the body above that heading, or in a
-	# sibling reference file. A file naming itself does not count.
+	# it. Every reference file must be reachable from SKILL.md's body by
+	# following pointers. Reachability is transitive, so a pair of files
+	# that cite only each other stays unreached and fails.
 	if [ -d "${skill_dir}references" ]; then
 		grep -q '^## Reference files$' "$skill_md" ||
 			fail "$skill_md has a references/ directory but no '## Reference files' heading, so the load-moment check cannot run"
 		body=$(awk '/^## Reference files$/{exit} {print}' "$skill_md")
+		reached=" "
+		for file in "${skill_dir}references"/*.md; do
+			rel=references/$(basename "$file")
+			grep -qF -- "$rel" <<<"$body" && reached="$reached$rel "
+		done
+		# Fixed point: add any file a reached file names, until the
+		# set stops growing. A file never seeds itself, so a
+		# self-naming file gains nothing from naming itself.
+		growing=1
+		while [ "$growing" = 1 ]; do
+			growing=0
+			for file in "${skill_dir}references"/*.md; do
+				rel=references/$(basename "$file")
+				case "$reached" in *" $rel "*) continue ;; esac
+				for src in $reached; do
+					grep -qF -- "$rel" "${skill_dir}${src}" ||
+						continue
+					reached="$reached$rel "
+					growing=1
+					break
+				done
+			done
+		done
 		unreached=
 		for file in "${skill_dir}references"/*.md; do
 			rel=references/$(basename "$file")
-			grep -qF -- "$rel" <<<"$body" ||
-				grep -rqF --exclude="$(basename "$file")" \
-					-- "$rel" "${skill_dir}references" ||
-				unreached="$unreached $rel"
+			case "$reached" in *" $rel "*) continue ;; esac
+			unreached="$unreached $rel"
 		done
 		[ -z "$unreached" ] ||
-			fail "$skill names these only in its trailing reference list, so no step loads them:$unreached"
+			fail "$skill does not reach these from SKILL.md's body by following pointers, so no step loads them:$unreached"
 
 		# Prefix check: the load-moment check above matches on the
 		# references/ prefix, so a pointer written as a bare basename
