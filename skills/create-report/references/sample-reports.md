@@ -1,21 +1,23 @@
 # Sample reports: one bad, one good
 
-A worked example of the report contract. Two versions of the same internal
-recommendation, written from the same facts. The first breaks the contract on
-purpose. The second obeys it. After each, a list ties specific lines to the
-rule they break or satisfy. The pair is original writing, not reproduced from
-any source.
+Worked example of the report contract. Two versions of the same internal
+recommendation, written from the same facts. First breaks the contract on
+purpose. Second obeys it. After each, a list ties specific lines to the rule
+they break or satisfy. The pair is original writing, not reproduced from any
+source.
 
-The report shapes referenced below live in references/structure.md. The
-likelihood ladder and the weasel list live in references/style.md. The
-numbered checks live in references/checklist.md.
+Report shapes referenced below: references/structure.md. Likelihood ladder and
+weasel list: references/style.md. Numbered checks:
+references/checklist.md.
 
 ## The facts both versions use
 
-Scaffolding for this example, not part of either report. RadixParts ships
-about 8,000 regional parcels a month. Its carrier contract is expiring and one
-carrier must be chosen for the coming year. Three candidates, from the same
-data both versions draw on:
+Scaffolding for this example, not part of either report. Both report bodies
+below are written as business prose, the register this skill produces, not the
+register this file's own commentary uses. RadixParts ships about 8,000
+regional parcels a month. Its carrier contract is expiring and one carrier
+must be chosen for the coming year. Three candidates, from the same data both
+versions draw on:
 
 - Meridian Freight: $7.20 per parcel, 94 percent on time, 2.1 days transit.
 - Coastal Parcel: $6.40 per parcel, 89 percent on time, 2.8 days transit.
@@ -73,14 +75,14 @@ the cost picture, but I will leave that note here at the end.
 
 ## What the bad report breaks
 
-Failure modes (from the skill's four named modes):
+Failure modes, the skill's four named ones:
 
 - Context bleed: "in Tuesday's standup," "As I said in Slack this morning."
-  Session talk pasted in instead of transformed notes.
+  Session talk pasted in, not transformed notes.
 - Agent narration: "I completed a review," "Just to restate the problem," the
-  step-by-step multiplication, and the footnote on its own conclusion.
-- Revision as append: the "P.S." bolts a cost fact onto the end, outside the
-  order the opening never promised.
+  step-by-step multiplication, the footnote on its own conclusion.
+- Revision as append: "P.S." bolts a cost fact onto the end, outside an order
+  the opening never promised.
 - False confidence: "Meridian will keep its 94 percent on-time rate" states an
   inference as a fact; "highly confident it is very likely" gives a conclusion
   with no calibrated likelihood.
@@ -123,13 +125,13 @@ Checklist coverage. Each check catches at least the line named here.
 | 23 | The report misses most of the checks above and records not one of |
 |    | them as an authorised deviation |
 
-Checks 18, 19 and 23 are process checks, not lines of report text. The bad
-report fails them by evidence: the unmarked volume figure shows no assumptions
-check informed it, no "if X is wrong, Y breaks" line shows the sensitivity
-test ran, the blind-spot typos plus the append show the edit passes never ran,
-and the absent deviations block shows nothing was authorised. Check 22 is half
-a text check and half a process check: the pasted session talk is on the page,
-and the missing notes file is not.
+Checks 18, 19 and 23 are process checks, not lines of report text. Bad report
+fails them by evidence: unmarked volume figure shows no assumptions check
+informed it, no "if X is wrong, Y breaks" line shows the sensitivity test ran,
+blind-spot typos plus the append show the edit passes never ran, absent
+deviations block shows nothing was authorised. Check 22 is half text check,
+half process check: pasted session talk is on the page, missing notes file is
+not.
 
 ## The good report, as written
 

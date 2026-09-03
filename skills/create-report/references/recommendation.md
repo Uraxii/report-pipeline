@@ -10,7 +10,7 @@ references/planning.md.
 
 ## At least two distinct options
 
-One option is not a recommendation, because nothing was compared. The analysis
+One option is not a recommendation, because nothing was compared. Analysis
 must have generated at least two genuinely distinct alternatives. A single
 option is admissible only in the rare case where you can defend why no
 alternative exists; stand ready to defend it (TQ-17 / `998664c6e1ca`).
@@ -63,9 +63,9 @@ FM-crit / `ef7984f51683`), verbatim:
   better") or absolute terms ("a night movement is better than a day
   movement").
 
-A criterion missing any of the five is an opinion wearing a label. "Cost" with
-no unit, no benchmark, and no direction is not a criterion; it is a place to
-hide a preference.
+Criterion missing any of the five is an opinion wearing a label. "Cost" with
+no unit, no benchmark, no direction is not a criterion; it is a place to hide
+a preference.
 
 Worked example, one evaluation criterion in full (FM-s3 / `8725de6c1699`):
 
@@ -79,12 +79,12 @@ Formula:          Less than 136 is an advantage; greater than 136 is a
 ```
 
 Set the benchmark by reasoning, historical precedent, or a current example.
-Averaging is the least preferred method, because it "essentially duplicates
-the process of comparison" (FM-s3 / `8725de6c1699`).
+Averaging is least preferred, because it "essentially duplicates the process of
+comparison" (FM-s3 / `8725de6c1699`).
 
 ## Weight the criteria, and state each weight's rationale
 
-Criteria are almost never of equal importance, so weight them. The rule that
+Criteria are almost never of equal importance, so weight them. Rule that
 matters: state the rationale for every weight, so the reader can challenge the
 weighting rather than take it on faith. FM 5-0 (FM-crit / `ef7984f51683`):
 "Regardless of the method used to assign criteria weights, leaders state the
@@ -101,14 +101,14 @@ Measure each option against the benchmark alone before comparing, so the
 analysis can report "all options fail on cost" instead of crowning a false
 winner from a weak field.
 
-This is the analytic order, and it does not conflict with putting the
-conclusion first in the writing. Do the work in the analytic order; present it
-in the reader's order.
+Analytic order, and it does not conflict with putting the conclusion first in
+the writing. Do the work in the analytic order; present it in the reader's
+order.
 
 ## The decision matrix
 
 Compare with a decision matrix: options across, criteria down, a rank per cell,
-and both unweighted and weighted totals shown. Worked example, adapted verbatim
+both unweighted and weighted totals shown. Worked example, adapted verbatim
 from FM 5-0 (FM-s6 / `79c5593207c0`, lower total is preferred):
 
 ```
@@ -120,39 +120,39 @@ Option 1 total:  8 unweighted, 11 weighted
 Option 2 total:  7 unweighted, 10 weighted
 ```
 
-How to read and build it (FM-s6 / `79c5593207c0`, FM-comp / `2c2057b2b0bc`):
-rank each option per criterion, lower rank preferred. Add the unweighted ranks
-across each row for the unweighted total. Multiply each rank by its criterion
-weight, shown in parentheses, and add those across for the weighted total. Show
-both totals; a weight of 1 needs no parenthetical.
+Read and build it (FM-s6 / `79c5593207c0`, FM-comp / `2c2057b2b0bc`): rank each
+option per criterion, lower rank preferred. Add the unweighted ranks across
+each row for the unweighted total. Multiply each rank by its criterion weight,
+shown in parentheses, and add those across for the weighted total. Show both
+totals; a weight of 1 needs no parenthetical.
 
-The matrix is where the decision starts, not where it ends. FM 5-0 (FM-s6 /
+Matrix is where the decision starts, not where it ends. FM 5-0 (FM-s6 /
 `79c5593207c0`) on the quantitative techniques: "They are not the analysis and
 comparison themselves." Say in the text where the judgment was subjective, and
 that comparing option by option is often more useful than comparing totals.
 
-Summarize the result in the body; the reader learns the answer from the report,
-not from an opened attachment. FM-s6 (`79c5593207c0`): the quantitative
-techniques "should be summarized clearly so the reader need not refer to an
-attachment for the results."
+Summarize the result in the body; reader learns the answer from the report, not
+from an opened attachment. FM-s6 (`79c5593207c0`): the quantitative techniques
+"should be summarized clearly so the reader need not refer to an attachment for
+the results."
 
 ## Commit to one course
 
 Having compared, commit. Recommend one course of action and make the
-decision-maker's job approval or disapproval, nothing more. This is completed
-staff work: answers, not questions.
+decision-maker's job approval or disapproval, nothing more. Completed staff
+work: answers, not questions.
 
 TQ-17 (`998664c6e1ca`): "The solution should be complete enough that the
 decision maker has only to approve or disapprove." And: "your job is to advise
 your boss what should be done, provide answers, not questions." And: "Do not
 recommend alternatives."
 
-Where significant disagreement survives the comparison, name it and put it in
-front of the decision-maker rather than smoothing it away. Committing to one
-course is not the same as hiding that the call was close. The losing options
-and the contrary evidence are acknowledged, not omitted; the check for that is
-in references/checklist.md.
+Significant disagreement survives the comparison -> name it and put it in front
+of the decision-maker rather than smoothing it away. Committing to one course
+is not the same as hiding that the call was close. Losing options and contrary
+evidence are acknowledged, not omitted; the check for that is in
+references/checklist.md.
 
-The sharpest wording of the recommendation itself, be absolutely clear what
+Sharpest wording of the recommendation itself, be absolutely clear what
 response you expect, what steps, when, and by whom, is specified with the cover
 letter in references/structure.md.

@@ -2,7 +2,8 @@
 
 Two verbatim public-domain skeletons. Load when the report is a staff study or
 a running estimate, whoever chose it. Every other shape rule:
-references/structure.md.
+references/structure.md. Skeleton bodies below are the source's own words;
+never restyle them.
 
 ## Skeleton: the staff study body (verbatim)
 
@@ -77,15 +78,15 @@ The body contains five parts: (1) Problem, (2) Factors Bearing on the Problem,
    implemented" indicate the decision maker picked the wrong person to do the
    study.
 
-Long support goes to attachments, tabbed so the reader can find one item; the
-body must read on its own. The criteria and the decision matrix that feed the
-Discussion are built in references/recommendation.md; do not rebuild them here.
+Long support goes to attachments, tabbed so the reader can find one item; body
+must read on its own. Criteria and decision matrix that feed the Discussion
+are built in references/recommendation.md; never rebuild them here.
 
 ## Skeleton: the running estimate (verbatim)
 
-For a standing or recurring report that is updated as a situation moves. The
-source is military; read "courses of action" as the options under comparison
-and "functional area" as the report's own remit. Reproduced verbatim from the
+For a standing or recurring report updated as a situation moves. Source is
+military; read "courses of action" as the options under comparison and
+"functional area" as the report's own remit. Reproduced verbatim from the
 public-domain source, a US government work; line breaks rewrapped to 80
 columns. Source digest:
 `2d50bb6cfe3d1ccbb1e27251f839bc3331c66972d96e2a177a08c56e36e3e948`

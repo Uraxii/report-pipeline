@@ -11,17 +11,17 @@ description: >-
 
 ## Meta-rule
 
-Operator instructions for this report outrank every rule in this skill. Where
-the operator's instruction differs from anything below, the instruction wins.
-Following the instruction against a rule here is a deviation, and the report
-records it. The record's shape is in references/checklist.md.
+Operator instructions for this report outrank every rule in this skill.
+Operator instruction differs from anything below -> instruction wins.
+Following instruction against a rule here is a deviation, and the report
+records it. Record shape: references/checklist.md.
 
 ## Scope: this skill drafts, it does not analyze
 
-The analysis is work already done. The steps below turn that work into a
-report. Where a step names an analysis procedure (the key assumptions check,
-the criteria and the decision matrix, the evidence tests), it is a standard the
-finished work must meet and record, not a fresh task to run.
+Analysis is work already done. Steps below turn that work into a report. Step
+naming an analysis procedure (key assumptions check, criteria and decision
+matrix, evidence tests) names a standard the finished work must meet and
+record, never a fresh task to run.
 
 ## The report contract
 
@@ -62,19 +62,18 @@ Four more clauses, in the contract's own voice:
   what would have to change for it to stop holding.
 
 Design mark on those four: ICD 203 writes several as "should" and "as
-appropriate", the contract states them as musts. Skill design decision, not the
-source's wording.
+appropriate". Contract states them as musts. Skill design decision, not source
+wording.
 
-The report prints the ladder it uses. The ladder table is in
-references/style.md.
+Report prints the ladder it uses. Ladder table: references/style.md.
 
-The contract is also the revision rule. Any revision leaves the first
-paragraph's promise true: new material merges into the announced structure, or
-the announcement changes with it.
+Contract is also the revision rule. Any revision leaves the first paragraph's
+promise true: new material merges into the announced structure, or the
+announcement changes with it.
 
 ## Do not include
 
-Directly under the contract, and non-negotiable. Do not restate the problem; do
+Directly under the contract. Non-negotiable. Do not restate the problem; do
 not announce that the research was completed; do not summarize background; do
 not define terms; do not explain calculations; and do not footnote your own
 conclusions, presentation explanations, or summaries.
@@ -135,8 +134,8 @@ visibly distinct.
 ## Collisions
 
 Five rulings an agent otherwise gets wrong: data plural, hedging versus
-calibration, conclusion-first versus a hostile reader, analysis order versus
-presentation order, a named format versus the exclusion list.
+calibration, conclusion-first versus hostile reader, analysis order versus
+presentation order, named format versus exclusion list.
 references/collisions.md. Load when two rules here appear to conflict, or
 when the report uses a named paper format, whoever chose it.
 
@@ -144,29 +143,26 @@ when the report uses a named paper format, whoever chose it.
 
 Four named ways an agent-drafted report fails.
 
-- Context bleed. Session context or source text pasted into the report instead
-  of transformed notes.
-- Agent narration. The report announces its own process: restated problem,
-  research announcement, explained calculations, footnoted own conclusions.
-- Revision as append. New material bolted onto the end instead of merged into
-  the announced structure, breaking the first paragraph's promise.
-- False confidence. An inference stated in the register of a fact, or a
-  conclusion given with no stated likelihood or confidence.
+- Context bleed. Session context or source text pasted into report, not
+  transformed notes.
+- Agent narration. Report announces own process: restated problem, research
+  announcement, explained calculations, footnoted own conclusions.
+- Revision as append. New material bolted on the end, not merged into the
+  announced structure -> first paragraph's promise broken.
+- False confidence. Inference stated in the register of a fact, or conclusion
+  given with no stated likelihood or confidence.
 
 ## Pick the format from the function
 
-Pick one shape from the function it serves, then hold it fixed for the whole
-report. Detail and skeletons: references/structure.md.
+Pick one shape from the function it serves. Hold it fixed whole report. Detail
+and skeletons: references/structure.md.
 
-- Point paper: a one-page bullet brief for quick reference or a decision now.
-- Talking paper: bullet talking points to carry into a discussion or briefing.
-- Bullet background paper: background in bullet form, for a reader who needs
-  the facts fast.
-- Background paper: the same background in prose, for a reader who needs the
-  reasoning.
-- Position paper: argues one position and asks the reader to adopt it.
-- Staff study: the full problem-to-recommendation report, with a five-part
-  body.
+- Point paper: one-page bullet brief, quick reference or decision now.
+- Talking paper: bullet talking points to carry into discussion or briefing.
+- Bullet background paper: background in bullets, reader needs facts fast.
+- Background paper: same background in prose, reader needs the reasoning.
+- Position paper: argues one position, asks reader to adopt it.
+- Staff study: full problem-to-recommendation report, five-part body.
 
 ## Reference files
 
@@ -175,26 +171,24 @@ Load on demand. Each is this skill's own file.
 - references/planning.md. Steps 1 to 5: assignment, audience, notes, thesis,
   plan. Load when working steps 1 to 5.
 - references/recommendation.md. Criteria, screening and evaluation, weights,
-  the decision matrix, and committing to one course. Load when the report
-  recommends among options.
+  decision matrix, committing to one course. Load when report recommends among
+  options.
 - references/structure.md. Organization pattern, paragraph template, cover
-  letter, and the paper formats above. Load when choosing a shape or building
-  the skeleton.
-- references/skeletons.md. The staff-study five-part body and the
-  running-estimate format, verbatim. Load when the report is a staff study or
-  a running estimate, whoever chose it.
-- references/style.md. The sentence layer, the numbers rules, the likelihood
-  ladder, and the weasel list. Load when drafting or revising sentences, or
-  when stating uncertainty.
-- references/evidence.md. The comparison mandate, graphs, footnote policy,
-  source credibility, and the argument tests. Load when placing numbers,
-  graphs, or sources.
-- references/checklist.md. The step 8 checks, the key assumptions check, the
-  three-pass edit, and the structured challenge. Load at step 8 before
-  finalizing.
-- references/collisions.md. The five tie-breaks. Load when two rules appear to
+  letter, paper formats above. Load when choosing a shape or building the
+  skeleton.
+- references/skeletons.md. Staff-study five-part body and running-estimate
+  format, verbatim. Load when the report is a staff study or a running
+  estimate, whoever chose it.
+- references/style.md. Sentence layer, numbers rules, likelihood ladder,
+  weasel list. Load when drafting or revising sentences, or stating
+  uncertainty.
+- references/evidence.md. Comparison mandate, graphs, footnote policy, source
+  credibility, argument tests. Load when placing numbers, graphs, or sources.
+- references/checklist.md. Step 8 checks, key assumptions check, three-pass
+  edit, structured challenge. Load at step 8 before finalizing.
+- references/collisions.md. Five tie-breaks. Load when two rules appear to
   conflict.
-- references/challenge-heavy.md. The four heavy techniques. Load only when the
+- references/challenge-heavy.md. Four heavy techniques. Load only when the
   operator names one.
-- references/sample-reports.md. One bad report and one good rewrite of it,
-  annotated. Load when you want a worked example of the contract.
+- references/sample-reports.md. One bad report, one good rewrite, annotated.
+  Load when you want a worked example of the contract.

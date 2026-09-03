@@ -1,28 +1,28 @@
 # Structure: shape of the whole report
 
-Organization pattern, the internal/external fork, the paragraph template, the
-six paper formats, the external cover letter, and the executive-summary
-default. Load when choosing a shape or building the skeleton.
+Organization pattern, internal/external fork, paragraph template, six paper
+formats, external cover letter, executive-summary default. Load when choosing a
+shape or building the skeleton.
 
-This file owns the shape one level above the sentence. It does not own:
+This file owns the shape one level above the sentence. Does not own:
 
 - Steps 1 to 5 and audience roles -> references/planning.md.
 - Criteria, options, and the decision matrix ->
   references/recommendation.md.
-- The sentence layer, numbers, the likelihood ladder, the weasel list, table
-  typography -> references/style.md.
-- The comparison mandate, graphs, footnotes, source credibility, the citation
+- Sentence layer, numbers, likelihood ladder, weasel list, table typography ->
+  references/style.md.
+- Comparison mandate, graphs, footnotes, source credibility, citation
   template -> references/evidence.md.
-- The step 8 checks and the structured challenge -> references/checklist.md.
+- Step 8 checks and the structured challenge -> references/checklist.md.
 
-The four-level container law is stated in the contract in SKILL.md. This file
+Four-level container law is stated in the contract in SKILL.md. This file
 details the subhead and paragraph levels.
 
 ## Organization pattern
 
 One pattern for a business report: thesis first, then subheaded segments, in
-the order the first paragraph announced. It is the standard and least
-misunderstandable organization. [Daniel, RFR-org]
+the order the first paragraph announced. Standard and least misunderstandable
+organization. [Daniel, RFR-org]
 
 - The first paragraph states the thesis and names what the report covers and
   in what order.
@@ -42,14 +42,14 @@ A subhead states a point, not a topic:
 
 Pick the skeleton from where the report goes, then hold it.
 
-- A report that stays inside the organization takes the internal skeleton: no
-  cover letter, thesis paragraph straight into subheaded segments, a plain
-  list of sources at the end. [Daniel, RFR-int]
-- A report that leaves the organization takes the external skeleton: the same
-  body, wrapped in a formal cover letter that addresses the recipient directly
-  and states the purpose of the enclosed report. [Daniel, RFR-ext]
+- Report stays inside the organization -> internal skeleton: no cover letter,
+  thesis paragraph straight into subheaded segments, plain list of sources at
+  the end. [Daniel, RFR-int]
+- Report leaves the organization -> external skeleton: same body, wrapped in a
+  formal cover letter that addresses the recipient directly and states the
+  purpose of the enclosed report. [Daniel, RFR-ext]
 
-The cover letter is specified in full below.
+Cover letter specified in full below.
 
 ## The paragraph template
 
@@ -63,27 +63,27 @@ Build it in four moves. [Daniel, RFR-para]
 3. **Detail it.** Give the specifics, the numbers, the documentation.
 4. **Say it again.** Close by restating the point.
 
-The fourth move is the one an agent gets wrong. The closing sentence must
+Move four is the one an agent gets wrong. The closing sentence must
 SYNTHESIZE: put the detail in perspective, and it may hand off to the next
-point. It is never a copy of the first sentence.
+point. Never a copy of the first sentence.
 
-- Bad: the paragraph opens "Labor relations are poor," runs its evidence, and
-  closes "So labor relations are poor." The close adds nothing.
-- Good: it opens "Labor relations are poor," runs its evidence, and closes
-  "Three strikes in two years have cost more than the wage demands would have,
-  which is why the next section turns to the balance sheet." The close weighs
-  the evidence and points forward.
+- Bad: paragraph opens "Labor relations are poor," runs its evidence, closes
+  "So labor relations are poor." Close adds nothing.
+- Good: opens "Labor relations are poor," runs its evidence, closes "Three
+  strikes in two years have cost more than the wage demands would have, which
+  is why the next section turns to the balance sheet." Close weighs the
+  evidence and points forward.
 
 ## The six paper formats
 
-Pick the format from the function it serves, then hold the format fixed for
-the whole report. Use the right paper for the task; the format supports the
-function. [TQ-16 / `0b9a1d752d40`, staff study TQ-17 / `998664c6e1ca`]
+Pick the format from the function it serves, then hold the format fixed for the
+whole report. Right paper for the task; format supports function. [TQ-16 /
+`0b9a1d752d40`, staff study TQ-17 / `998664c6e1ca`]
 
 **Point paper.**
 - Length: one page, bullets, minimal data.
 - Voice: terse, single issue, accurate-brief-specific bullets.
-- Job: a memory jogger so someone can speak on the issue without notice.
+- Job: memory jogger so someone can speak on the issue without notice.
 
 **Talking paper.**
 - Length: one page, bullets.
@@ -94,12 +94,12 @@ function. [TQ-16 / `0b9a1d752d40`, staff study TQ-17 / `998664c6e1ca`]
 **Bullet background paper.**
 - Length: one or several related issues, one or more pages, bullet
   statements.
-- Voice: a concise chronology in bullets.
+- Voice: concise chronology in bullets.
 - Job: summarize an attached package for a reader who needs the facts fast.
 
 **Background paper.**
 - Length: multi-page, full sentences, numbered paragraphs.
-- Voice: prose, a detailed chronology.
+- Voice: prose, detailed chronology.
 - Job: condense a complex issue for a decision maker who needs the reasoning.
 
 **Position paper.**
@@ -112,7 +112,7 @@ function. [TQ-16 / `0b9a1d752d40`, staff study TQ-17 / `998664c6e1ca`]
 - Length: multi-page research paper.
 - Voice: prose, detailed discussion carried to conclusions and
   recommendations.
-- Job: the full problem-to-recommendation report, the problem-solving thought
+- Job: full problem-to-recommendation report, the problem-solving thought
   process in written form. Its five-part body: references/skeletons.md.
 
 ## Skeletons
@@ -123,7 +123,7 @@ running estimate, whoever chose it.
 
 ## The external cover letter
 
-An external report goes out under a formal letter addressed to the recipient,
+External report goes out under a formal letter addressed to the recipient,
 stating the purpose of the enclosed report. Specify it in full. [Daniel,
 RFR-letter, RFR-ext]
 
@@ -151,15 +151,14 @@ DESIGN DEFAULT, skill-authored. Not drawn from any source; the corpus does not
 specify an executive summary, and this fills that silence so the skill is not
 mute when a report grows formal. Marked as design, attributed to no source.
 
-When a report is long enough to open with a summary, the executive summary is
-the first paragraph's promise expanded to a paragraph or a short block, and
-nothing more:
+Report long enough to open with a summary -> the executive summary is the first
+paragraph's promise expanded to a paragraph or a short block, nothing more:
 
-- It states the thesis and the main conclusion or recommendation.
-- It gives the primary supporting reasons, grouped into the same categories,
-  in the same order, that the body will follow.
-- It states the recommended action, its actor, and its date.
-- It obeys every exclusion the report obeys: no restated problem, no research
+- States the thesis and the main conclusion or recommendation.
+- Gives the primary supporting reasons, grouped into the same categories, in
+  the same order, that the body will follow.
+- States the recommended action, its actor, and its date.
+- Obeys every exclusion the report obeys: no restated problem, no research
   announcement, no background summary, no defined terms.
 
 A reader who reads only the summary must come away with the answer and the
@@ -168,6 +167,6 @@ exactly what the summary promised, in that order; the summary is under the
 same contract as the first paragraph.
 
 Front matter stops here. Beyond this default and the source-backed elements
-above (format by function, the five-part body, tabbed attachments, the running
-estimate), the skill invents no table-of-contents or abstract standard. If one
-is needed, it too states its point and keeps the announced order.
+above (format by function, five-part body, tabbed attachments, running
+estimate), the skill invents no table-of-contents or abstract standard. One
+needed anyway -> it too states its point and keeps the announced order.

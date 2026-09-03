@@ -1,26 +1,25 @@
 # Planning: steps 1 to 5
 
-Load when working steps 1 to 5: assignment, audience, notes, thesis, plan. The
-recommendation machinery is in references/recommendation.md.
+Load when working steps 1 to 5: assignment, audience, notes, thesis, plan.
+Recommendation machinery: references/recommendation.md.
 
 Content owned elsewhere, linked never copied:
 
-- Paragraph template, cover letter, and the paper formats:
-  `references/structure.md`.
-- Sentence layer, numbers, the likelihood ladder, and the weasel list:
+- Paragraph template, cover letter, paper formats: `references/structure.md`.
+- Sentence layer, numbers, likelihood ladder, weasel list:
   `references/style.md`.
-- Opinion adjudication, the evidence tests, graphs, footnotes, and the
-  citation template: `references/evidence.md`.
-- The checks, the key-assumptions-check procedure, and the structured
-  challenge techniques: `references/checklist.md`.
+- Opinion adjudication, evidence tests, graphs, footnotes, citation template:
+  `references/evidence.md`.
+- Checks, key-assumptions-check procedure, structured challenge techniques:
+  `references/checklist.md`.
 
 ---
 
 ## Step 1: Assignment
 
-Write out the specific question the report answers before you do anything
-else. The topic is the question; the thesis is the answer. This is the single
-most common failure: an agent answers a question no one asked.
+Write out the specific question the report answers before anything else. Topic
+is the question; thesis is the answer. Most common failure: agent answers a
+question no one asked.
 
 - Bad: the instruction was "look into the Schlerg acquisition," so the report
   surveys the company. "Look into X" is not an assignment, and a survey is not
@@ -28,7 +27,7 @@ most common failure: an agent answers a question no one asked.
 - Good: the question is written first, "Should we acquire the Schlerg
   Company?", and every sentence in the report serves that one question.
 
-When the assignment asks yes or no, answer yes or no.
+Assignment asks yes or no -> answer yes or no.
 
 - Bad: asked "Should we open a second plant?", the report lays out
   considerations and leaves the reader to decide.
@@ -36,14 +35,14 @@ When the assignment asks yes or no, answer yes or no.
   then gives the reasons.
 
 One controlling purpose governs the whole report, and every sentence serves
-it. A sentence that serves no purpose is not neutral; it is a leak. If you
-cannot say which purpose a sentence serves, cut it.
+it. A sentence serving no purpose is not neutral; it is a leak. Cannot say
+which purpose a sentence serves -> cut it.
 
 ### Get the problem statement approved
 
-Where the question came from someone else, get the problem statement approved
-before you work on it. Enforcement step, not courtesy: you and the
-decision-maker agree on the problem before effort is spent.
+Question came from someone else -> get the problem statement approved before
+working on it. Enforcement step, not courtesy: you and the decision-maker
+agree on the problem before effort is spent.
 
 Cast the problem statement as who, what, when, why, and how, then state it in
 one of three forms (from Tongue and Quill, TQ-17 / `998664c6e1ca`):
@@ -65,8 +64,8 @@ problem exists when the current state or condition differs from or impedes
 achieving the desired end state." Its procedure: compare the current situation
 to the desired end state, define the boundaries, answer who, what, when,
 where, and why the problem affects and occurred, and only then write the draft
-statement. Where the problem came from a higher authority, "it is best to
-submit the problem statement to the decision maker for approval."
+statement. Problem came from a higher authority -> "it is best to submit the
+problem statement to the decision maker for approval."
 
 - Bad: the assignment asks what to do about falling morale, and the report
   explains how morale fell. Answering "how it happened" when asked "what to do
@@ -77,18 +76,18 @@ submit the problem statement to the decision maker for approval."
 
 Run the key assumptions check here, at the start, against the answer the
 assignment already presumes. Every assignment smuggles in assumptions; name
-them before they harden. It runs twice, once here and once at step 8. The
-procedure and the questions to ask are in `references/checklist.md`; record
-its output as a planning artifact.
+them before they harden. Runs twice, here and at step 8. Procedure and the
+questions to ask: `references/checklist.md`. Record its output as a planning
+artifact.
 
 ---
 
 ## Step 2: Audience
 
 Set two dials together, before drafting. Daniel states them as a matched pair:
-omit as much as possible, and be as technical as possible. The first dial is
-what the reader already knows; the second is what the reader can absorb. Turn
-them together, because each bounds the other.
+omit as much as possible, and be as technical as possible. First dial is what
+the reader already knows; second is what the reader can absorb. Turn them
+together, because each bounds the other.
 
 - Bad: the report defines "amortization" for a reader who is the company's
   own CFO. Explaining what the reader knows insults the reader.
@@ -96,14 +95,13 @@ them together, because each bounds the other.
   the judgment the CFO does not yet have.
 
 Default reader, unless the assignment says otherwise: intelligent, suspicious,
-and busy. Intelligent means do not over-explain. Suspicious means every claim
-needs its support. Busy means the answer comes first and nothing is padding.
+busy. Intelligent -> do not over-explain. Suspicious -> every claim needs its
+support. Busy -> answer comes first, nothing is padding.
 
 ### Four roles, not one reader
 
-A single report usually has four audiences at once. Address all four, not the
-one you happen to be writing to. From Tongue and Quill (TQ-3 /
-`9263c6f6f634`):
+One report usually has four audiences at once. Address all four, not the one
+you happen to be writing to. From Tongue and Quill (TQ-3 / `9263c6f6f634`):
 
 - Primary receiver: "The person you directly communicate with either verbally
   or in writing."
@@ -117,34 +115,33 @@ one you happen to be writing to. From Tongue and Quill (TQ-3 /
   save you embarrassment."
 
 Sentence-level tone, jargon density, and the choice of paper format follow
-from the audience. The formats are in `references/structure.md`.
+from the audience. Formats: `references/structure.md`.
 
 ---
 
 ## Step 3: Notes
 
 Collect the facts the report will use as a distinct artifact, separate from
-both the source material and the draft. This is the counter to context bleed:
-for an agent, the notes step is what stops session context or source text from
-being pasted straight into the report.
+both the source material and the draft. Counter to context bleed: for an
+agent, the notes step is what stops session context or source text from being
+pasted straight into the report.
 
 Two rules make notes notes and not a transcript:
 
-- Transform each idea into your own words. Understand the author's point and
+- Transform each idea into your own words. Understand the author's point,
   restate it. Do not copy the text.
 - Record each fact with its source, so every note can be traced later.
 
-The reliability of a source and the mechanics of citing it live in
-`references/evidence.md`. This step only requires that the source is captured
-with the fact.
+Source reliability and citation mechanics live in `references/evidence.md`.
+This step only requires that the source is captured with the fact.
 
 ---
 
 ## Step 4: Thesis
 
 Form the thesis from the notes, after them, never as a starting assumption.
-The thesis is the answer the work produced. An agent that fixes the thesis
-first and then gathers support has inverted the process and will cherry-pick.
+Thesis is the answer the work produced. An agent that fixes the thesis first
+and then gathers support has inverted the process and will cherry-pick.
 
 - Bad: "The Schlerg Company is a strong acquisition target" is decided first,
   and the notes are mined for anything that agrees.
@@ -160,8 +157,8 @@ categories, not as a flat list of every point.
   labor relations, and poor public relations, so the reader can hold the shape
   of the argument.
 
-This grouped thesis is what the first paragraph will carry. How the paragraph
-itself is built is in `references/structure.md`.
+This grouped thesis is what the first paragraph will carry. How that paragraph
+is built: `references/structure.md`.
 
 ---
 
@@ -173,10 +170,10 @@ Build the plan in two passes, and write no prose until both are done.
    the first paragraph will announce and the body will follow.
 2. Final plan: correlate every note to the point it supports.
 
-The final plan is where exclusion happens. A note that supports no point on
-the skeleton gets cut here, before drafting, not discovered in the draft. This
-is what makes the draft "largely automated": if the plan is honest, the
-drafting step has nothing left to decide.
+Final plan is where exclusion happens. A note supporting no point on the
+skeleton gets cut here, before drafting, never discovered in the draft. This
+is what makes the draft "largely automated": plan honest -> drafting step has
+nothing left to decide.
 
 - Bad: all the notes are carried into the draft, and the irrelevant ones are
   trimmed later, or worse, left in because they were already written up.

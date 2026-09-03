@@ -1,12 +1,11 @@
 # checklist.md: the step 8 check layer
 
-Run this at step 8, before you send, against the finished draft and against
-the artifacts the steps produced. This file is process, not precept. Work it
-top to bottom.
+Run at step 8, before you send, against the finished draft and the artifacts
+the steps produced. Process, not precept. Work it top to bottom.
 
-Every check traces to a ruling; the tag in brackets names it. A check that
-enforces material another file owns points to that file. Do not re-derive the
-rule here; open the file the tag or the "see" clause names.
+Every check traces to a ruling; the bracket tag names it. A check enforcing
+material another file owns points to that file. Do not re-derive the rule
+here; open the file the tag or the "see" clause names.
 
 Order of the step:
 
@@ -22,13 +21,13 @@ Each is a pass/fail item. A fail is a fix. Two things are not that.
 An input the analysis never produced is a gap this skill cannot close. Say so
 and send it back; that is step 5, not a deviation.
 
-A fix that is barred is a recorded deviation. A fix is barred when an operator
-instruction overrides the check, or when two rules in this skill collide with
-no way to satisfy both by any rewriting. Nothing else is barred.
+A fix that is barred is a recorded deviation. Barred means an operator
+instruction overrides the check, or two rules in this skill collide with no
+way to satisfy both by any rewriting. Nothing else is barred.
 
-Record the deviations in the deviations block, one item of end matter at the
-end of the report beside the source list. Every check that stays failed gets
-its own entry in that block, so two failed checks are two entries, never one
+Record deviations in the deviations block, one item of end matter at the end
+of the report beside the source list. Every check that stays failed gets its
+own entry in that block, so two failed checks are two entries, never one
 merged entry covering both. However many entries it holds, the deviations
 block stays one item of end matter and check 2 counts it as one. Three fields
 per entry, all required:
@@ -162,10 +161,10 @@ The numbered checks:
 
 ## Key assumptions check (run twice)
 
-The report presumes an answer before you finish it. This check drags every
-premise that answer rests on into the open. Run it once at step 1, against
-the answer the assignment already presumes, and once here at step 8, against
-the finished draft. Record both outputs; check 18 verifies they exist.
+Report presumes an answer before you finish it. This check drags every premise
+that answer rests on into the open. Run once at step 1, against the answer the
+assignment already presumes, and once here at step 8, against the finished
+draft. Record both outputs; check 18 verifies they exist.
 [TP-KAC / `7e153dcfe3f3`]
 
 Each run, in order:
@@ -179,14 +178,14 @@ Each run, in order:
 5. For each premise you kept, name the conditions or the information under
    which it would fail.
 
-The step-1 run shapes the work. The step-8 run confirms the finished draft
-did not quietly acquire a premise that will not hold. A premise that survives
-both runs but could still fail is an assumption: mark it as one and state
-what follows if it is wrong (check 15).
+Step-1 run shapes the work. Step-8 run confirms the finished draft did not
+quietly acquire a premise that will not hold. A premise surviving both runs
+but still able to fail is an assumption: mark it as one and state what follows
+if it is wrong (check 15).
 
 ## Sensitivity test (every report)
 
-Run this on every report, right after the second key assumptions check.
+Run on every report, right after the second key assumptions check.
 [TP-ACH / `cbb733100aa5`]
 
 1. Name the few critical items of evidence the conclusion leans on hardest.
@@ -195,7 +194,7 @@ Run this on every report, right after the second key assumptions check.
    item is a single point of failure; say so in the report and treat the
    item's own reliability as load-bearing.
 
-The output is a short list of "if X is wrong, Y breaks" lines. Record it.
+Output is a short list of "if X is wrong, Y breaks" lines. Record it.
 
 ## The three-pass edit (in order)
 
@@ -208,26 +207,25 @@ length, relevance, completeness. Does the draft answer the assignment; is
 anything in it that does not serve the answer; is anything missing.
 
 **Pass 2, paragraphs.** Unity of focus, topic sentences, supporting ideas,
-transitions. Each paragraph makes one point and opens by saying it. This is
-where the connective sweep runs: check the places a paragraph turns, gives an
-example, or adds to a list, and confirm a tagword tells the reader what comes
-next.
+transitions. Each paragraph makes one point and opens by saying it. Connective
+sweep runs here: check the places a paragraph turns, gives an example, or adds
+to a list, and confirm a tagword tells the reader what comes next.
 
 **Pass 3, sentences and words.** Passive voice, unclear language, wordiness,
-grammar, spelling. This is where the read-aloud pass runs (read it aloud, or
-have it read to you) and where you check the spell-checker's blind spots, the
-words it passes but the sentence misuses (then/than, affect/effect).
+grammar, spelling. Read-aloud pass runs here (read it aloud, or have it read
+to you), and the spell-checker's blind spots, words it passes but the sentence
+misuses (then/than, affect/effect).
 
-Then the pause before send: review the whole thing once more and confirm it
-is what you meant to send.
+Then the pause before send: review the whole thing once more, confirm it is
+what you meant to send.
 
-To slow any pass down on purpose: read aloud, read one line at a time under a
+To slow a pass down on purpose: read aloud, read one line at a time under a
 cover, or read the sentences backwards.
 
 ## The structured challenge: what runs always, what runs on request
 
-The challenge material splits two ways. Hold the split; do not promote a
-heavy technique to a default.
+Challenge material splits two ways. Hold the split; never promote a heavy
+technique to a default.
 
 **Cheap, always.** The key assumptions check (both runs) and the sensitivity
 test run on every report, no exceptions. That is the whole structured
