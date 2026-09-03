@@ -65,9 +65,9 @@ for skill_dir in skills/*/; do
 	grep -q "^name: $skill\$" "$skill_md" ||
 		fail "$skill_md has no 'name: $skill' in its frontmatter"
 
-	for ref in $(grep -o 'references/[A-Za-z0-9_./-]*\.md' "$skill_md" | sort -u); do
+	for ref in $(grep -rho 'references/[A-Za-z0-9_./-]*\.md' "$skill_dir" | sort -u); do
 		[ -f "${skill_dir}${ref}" ] ||
-			fail "$skill_md points at ${skill_dir}${ref}, which does not exist"
+			fail "$skill points at $ref, which does not exist (dangling)"
 	done
 
 	# Reverse check: every file in the skill besides SKILL.md must be named
@@ -78,6 +78,24 @@ for skill_dir in skills/*/; do
 		grep -rqF -- "$rel" "$skill_dir" ||
 			fail "$file is not referenced by any file in $skill_dir (orphan)"
 	done < <(find "$skill_dir" -type f ! -name SKILL.md)
+
+	# Load-moment check: a reference named only in SKILL.md's trailing
+	# "## Reference files" catalog never gets loaded at the step that needs
+	# it. Require one mention in the body above that heading, or in a
+	# sibling reference file. A file naming itself does not count.
+	if [ -d "${skill_dir}references" ]; then
+		body=$(awk '/^## Reference files$/{exit} {print}' "$skill_md")
+		unreached=
+		for file in "${skill_dir}references"/*.md; do
+			rel=references/$(basename "$file")
+			grep -qF -- "$rel" <<<"$body" ||
+				grep -rqF --exclude="$(basename "$file")" \
+					-- "$rel" "${skill_dir}references" ||
+				unreached="$unreached $rel"
+		done
+		[ -z "$unreached" ] ||
+			fail "$skill names these only in its trailing reference list, so no step loads them:$unreached"
+	fi
 done
 
 echo "OK: all checks passed"
