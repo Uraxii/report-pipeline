@@ -24,8 +24,14 @@ plugin_name=$(python3 -c "import json; print(json.load(open('.claude-plugin/plug
 if ! origin_url=$(git remote get-url origin 2>&1); then
 	fail "cannot resolve repo name from git remote origin: $origin_url"
 fi
-repo_name=${origin_url%/}
-repo_name=${repo_name%.git}
+repo_name=$origin_url
+while true; do
+	case "$repo_name" in
+	*.git) repo_name=${repo_name%.git} ;;
+	*/) repo_name=${repo_name%/} ;;
+	*) break ;;
+	esac
+done
 repo_name=${repo_name##*/}
 [ -n "$repo_name" ] ||
 	fail "cannot resolve repo name from git remote origin '$origin_url'"
@@ -63,12 +69,15 @@ agents_ref=$(python3 -c "import json; print(json.load(open('.agents/plugins/mark
 	fail ".agents/plugins/marketplace.json ref is '$agents_ref', want main"
 
 [ -f README.md ] || fail "missing README.md"
+[ -r README.md ] || fail "cannot read README.md"
 
 # Match the command form (`plugin marketplace add Uraxii/<name>`), not a
 # bare 'Uraxii/<name>' token, so a profile link or prose mention can't
 # either false-trip this or hide a missing install section.
-marketplace_refs=$(grep -oE 'plugin marketplace add Uraxii/[A-Za-z0-9_.-]+' README.md |
-	sed -E 's/^plugin marketplace add //' | sort -u || true)
+# [[:space:]]+ between the verb words tolerates a stray tab or a doubled
+# space instead of reading a clean install line as a missing section.
+marketplace_refs=$(grep -oE 'plugin[[:space:]]+marketplace[[:space:]]+add[[:space:]]+Uraxii/[A-Za-z0-9_.-]+' README.md |
+	awk '{print $NF}' | sort -u || true)
 [ -n "$marketplace_refs" ] ||
 	fail "README.md has no 'plugin marketplace add Uraxii/<repo>' line (install section missing?)"
 for ref in $marketplace_refs; do
@@ -79,7 +88,7 @@ done
 # Match the command form (`plugin install <name>@<name>` / `plugin add
 # <name>@<name>`), not a bare '<name>@<name>' string, so a pinned dependency
 # version or an email address in prose can't false-trip this.
-install_refs=$(grep -oE 'plugin (install|add) [A-Za-z0-9_.-]+@[A-Za-z0-9_.-]+' README.md |
+install_refs=$(grep -oE 'plugin[[:space:]]+(install|add)[[:space:]]+[A-Za-z0-9_.-]+@[A-Za-z0-9_.-]+' README.md |
 	awk '{print $NF}' | sort -u || true)
 [ -n "$install_refs" ] ||
 	fail "README.md has no 'plugin install/add <name>@<name>' command (install section missing?)"
