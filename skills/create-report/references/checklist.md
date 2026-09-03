@@ -53,10 +53,14 @@ A sibling file, `<report-name>.checks.md`, beside the report. Score every
 check here first; the deviations block is a transcription of this file's
 `not-met` rows, never a fresh judgment made at write time.
 
-One line, `Format: <the paper format chosen>`, then a table, one row per
-numbered check:
+One line, `Format: <the paper format chosen>`, then a markdown table, one row
+per numbered check: header row, separator row, one row per check, every row
+opening and closing with `|`. This is the shape the checker parses. Copy it,
+do not paraphrase it:
 
-`check | verdict | authoriser | quoted rule | reader loses`
+| check | verdict | authoriser | quoted rule | reader loses |
+|---|---|---|---|---|
+| 1 | met |  |  |  |
 
 Verdict is one of `met`, `not-met`, `n-a`. A `met` or `n-a` row leaves
 `authoriser`, `quoted rule`, and `reader loses` blank. A `not-met` row fills

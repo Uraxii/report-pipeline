@@ -197,6 +197,36 @@ fixture_bad_verdict() {
 		"$(board "point paper" "10=| 10 | maybe | | | |")"
 }
 
+fixture_zero_parseable_rows() {
+	# All 23 rows present but missing the leading/trailing pipe (the shape a
+	# literal reading of the checklist's old prose gave). None of them parse;
+	# the message must say the table didn't parse, not blame check 1.
+	local n rows=""
+	for n in $(seq 1 "$CHECK_COUNT"); do
+		rows="${rows}${n} | met |  |  | "$'\n'
+	done
+	run_fixture "scoreboard rows without leading/trailing pipe parse to nothing" 1 \
+		"scoreboard has no parseable rows" \
+		"$(clean_report)" "Format: point paper
+
+$rows"
+}
+
+fixture_doc_example_row() {
+	# Copies the header/separator/example row straight out of
+	# references/checklist.md (not hand-typed) to prove the doc's own
+	# example parses. Checks 2-23 are still absent, so the run must reach
+	# the genuine per-check message, not the zero-rows one.
+	local table
+	table=$(grep -A2 -F '| check | verdict | authoriser | quoted rule | reader loses |' \
+		"$SKILL_DIR/references/checklist.md")
+	run_fixture "scoreboard built from the checklist's own example row" 1 \
+		"scoreboard has no row for check 2" \
+		"$(clean_report)" "Format: point paper
+
+$table"
+}
+
 fixture_case5_count() {
 	# Case 5: seven not-met rows, zero deviation entries, block skipped
 	# entirely. Message 4 must fire on this EMPTY-block shape, not only on
@@ -347,6 +377,8 @@ selftest() {
 	fixture_missing_row
 	fixture_duplicate_row
 	fixture_bad_verdict
+	fixture_zero_parseable_rows
+	fixture_doc_example_row
 	fixture_case5_count
 	fixture_missing_field
 	fixture_missing_quoted_rule
@@ -361,7 +393,7 @@ selftest() {
 	fixture_no_sibling_files
 	fixture_binary_sibling
 	fixture_case5_verbatim
-	echo "OK: 19/19 selftest fixtures passed"
+	echo "OK: 21/21 selftest fixtures passed"
 }
 
 if [ "${1:-}" = "--selftest" ]; then
@@ -411,11 +443,13 @@ PYEOF
 
 declare -A verdict=() authoriser=() quoted=() loses=()
 fmt=""
+row_count=0
 while IFS=$'\x1f' read -r a b c d e; do
 	if [ "$a" = "FORMAT" ]; then
 		fmt="$b"
 		continue
 	fi
+	row_count=$((row_count + 1))
 	case "$b" in
 	met | not-met | n-a) : ;;
 	*) fail "check $a verdict is '$b', want met|not-met|n-a" ;;
@@ -426,6 +460,16 @@ while IFS=$'\x1f' read -r a b c d e; do
 	quoted[$a]="$d"
 	loses[$a]="$e"
 done <"$work/rows"
+
+# Zero rows parsed means the table itself didn't parse (e.g. rows missing
+# their leading/trailing pipe) — say that, not "no row for check 1", or the
+# writer goes hunting for a missing row instead of a malformed table.
+[ "$row_count" -gt 0 ] || fail "scoreboard has no parseable rows: $scoreboard
+Expected a markdown table, one row per check, leading and trailing pipe on
+every row:
+| check | verdict | authoriser | quoted rule | reader loses |
+|---|---|---|---|---|
+| 1 | met |  |  |  |"
 
 for n in $(seq 1 "$CHECK_COUNT"); do
 	[ -n "${verdict[$n]:-}" ] || fail "scoreboard has no row for check $n"
