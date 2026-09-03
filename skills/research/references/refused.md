@@ -8,8 +8,8 @@ requirement, not a silent hole. Three kinds, three responses.
 
 **The host refuses the client.** Page a browser serves and a script does not.
 Try the same document from another host carrying it: another arm of the same
-organization, a national archive, a library mirror. Taking a copy instead of
-the original, record which host served it and what the original did, so the
+organization, a national archive, a library mirror. Copy taken instead of the
+original -> record which host served it and what the original did, so the
 reader can weigh it. No standard here says when a copy is good enough, and this
 skill does not invent one.
 

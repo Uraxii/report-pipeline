@@ -33,10 +33,10 @@ withholds.
   out. Withholds accuracy on numbers, dates, anything they inferred rather than
   saw.
 
-Routing that follows. Subjective matters, meaning quality of management,
-culture, and how an organization treats people, come from writing the subject
-did not control. What the subject would rather hide comes from what it is
-compelled to publish. Sequence and motive come from people who were there.
+Routing that follows. Take subjective matters, meaning quality of management,
+culture, and how an organization treats people, from writing the subject did
+not control. Take what the subject would rather hide from what it is compelled
+to publish. Take sequence and motive from people who were there.
 GAO-20-195G, the *GAO Cost Estimating and Assessment Guide*, chapter 9, gives
 the general form: prefer the body that created or holds the data over anyone
 reporting on it.

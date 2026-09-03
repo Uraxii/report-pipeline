@@ -111,11 +111,11 @@ says why. A section quietly missing is what this contract exists to catch.
    contradicts what the plan expected to find. Each row cites the consulted-log
    line it came from.
 6. **Consulted log.** Every document opened, dead ends included, one line each
-   on what it yielded or why it did not. The dead ends are the point: they stop
-   the next run reopening what this one ruled out. GAO-24-106786, *Government
-   Auditing Standards*, chapter 8, sets the bar the log has to clear: the
-   record has to let an experienced person who was not there work out what was
-   done and what it produced.
+   on what it yielded or why it did not. The dead ends are the point: they are
+   what stops the next run reopening what this one already ruled out.
+   GAO-24-106786, *Government Auditing Standards*, chapter 8, sets the bar the
+   log has to clear: the record has to let an experienced person who was not
+   there work out what was done and what it produced.
 7. **Gaps and the stop.** What was sought and refused, what could not be
    obtained, any claim you believe and cannot source, and which stopping
    condition ended the collection.
@@ -191,7 +191,8 @@ the loop. references/stopping.md. Step 8 runs once.
    meant to be free of it. Quote only where the exact wording is itself the
    fact, and mark the quotation as one. AFH 33-337, *The Tongue and Quill*,
    chapter 17, is the shape: facts, assumptions, and the standards in play get
-   written down as separate labelled groups, never blended into a narrative.
+   written down as separate labelled groups rather than blended into a
+   narrative.
 7. **Store it.** Keep the bytes, the retrieval path, the date, and the licence
    terms. Citation you cannot reopen is citation nobody can check. Take any
    verbatim quotation from the stored copy, never from a summary and never from

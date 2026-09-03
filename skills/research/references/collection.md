@@ -8,7 +8,7 @@ Area of interest is not a question. "Whether to acquire the supplier" = area.
 "Does the supplier's order book survive the loss of its largest customer" =
 question, because something would answer it.
 
-Three tests a question passes before collection starts. From GAO-12-208G,
+Three tests a question must pass before collection starts. From GAO-12-208G,
 *Designing Evaluations*, chapter 2, written for this exact moment.
 
 - **Specific.** Names the thing, the period, the population. Question askable
