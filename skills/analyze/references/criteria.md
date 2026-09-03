@@ -60,7 +60,7 @@ Worked example, one criterion in full.
 
 ```
 Short title:      Restore time
-Definition:       Wall-clock hours to restore the archive from cold
+Definition:       Wall-clock hours to restore the full archive from cold
 Unit of measure:  Hours
 Benchmark:        4 hours, the RTO in the DR policy
 Formula:          Under 4 an advantage, over 4 a disadvantage. Less is better.

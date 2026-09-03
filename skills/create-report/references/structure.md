@@ -113,13 +113,13 @@ function. [TQ-16 / `0b9a1d752d40`, staff study TQ-17 / `998664c6e1ca`]
 - Voice: prose, detailed discussion carried to conclusions and
   recommendations.
 - Job: the full problem-to-recommendation report, the problem-solving thought
-  process in written form. Its five-part body is a skeleton, below.
+  process in written form. Its five-part body: references/skeletons.md.
 
 ## Skeletons
 
 references/skeletons.md. The staff-study five-part body and the
-running-estimate format, verbatim. Load only when the operator names a staff
-study or a running estimate.
+running-estimate format, verbatim. Load when the report is a staff study or a
+running estimate, whoever chose it.
 
 ## The external cover letter
 

@@ -74,8 +74,8 @@ split by segment.
 
 ## Footnote policy
 
-Document to persuade. No documentation, suspicious reader stays unconvinced.
-The footnote is an instrument of persuasion, not decoration.
+Document to persuade. Without documentation the suspicious reader stays
+unconvinced. The footnote is an instrument of persuasion, not decoration.
 
 Document these:
 

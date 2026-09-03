@@ -1,7 +1,8 @@
 # Skeletons: the staff study body and the running estimate
 
-Two verbatim public-domain skeletons. Load only when the operator names a staff
-study or a running estimate. Every other shape rule: references/structure.md.
+Two verbatim public-domain skeletons. Load when the report is a staff study or
+a running estimate, whoever chose it. Every other shape rule:
+references/structure.md.
 
 ## Skeleton: the staff study body (verbatim)
 

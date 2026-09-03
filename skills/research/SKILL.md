@@ -33,9 +33,10 @@ page to put in front of somebody is cite.
 Escalate when the answer starts wanting a judgment the sources do not settle.
 A lookup that turns into weighing two accounts is a full run that has not
 admitted it. cite and lookup state the answer the sources support. They never
-score, rank, weight, or state a likelihood. Documents opened before escalating
-still get source-record rows and consulted-log lines. Write the collection plan
-after the fact, and say in the plan that you wrote it that way.
+score, rank, weight, or state a likelihood; needing one is the escalation.
+Documents opened before escalating still get source-record rows and
+consulted-log lines. Write the collection plan after the fact, and say in the
+plan that you wrote it that way.
 
 Hand lookup and full to a subagent when the asking thread has other work and
 the harness offers one. cite is cheap enough inline. A delegated lookup returns
@@ -174,7 +175,7 @@ D9  vendor status page                  current state only, no history, useless
 ### The eight steps
 
 Steps 3 to 7 run once per candidate document and repeat. The stopping rule ends
-the loop. Step 8 runs once.
+the loop. references/stopping.md. Step 8 runs once.
 
 1. **Fix the question.** Narrow an area to one question you can answer. Keep
    the question and its answer apart: you do not have the answer yet.
