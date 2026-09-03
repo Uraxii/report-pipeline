@@ -18,6 +18,12 @@ done
 
 plugin_name=$(python3 -c "import json; print(json.load(open('.claude-plugin/plugin.json'))['name'])")
 
+repo_name=$(git remote get-url origin 2>/dev/null | sed -E 's#.*/##; s/\.git$//')
+[ -n "$repo_name" ] ||
+	fail "cannot resolve repo name from git remote origin"
+[ "$repo_name" = "$plugin_name" ] ||
+	fail ".claude-plugin/plugin.json name is '$plugin_name', want '$repo_name' (repo name via git remote origin, the external anchor)"
+
 mkt_name=$(python3 -c "import json; print(json.load(open('.claude-plugin/marketplace.json'))['name'])")
 [ "$mkt_name" != "Uraxii" ] ||
 	fail ".claude-plugin/marketplace.json name is Uraxii, collides with the dotai marketplace"
@@ -48,12 +54,21 @@ agents_ref=$(python3 -c "import json; print(json.load(open('.agents/plugins/mark
 [ "$agents_ref" = "main" ] ||
 	fail ".agents/plugins/marketplace.json ref is '$agents_ref', want main"
 
-for ref in $(grep -o 'Uraxii/[A-Za-z0-9_.-]*' README.md | sort -u); do
+marketplace_refs=$(grep -o 'Uraxii/[A-Za-z0-9_.-]*' README.md | sort -u || true)
+[ -n "$marketplace_refs" ] ||
+	fail "README.md has no Uraxii/<repo> marketplace reference (install section missing?)"
+for ref in $marketplace_refs; do
 	[ "$ref" = "Uraxii/$plugin_name" ] ||
 		fail "README.md installs from '$ref', want Uraxii/$plugin_name"
 done
 
-for ref in $(grep -oE '[A-Za-z0-9_.-]+@[A-Za-z0-9_.-]+' README.md | sort -u); do
+# Only the install/add commands, not any '<name>@<name>'-shaped string
+# (a plain email address has the same shape and must not trip this).
+install_refs=$(grep -oE '(install|add)[[:space:]]+[A-Za-z0-9_.-]+@[A-Za-z0-9_.-]+' README.md |
+	awk '{print $NF}' | sort -u || true)
+[ -n "$install_refs" ] ||
+	fail "README.md has no install/add command (install section missing?)"
+for ref in $install_refs; do
 	[ "$ref" = "$plugin_name@$plugin_name" ] ||
 		fail "README.md installs '$ref', want $plugin_name@$plugin_name"
 done
