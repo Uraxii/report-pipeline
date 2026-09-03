@@ -25,12 +25,12 @@ A fix that is barred is a recorded deviation. Barred means an operator
 instruction overrides the check, or two rules in this skill collide with no
 way to satisfy both by any rewriting. Nothing else is barred.
 
-Record deviations in the deviations block, one item of end matter at the end
-of the report beside the source list. Every check that stays failed gets its
-own entry in that block, so two failed checks are two entries, never one
-merged entry covering both. However many entries it holds, the deviations
-block stays one item of end matter and check 2 counts it as one. Three fields
-per entry, all required:
+Record deviations in the deviations block, `## Deviations`. Every check that
+stays failed gets its own entry in that block, so two failed checks are two
+entries, never one merged entry covering both. However many entries it holds,
+the deviations block stays one end-matter item of an admissible type
+(check 2). One line per entry, opening `- Check N.`, or `- Rule <name>.` for
+a rule outside the numbered list. Three fields per entry, all required:
 
 - The check not met, by its number on this list. A rule outside the numbered
   checklist is cited by name instead. Never a file:line in the report; the
@@ -42,16 +42,58 @@ per entry, all required:
 
 An entry missing a field is an unrecorded fail.
 
+## The scoreboard
+
+A sibling file, `<report-name>.checks.md`, beside the report. Score every
+check here first; the deviations block is a transcription of this file's
+`not-met` rows, never a fresh judgment made at write time.
+
+One line, `Format: <the paper format chosen>`, then a table, one row per
+numbered check:
+
+`check | verdict | authoriser | quoted rule | reader loses`
+
+Verdict is one of `met`, `not-met`, `n-a`. A `met` or `n-a` row leaves
+`authoriser`, `quoted rule`, and `reader loses` blank. A `not-met` row fills
+all three — this check's deviation fields, scored once here and transcribed
+once into the deviations block.
+
+Your working directory is the report's, not this skill's, so run the checker
+by this skill's own path:
+
+`bash <this-skill-directory>/scripts/check-report.sh <report>`
+
+It diffs the deviations block against the `not-met` rows, and checks every
+end-matter item against the five admissible types (check 2) and, where the
+format claims excluded elements, the format-elements note (check 5). Fix
+what it names.
+
 The numbered checks:
 
 1. The first paragraph answers the written-out question, with the reasons
    grouped into categories, not a flat list. [contract]
 2. The first paragraph announces the order; the body follows it exactly, with
    nothing beyond what the paragraph promised. A section bolted on the end
-   fails this. Three items sit outside the announced body as end matter, and
-   nothing else does: the source list, the deviations block, and the
-   format-elements note check 5 requires when a named format claims an
-   excluded element. [contract]
+   fails this. Whatever sits outside the announced body is end matter, and
+   every end-matter item is one of these five types. The list is closed; the
+   count is not. Zero, one, or several items of a type all pass. Each item
+   carries the heading named here; that is how scripts/check-report.sh reads
+   the type.
+   - The source list. `## Sources`.
+   - The deviations block. `## Deviations`.
+   - The format-elements note check 5 requires when a named format claims an
+     excluded element. `## Format elements`.
+   - The cover letter an external report carries, check 11, specified in
+     references/structure.md. `## Cover letter`.
+   - A verbatim-clause attachment: source text reproduced word for word,
+     tabbed so the reader finds one item, references/skeletons.md.
+     `## Attachment: <name>`. Several attachments pass.
+   An item under any other heading fails this check. A cover letter sits
+   before the body, not after it: it is front matter, not end matter, and
+   scripts/check-report.sh scans from the first end-of-body heading (Sources,
+   Deviations, Format elements, or an Attachment) to EOF. A leading cover
+   letter falls before that scan and is never inspected by the script; check
+   11 stays a human read. [contract]
 3. The title states the conclusion, and the subheads, read alone, carry the
    argument; each subhead states a sub-conclusion, not a topic. [contract,
    Part I, Part V]
@@ -62,12 +104,13 @@ The numbered checks:
    element, whoever chose that format, that element passes this check, and the
    report names every excluded element the format claimed, by their names on
    the exclusion list.
-   All of them: count the excluded elements the skeleton claims, count the
-   names in the note, and the two counts match or this check fails. Announcing
-   the format's parts is not naming them. That naming goes in the
-   format-elements note, one line of end matter beside the source list and the
-   deviations block (check 2), never in the notes file and never folded into
-   the body. (The tie-break: references/collisions.md.)
+   All of them: the excluded elements each format claims are fixed by the
+   format table in references/collisions.md, and the note names every
+   element on that format's row. Announcing the format's parts is not naming
+   them. That naming goes in the format-elements note, one end-matter item
+   under the heading `## Format elements` (check 2), never in the notes file
+   and never folded into the body. scripts/check-report.sh diffs the table
+   row against the note. (The tie-break: references/collisions.md.)
    [Part I, Part III, ICD-D / `4b0f9a500133`]
 6. Every number is compared to another number, and every figure carries its
    context. The reader never has to wonder good-or-bad. A number the report
@@ -149,9 +192,11 @@ The numbered checks:
     (The notes discipline is step 3.) [contract, Part III]
 23. Every check this report does not meet appears in the deviations block as
     its own entry, with its authorising rule quoted and what the reader loses.
-    Count the checks that stayed failed, count the entries, and the two counts
-    match or this check fails. An entry with no quoted authoriser fails this
-    check. This check records what you already found; a check you scored met
+    Score every check on the scoreboard first, then transcribe.
+    scripts/check-report.sh counts the not-met rows, counts the entries, and
+    fails when they differ or when a row's quoted rule does not appear in its
+    entry. An entry with no quoted authoriser fails this check. This check
+    records what you already found; a check you scored met
     that the report does not meet is caught by a second reader, not here. This
     check does not apply to itself: a missed deviation record needs no
     deviation record of its own, or the check could never close. Where every
