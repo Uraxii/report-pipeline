@@ -14,15 +14,12 @@ contract.
 
 ## Scope: this skill analyzes
 
-It does not gather and it does not draft.
+Does not gather. Does not draft.
 
-The material arrives as raw research: data, notes, quotes, constraints. If it
-did not arrive, get it before starting. Analysis of what you already believe is
-not analysis, and the output is indistinguishable from the real thing until
-somebody checks a number.
+Material arrives as raw research: data, notes, quotes, constraints. Did not
+arrive, get it before starting.
 
-Nothing here writes prose for a reader. No report format, no executive
-summary, no audience. This skill produces the artifacts a writer works from.
+Produces the artifacts a writer works from. No report format, no audience.
 
 ## The handover contract
 
@@ -75,7 +72,7 @@ catch.
     verdict of not run. A check that stays failed is a deviation, and its
     block sits here. Section 12 is the one section that always applies.
 
-Six clauses that bind across all twelve.
+Seven clauses that bind across all twelve.
 
 - Every section appears at every depth tier. Only its form changes. At the
   cheap tier a section is a table, a row set, or a line, and prose appears
@@ -92,6 +89,8 @@ Six clauses that bind across all twelve.
   while analyzing produces a winner out of a field of bad options.
 - The recommendation is one course, worded so the decision-maker has only to
   approve or disapprove.
+- The order of thinking is not the order of writing. Never let the eventual
+  write-up's shape pull work forward.
 - A judgment that is not empirical carries no likelihood band. It is a
   judgment no observation could confirm or disconfirm, because it rests on a
   definition, a policy, a legal or ethical standard, or a value the
@@ -127,10 +126,17 @@ and send it back before the analysis runs on it.
 
 ## Do not
 
-- Do not add a criterion after the options exist.
+Each entry is an instruction. Where the failure has a name, the name and its
+tell follow.
+
+- Do not add a criterion after the options exist. **Retrofitted criteria** is
+  criteria written while looking at the options. The tell is a benchmark that
+  lands exactly on the winning option's value.
 - Do not down-score an option that fails a mandatory criterion. Drop it, and
   record which criterion it failed.
-- Do not hand over a menu, a pair, or "recommend further study".
+- Do not hand over a menu, a pair, or "recommend further study". **The menu
+  handover** is two recommendations, or a recommendation to study further.
+  Both hand the decision back.
 - Do not present a technique's output as proof the judgment is right. Running
   a technique raises what an assessment is worth to its reader, not its
   accuracy.
@@ -139,29 +145,30 @@ and send it back before the analysis runs on it.
   one, and the method log records who named it.
 - Do not drop a factor because it cannot be counted. Name it, and assess its
   likely effect from facts and stated assumptions.
-- Do not state an inference in the grammatical form of a fact.
+- Do not run the analysis on what you already thought. **Belief laundering**
+  is fact notes assembled afterwards to match the conclusion. Every figure
+  looks sourced.
+- Do not state an inference in the grammatical form of a fact. **False
+  confidence** is a judgment with no likelihood, no separate confidence, or no
+  falsifier. A judgment that is not empirical fails this way on its own three
+  pieces: no premise written as a premise, no source named for it, or nothing
+  said about what would have to change for it to stop holding. A likelihood
+  band on one of those is the opposite failure, an invented number.
 - Do not build machinery a question did not earn. A question of fact gets an
-  answer, a likelihood, and a falsifier, not two invented options and a matrix.
+  answer, a likelihood, and a falsifier, not two invented options and a
+  matrix. **Machinery a question did not earn** is a weighted total on a
+  question of fact, or two invented options where there was only ever one
+  course.
 
 ## The nine steps
 
 Steps 1 and 2 are separate and ordered. Collapsing them is how the constraints
 stop being checkable.
 
-1. **Environment.** Write what bears on the decision as its own product,
-   before any problem statement: the physical, social, political,
-   informational and infrastructural conditions. List the actors, what each
-   wants, and where those wants conflict with each other and with the deciding
-   organization. Name who could block or degrade a course, not only what
-   favours one. references/framing.md.
-2. **Problem.** State it in three parts: the tension between current and
-   desired conditions, what must change to close it, and the limits that bound
-   the response. Cast the same question as who, what, when, why and how, and
-   where it came from someone else, get it approved before working on it.
-   Define the terms the analysis will lean on. Write the constraints as an
-   itemized list, never a paragraph, so every later option checks against it
-   directly. Classify the problem's structure: well structured, medium, or ill
-   structured. references/framing.md.
+1. **Environment.** Write it as its own product, before any problem statement.
+   references/framing.md.
+2. **Problem.** State it second, after the environment is written down.
+   references/framing.md.
 3. **Size and route.** Scale the work to the problem, not to the format. Name
    the specific task first, then take the technique that does that task, and
    weigh what it costs before running it. Every question gets the cheap tier.
@@ -184,7 +191,7 @@ stop being checkable.
 7. **Analyze each option alone.** Measure each survivor against each
    criterion's benchmark on its own merits. No cross-option comparison yet.
    Escalation methods fire here if step 3 routed them. references/options.md,
-   and references/methods.md for the routed methods.
+   plus the one escalation file step 3 routed to.
 8. **Compare and commit.** Where two or more options survived screening, build
    the matrix, show both totals, re-run the scoring under plausibly different
    weights, and record whether the ranking held. Where fewer than two
@@ -200,17 +207,6 @@ stop being checkable.
    handover section 12, which is where the contract says what that section
    holds. Never hand over a handover that failed a check.
 
-## The analytic order is not the presentation order
-
-Steps 1 to 8 are the order of thinking. A report leads with its conclusion,
-which is the order of writing. These do not conflict, and neither one licenses
-the other's shortcuts.
-
-The practical consequence: never let the shape of the eventual write-up pull
-work forward. Criteria before options and each option alone before any
-comparison are load-bearing, and an agent that has already decided how the
-report opens will write criteria that suit the opening.
-
 ## Collisions
 
 Five points the rules leave in tension. One ruling each.
@@ -220,14 +216,12 @@ Five points the rules leave in tension. One ruling each.
   comparison, because a field of one real option and one bad one produces a
   false winner. Where a second real option does not exist, write the
   single-option defense and say the matrix does not apply. Never fabricate.
-- **An ill-structured problem versus one committed course.** An ill-structured
-  problem may need several measures applied together or in sequence. That
-  package is ONE course. Name it as one, order its parts, and hand over a
-  single thing to approve. This is not licence to hand over a list.
-- **A close call versus one committed course.** Where the leading totals sit
-  inside the noise, still name one. State that the margin is inside the noise,
-  name the observable that would break the tie, and hand the runner-up over
-  alongside. Never hand over an unresolved pair.
+- **An ill-structured problem versus one committed course.** The package of
+  measures is ONE course, named as one, its parts ordered. Ruling in full at
+  references/comparison.md, "Commit to one course".
+- **A close call versus one committed course.** Still name one, disclose the
+  margin, hand the runner-up over alongside. Ruling in full at
+  references/comparison.md, "Commit to one course".
 - **An empty field versus one committed course.** Screening can kill every
   option. That is a finding, and the handover still commits to one thing.
   Record the screen each option failed. Then name the single change that would
@@ -245,68 +239,32 @@ Five points the rules leave in tension. One ruling each.
   only after the contributing causes were searched for and each accepted cause
   was corroborated twice.
 
-## Failure modes
-
-- **Belief laundering.** The analysis runs on what the agent already thought,
-  and the fact notes get assembled afterwards to match. Every figure looks
-  sourced.
-- **Retrofitted criteria.** Criteria written while looking at the options. The
-  tell is a benchmark that lands exactly on the winning option's value.
-- **Machinery a question did not earn.** A weighted total on a question of
-  fact. Two invented options where there was only ever one course.
-- **The menu handover.** Two recommendations, or a recommendation to study
-  further. Both hand the decision back.
-- **False confidence.** A judgment with no likelihood, no separate confidence,
-  or no falsifier. Or an inference written in the register of a fact. A
-  judgment that is not empirical fails this way on its own three pieces: no
-  premise written as a premise, no source named for it, or nothing said about
-  what would have to change for it to stop holding. A likelihood band on one
-  of those is the opposite failure, an invented number.
-
 ## Stated limits
 
 These are holes, not features. Named here so nothing is quietly asserted.
 
-- **Matrix pathologies.** The weighted total is plain arithmetic: multiply
-  each score by its criterion's weight, add across. That is arithmetic, not a
-  sourced method, and it is stated as such. Three known pathologies have no
-  method behind them here. Rank reversal, where adding or dropping an option
-  changes the ranking of the others, has no guard at all: if you drop a
-  non-winning option and the ranking changes, say so. Compensability, where a
-  high score on one criterion hides a failing score on another, is guarded
-  only at the floor, by the mandatory-criterion gate. Normalization across
-  unlike units is constrained only by the requirement to fix numeric
-  thresholds before scoring.
-- **Whose standard settles acceptable and suitable.** Judge an option
-  acceptable or suitable against guidance issued by the authorizing party, not
-  against your own judgment. Where no such guidance exists, name the absence,
-  write down the standard you used, and mark it as your own. The affected
-  stakeholders' objectives are listed alongside the verdict and never folded
-  into it. There is no adjudicator for that side.
-- **How much analysis a question earns.** A design decision, not a sourced
-  rule. Cheap tier always, escalation methods on a trigger, stop when the next
-  method would change neither the recommendation nor its confidence. The four
-  challenge techniques are outside that ladder entirely: they run only when
-  the operator names one, never on a trigger you spotted yourself.
-- **Three different things are called sensitivity.** They are not
-  interchangeable and each has one home. The evidence-sensitivity test names
-  the few items of evidence the conclusion leans on hardest and what breaks if
-  each is wrong (references/evidence.md). The weight re-run rescores the
-  matrix under different weights and reports whether the ranking held
-  (references/comparison.md). Cost sensitivity varies one numeric input
-  between documented bounds and ranks inputs by how far each moves the total
-  (references/methods.md). Running one and claiming another is done is the
-  most common way this handover ships incomplete.
-- **Second-order effects.** No derivation procedure exists. The default here
-  applies to the recommended course only: name what changes for each actor in
-  the frame once the course is taken, and check each itemized constraint for
-  whether the course consumes it. That is a design decision and not a general
-  method for second-order effects.
-- **Rounding and significant figures.** No standard behind it. Carry the
-  precision of the least precise input and say that is what you did.
-- **Calibration over time.** Comparing stated probabilities against outcomes
-  needs records that outlive one run. Nothing here does that, so calibration
-  is not claimed.
+The weighted total is plain arithmetic: multiply each score by its criterion's
+weight, add across. Arithmetic, not a sourced method.
+
+Three different things are called sensitivity. Not interchangeable, each has
+one home. Evidence-sensitivity: references/evidence.md. The weight re-run:
+references/comparison.md. Cost sensitivity: references/method-cost.md. Running
+one and claiming another is done is the commonest way this handover ships
+incomplete.
+
+Six more holes, each with its home.
+
+- Matrix pathologies: references/comparison.md, "Where the arithmetic
+  misbehaves".
+- Whose standard settles acceptable and suitable: references/criteria.md,
+  "Whose standard settles acceptable and suitable".
+- How much analysis a question earns, the depth ladder: references/framing.md,
+  "The depth tiers".
+- Second-order effects: references/options.md, "The second-order pass".
+- Rounding and significant figures: references/comparison.md, "Where the
+  arithmetic misbehaves".
+- Calibration over time is not claimed: references/evidence.md, "Deriving a
+  probability".
 
 ## Reference files
 
@@ -329,8 +287,10 @@ Load on demand. Each is this skill's own file.
   totals, the weight re-run, tie-breaking, the close-call clause, committing
   to one course, and handing over the losers.
 - references/handover-check.md. Step 9: the pass or fail checks the assembled
-  handover has to survive, each with what it protects and what a fail costs.
-- references/methods.md. The escalation library, loaded only when step 3
-  routes to it: risk rating and register, root cause, causal-claim strength,
-  and cost, sensitivity and benefit-cost. Plus the four challenge techniques,
-  which run on the operator's word and never on yours.
+  handover has to survive, each with what it protects and the fix a fail
+  demands.
+- references/method-risk.md, references/method-root-cause.md,
+  references/method-causal-claims.md, references/method-cost.md. The escalation
+  library, one file per trigger; load only the file step 3 routed to.
+  references/challenge-techniques.md holds the four the operator names and you
+  never trigger.
