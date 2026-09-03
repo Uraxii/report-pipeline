@@ -5,9 +5,9 @@ Full mode. Load when deciding whether to open another document.
 Heuer, *Psychology of Intelligence Analysis*, Part II chapter 5, ranks four
 kinds of additional material. Two still change the answer:
 
-- Material that changes the value you would put on a variable already known to
+- Material changing the value you would put on a variable already known to
   matter.
-- Material that changes which variables matter, or how they connect.
+- Material changing which variables matter, or how they connect.
 
 Two do not, and they are the bulk of what arrives: more detail on variables
 already in play, and further variables that turn out to move nothing.
