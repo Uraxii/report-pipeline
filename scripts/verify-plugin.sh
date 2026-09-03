@@ -84,6 +84,8 @@ for skill_dir in skills/*/; do
 	# it. Require one mention in the body above that heading, or in a
 	# sibling reference file. A file naming itself does not count.
 	if [ -d "${skill_dir}references" ]; then
+		grep -q '^## Reference files$' "$skill_md" ||
+			fail "$skill_md has a references/ directory but no '## Reference files' heading, so the load-moment check cannot run"
 		body=$(awk '/^## Reference files$/{exit} {print}' "$skill_md")
 		unreached=
 		for file in "${skill_dir}references"/*.md; do
