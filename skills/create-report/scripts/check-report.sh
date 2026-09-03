@@ -13,6 +13,11 @@ fail() {
 SKILL_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 COLLISIONS="$SKILL_DIR/references/collisions.md"
 CHECK_COUNT=23
+# ponytail: exact contiguous match on normalized tokens, no fuzzy or
+# paraphrase-evasion detection. Raise this if short quotes start
+# false-flagging; add fuzzy matching only if paraphrase evasion shows up as
+# a real case, not before.
+VERBATIM_SPAN_WORDS=40
 
 # ---- selftest fixtures -----------------------------------------------------
 # Fixtures live here, not under skills/ or .nikki-agents/: the former trips
@@ -66,6 +71,53 @@ Detail.
 EOF
 }
 
+span_words() {
+	# Prints $1 distinct tokens ("span01 span02 ..."), for verbatim-span
+	# fixtures. Distinct from clean_report's own words so a match can only
+	# come from the fixture's own planted span.
+	local n="$1" i out=""
+	for i in $(seq 1 "$n"); do
+		out="$out span$(printf '%02d' "$i")"
+	done
+	printf '%s' "${out# }"
+}
+
+report_with_span() {
+	# $1 = text to place inside the body (not a heading), so check 2's
+	# end-matter scan never sees it.
+	cat <<EOF
+The proposal saves money and time, so it is approved.
+
+## Body
+
+$1
+
+## Sources
+
+- Example Source, 2026.
+EOF
+}
+
+report_with_attachment_span() {
+	# $1 = text placed under an admissible ## Attachment: heading, the shape
+	# round 5's case 5 used: a verbatim clause the operator asked for.
+	cat <<EOF
+The proposal saves money and time, so it is approved.
+
+## Body
+
+Detail.
+
+## Sources
+
+- Example Source, 2026.
+
+## Attachment: source clause
+
+$1
+EOF
+}
+
 run_fixture() {
 	# $1 name, $2 want_exit, $3 want_grep, $4 report content, $5 scoreboard
 	# content ("" to omit the scoreboard file entirely, for the msg-1 case).
@@ -85,9 +137,38 @@ run_fixture() {
 	echo "PASS: $1 (exit=$status)"
 }
 
+run_fixture_with_file() {
+	# Same as run_fixture, plus one extra sibling file beside the report.
+	# $1 name, $2 want_exit, $3 want_grep, $4 report content, $5 scoreboard
+	# content, $6 sibling relpath (skip write if empty), $7 sibling content
+	# ("BINARY" writes random bytes instead of text).
+	local dir out status
+	dir=$(mktemp -d)
+	printf '%s\n' "$4" >"$dir/report.md"
+	[ -z "$5" ] || printf '%s\n' "$5" >"$dir/report.checks.md"
+	if [ -n "$6" ]; then
+		mkdir -p "$dir/$(dirname "$6")"
+		if [ "$7" = "BINARY" ]; then
+			head -c 64 /dev/urandom >"$dir/$6"
+		else
+			printf '%s\n' "$7" >"$dir/$6"
+		fi
+	fi
+	set +e
+	out=$(bash "$0" "$dir/report.md" 2>&1)
+	status=$?
+	set -e
+	rm -rf "$dir"
+	if [ "$status" != "$2" ] || ! printf '%s' "$out" | grep -qF -- "$3"; then
+		echo "SELFTEST FAIL: $1 (exit=$status want=$2): $out" >&2
+		exit 1
+	fi
+	echo "PASS: $1 (exit=$status)"
+}
+
 fixture_clean() {
-	run_fixture "clean report and scoreboard agree" 0 \
-		"OK: report and scoreboard agree" \
+	run_fixture "clean report, nothing to flag" 0 \
+		"no undeclared verbatim span found" \
 		"$(clean_report)" "$(board "point paper")"
 }
 
@@ -184,6 +265,82 @@ fixture_case8_format() {
 		"$report" "$(board "staff study")"
 }
 
+fixture_verbatim_span_met() {
+	local span
+	span="$(span_words "$VERBATIM_SPAN_WORDS")"
+	run_fixture_with_file "verbatim span shared with sibling, check 22 scored met" 1 \
+		"sibling.md shares ${VERBATIM_SPAN_WORDS}+ words verbatim with the report, opening: \"span01 span02" \
+		"$(report_with_span "$span")" \
+		"$(board "point paper")" \
+		"sibling.md" "Source material.
+
+$span
+
+End of source."
+}
+
+fixture_verbatim_span_recorded() {
+	local span report
+	span="$(span_words "$VERBATIM_SPAN_WORDS")"
+	report=$(report_with_span "$span")$'\n\n'"## Deviations"$'\n\n'
+	report="${report}- Check 22. Operator instruction: \"reproduce clause 4.2 word for word.\" Reader loses the paraphrase."
+	run_fixture_with_file "verbatim span shared, check 22 scored not-met and recorded" 0 \
+		"no undeclared verbatim span found" \
+		"$report" \
+		"$(board "point paper" "22=| 22 | not-met | Operator | \"reproduce clause 4.2 word for word.\" | reader loses the paraphrase |")" \
+		"sibling.md" "$span"
+}
+
+fixture_verbatim_span_under_threshold() {
+	local span
+	span="$(span_words $((VERBATIM_SPAN_WORDS - 1)))"
+	run_fixture_with_file "verbatim span one word short of the threshold" 0 \
+		"no undeclared verbatim span found" \
+		"$(report_with_span "$span")" \
+		"$(board "point paper")" \
+		"sibling.md" "$span"
+}
+
+fixture_verbatim_span_case_whitespace() {
+	local span sibling_span
+	span="$(span_words "$VERBATIM_SPAN_WORDS")"
+	sibling_span="$(printf '%s' "$span" | tr ' ' '\n' | tr '[:lower:]' '[:upper:]' | tr '\n' ' ')"
+	run_fixture_with_file "verbatim span differs only in case and whitespace" 1 \
+		"sibling.md shares ${VERBATIM_SPAN_WORDS}+ words verbatim" \
+		"$(report_with_span "$span")" \
+		"$(board "point paper")" \
+		"sibling.md" "  $sibling_span
+
+"
+}
+
+fixture_no_sibling_files() {
+	run_fixture "no other files beside the report" 0 \
+		"no undeclared verbatim span found" \
+		"$(clean_report)" "$(board "point paper")"
+}
+
+fixture_binary_sibling() {
+	run_fixture_with_file "unreadable binary sibling file does not crash" 0 \
+		"no undeclared verbatim span found" \
+		"$(clean_report)" "$(board "point paper")" \
+		"sibling.bin" "BINARY"
+}
+
+fixture_case5_verbatim() {
+	# Round 5 case 5's own shape: every check scored met, zero deviations,
+	# a sibling source file sharing a long span with the report's own
+	# Attachment section. No exemption for the Attachment heading: this is
+	# the shape the round found, and it must still fail.
+	local span
+	span="$(span_words "$VERBATIM_SPAN_WORDS")"
+	run_fixture_with_file "case 5: all checks met, 0 deviations, sibling shares an attached verbatim span" 1 \
+		"sibling.md shares ${VERBATIM_SPAN_WORDS}+ words verbatim with the report, opening: \"span01 span02" \
+		"$(report_with_attachment_span "$span")" \
+		"$(board "point paper")" \
+		"sibling.md" "$span"
+}
+
 selftest() {
 	fixture_clean
 	fixture_no_scoreboard
@@ -197,7 +354,14 @@ selftest() {
 	fixture_stale_entry
 	fixture_bad_heading
 	fixture_case8_format
-	echo "OK: 12/12 selftest fixtures passed"
+	fixture_verbatim_span_met
+	fixture_verbatim_span_recorded
+	fixture_verbatim_span_under_threshold
+	fixture_verbatim_span_case_whitespace
+	fixture_no_sibling_files
+	fixture_binary_sibling
+	fixture_case5_verbatim
+	echo "OK: 19/19 selftest fixtures passed"
 }
 
 if [ "${1:-}" = "--selftest" ]; then
@@ -409,4 +573,79 @@ PYEOF
 		fail "format '$fmt' claims $claimed_n excluded elements, format-elements note names $named_n: missing $missing"
 fi
 
-echo "OK: report and scoreboard agree"
+# ---- verbatim-span test: no undeclared paste from a sibling file (check 22) -
+# Round 5's case 5: a writer scored check 22 "met" on a report carrying 637
+# words of pasted source text, and the count test above passed because the
+# scoreboard and the (empty) deviations block agreed with each other. Neither
+# reads the report. This test does: it scans every other file in the report's
+# own directory, recursively, for a 40-plus-word span (VERBATIM_SPAN_WORDS)
+# that also appears in the report, whitespace and case normalized. A match
+# is not itself a fail — a verbatim clause the operator asked for is a legal
+# report — but it must be check 22 not-met with a recorded deviation, the
+# same as any other barred fix. An ## Attachment: section gets no exemption:
+# recording the deviation is the point even when the paste is the right call.
+
+python3 - "$report" "$VERBATIM_SPAN_WORDS" >"$work/span" <<'PYEOF'
+import os, re, sys
+
+report_path = sys.argv[1]
+threshold = int(sys.argv[2])
+
+
+def read_words(path):
+	# None on anything unreadable as text (binary, permission-denied): a
+	# sibling file the mechanism can't read carries no undeclared prose.
+	try:
+		with open(path, encoding="utf-8") as f:
+			text = f.read()
+	except (UnicodeDecodeError, OSError):
+		return None
+	return re.findall(r"\S+", text)
+
+
+report_abs = os.path.abspath(report_path)
+report_words = read_words(report_abs)
+if not report_words or len(report_words) < threshold:
+	sys.exit(0)
+
+report_windows = {}
+for i in range(len(report_words) - threshold + 1):
+	key = tuple(w.lower() for w in report_words[i:i + threshold])
+	report_windows.setdefault(key, i)
+
+skip = {report_abs}
+if report_path.endswith(".md"):
+	base = report_path[:-len(".md")]
+	skip.add(os.path.abspath(base + ".notes.md"))
+	skip.add(os.path.abspath(base + ".checks.md"))
+
+report_dir = os.path.dirname(report_abs) or "."
+candidates = []
+for root, dirs, files in os.walk(report_dir):
+	dirs.sort()
+	for fname in sorted(files):
+		path = os.path.abspath(os.path.join(root, fname))
+		if path not in skip:
+			candidates.append(path)
+
+for path in candidates:
+	words = read_words(path)
+	if not words or len(words) < threshold:
+		continue
+	for i in range(len(words) - threshold + 1):
+		key = tuple(w.lower() for w in words[i:i + threshold])
+		idx = report_windows.get(key)
+		if idx is not None:
+			opening = " ".join(report_words[idx:idx + 12])
+			relpath = os.path.relpath(path, report_dir)
+			print(relpath + "\x1f" + opening)
+			sys.exit(0)
+PYEOF
+
+if [ -s "$work/span" ]; then
+	IFS=$'\x1f' read -r span_file span_opening <"$work/span"
+	[ "${verdict[22]:-}" = "not-met" ] ||
+		fail "$span_file shares ${VERBATIM_SPAN_WORDS}+ words verbatim with the report, opening: \"$span_opening\" (check 22 scored '${verdict[22]:-missing}', want not-met with a deviation)"
+fi
+
+echo "OK: scoreboard and deviations block agree, end matter is admissible, format elements are named, no undeclared verbatim span found. Every verdict on the scoreboard is the writer's own; this script re-scores none of them."

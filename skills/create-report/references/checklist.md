@@ -68,10 +68,14 @@ by this skill's own path:
 
 `bash <this-skill-directory>/scripts/check-report.sh <report>`
 
-It diffs the deviations block against the `not-met` rows, and checks every
-end-matter item against the five admissible types (check 2) and, where the
-format claims excluded elements, the format-elements note (check 5). Fix
-what it names.
+It diffs the deviations block against the `not-met` rows, checks every
+end-matter item against the five admissible types (check 2), checks the
+format-elements note against what the format claims (check 5), and scans
+every other file beside the report for a 40-plus-word span pasted into it
+verbatim (check 22). The scan is the one test here that reads the report
+itself rather than the scoreboard the writer filled in; a matching span is
+not itself a fail, but check 22 must then be scored `not-met` with the
+deviation recorded, an `## Attachment:` section included. Fix what it names.
 
 The numbered checks:
 
@@ -194,6 +198,12 @@ The numbered checks:
     came from. One that traces to no such line was manufactured while
     drafting, and it fails this check. The remedy is the send-back in step 5,
     never a line added to the notes to cover it.
+    scripts/check-report.sh scans every other file beside the report,
+    recursively, for a 40-plus-word span that also appears in the report,
+    whitespace and case normalized, and fails unless this check is scored
+    `not-met` with the deviation recorded. An operator instruction can
+    authorise the paste; it cannot excuse recording it, and a verbatim
+    clause under an `## Attachment:` heading gets no exemption from that.
     (The notes discipline is step 3.) [contract, Part III]
 23. Every check this report does not meet appears in the deviations block as
     its own entry, with its authorising rule quoted and what the reader loses.
