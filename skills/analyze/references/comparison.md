@@ -20,14 +20,14 @@ Rank each option per criterion, lower rank preferred. Add ranks across for the
 unweighted total. Multiply each rank by its criterion's weight and add those
 across for the weighted total. Show both.
 
-The weighted total is plain arithmetic, multiply and sum. Stated here as
-arithmetic and nothing more. No method behind it decides what a correct weight
-is, what a correct scale is, or what to do when the arithmetic misbehaves. The
-three ways it misbehaves are named at the end of this file.
+Weighted total is plain arithmetic, multiply and sum. Stated here as arithmetic
+and nothing more. No method behind it decides what a correct weight is, what a
+correct scale is, or what to do when the arithmetic misbehaves. The three ways
+it misbehaves are named at the end of this file.
 
-The matrix is where the decision starts, not where it ends. Say in the text
-where the judgment was subjective. Comparing option by option on one criterion
-is often more useful to a reader than comparing two totals.
+Matrix is where the decision starts, not where it ends. Say in the text where
+the judgment was subjective. Option-by-option on one criterion is often more
+useful to a reader than two totals.
 
 ## The weight re-run
 
@@ -46,7 +46,7 @@ Weight re-run
   Compliance 40 -> 55, Cost 35 -> 25:  ranking flipped, A ahead
 ```
 
-A ranking that flips under a defensible reweighting is a close call. Go to the
+Ranking that flips under a defensible reweighting is a close call. Go to the
 close-call clause below.
 
 ## The option-set check
@@ -78,11 +78,11 @@ Neither is a recommendation.
 
 Two shapes this rule is often misread as forbidding, and does not.
 
-**The package.** An ill-structured problem may need several measures applied
+**The package.** Ill-structured problem may need several measures applied
 together or in sequence. That package is one course. Name it as one, order its
-parts, say which part comes first and what triggers the next. The
-decision-maker approves the package. Four independent recommendations is a
-menu; a sequenced package is a course.
+parts, say which part comes first and what triggers the next. Decision-maker
+approves the package. Four independent recommendations is a menu; a sequenced
+package is a course.
 
 **The close call.** Leading totals sit inside the noise, or the weight re-run
 flipped the ranking: still name one. Then, in the same breath:
@@ -99,10 +99,10 @@ abstention.
 
 ## What still goes over with it
 
-- **Surviving disagreement.** A real disagreement outlasted the comparison:
-  name it and put it in front of the decision-maker rather than smoothing it
-  away. Committing to one course is not the same as hiding that the call was
-  close or contested.
+- **Surviving disagreement.** Real disagreement outlasted the comparison: name
+  it and put it in front of the decision-maker rather than smoothing it away.
+  Committing to one course is not the same as hiding that the call was close or
+  contested.
 - **The losing options.** With their scores and why they lost.
 - **The contrary evidence.** Everything found that cuts against the
   recommendation, from the fact notes. Showing only what supports the answer is
@@ -112,7 +112,7 @@ abstention.
 
 Write the matrix result as a paragraph a reader can act on without opening the
 table: which option won, by what margin, on which criteria, and where the
-judgment was subjective. A reader who has to reconstruct the answer from a grid
+judgment was subjective. Reader who has to reconstruct the answer from a grid
 has been handed homework.
 
 ## Closing the run
@@ -130,8 +130,8 @@ Three things before the handover goes out.
    whole ordering exists to prevent.
 
 Then assemble handover sections 1 to 11. Section 12 fills at step 9, as the
-gate runs. Where a section does not apply, say which and why. A section quietly
-absent and a section that does not apply look identical from outside, and only
+gate runs. Where a section does not apply, say which and why. Section quietly
+absent and section that does not apply look identical from outside, and only
 one of them is acceptable.
 
 ## Where the arithmetic misbehaves
@@ -140,13 +140,13 @@ Three known pathologies. Named because none has a method here.
 
 - **Rank reversal.** Adding or removing an option changes the ranking of the
   others. No guard exists. The option-set check above surfaces it.
-- **Compensability.** A high score on one criterion offsets a failing score on
+- **Compensability.** High score on one criterion offsets a failing score on
   another, and the total hides it. Guarded only at the floor, by the mandatory
   criterion gate. Above that floor, an option can be quietly terrible at one
   thing and still win.
 - **Normalization across unlike units.** Constrained only by fixing numeric
-  thresholds before scoring. The choice of scheme is yours and should be
-  stated as yours.
+  thresholds before scoring. Scheme choice is yours and should be stated as
+  yours.
 
 Rounding and significant figures have no standard behind them either. Carry the
 precision of the least precise input and say that is what you did.

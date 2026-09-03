@@ -6,7 +6,7 @@ Two kinds, in order. Screening first, then evaluation.
 
 ## Screening criteria: is the option admissible at all
 
-These define the limits of an acceptable solution. An option may be rejected on
+These define the limits of an acceptable solution. Option may be rejected on
 these alone, and rejection is a pass or fail verdict, never a low score.
 
 Five categories.
@@ -52,7 +52,7 @@ A well-formed evaluation criterion has five parts. All five.
   comparative terms ("less is better") or absolute terms ("in-region beats
   out-of-region").
 
-A criterion missing any of the five is an opinion wearing a label. "Cost" with
+Criterion missing any of the five is an opinion wearing a label. "Cost" with
 no unit, no benchmark and no direction is not a criterion. It is a place to
 hide a preference.
 
@@ -67,11 +67,11 @@ Formula:          Under 4 an advantage, over 4 a disadvantage. Less is better.
 ```
 
 Set the benchmark by reasoning, by historical precedent, or from a current
-example. Averaging the options is the worst way, because it duplicates the
-comparison you have not run yet and guarantees somebody passes.
+example. Averaging the options is the worst way: it duplicates the comparison
+you have not run yet and guarantees somebody passes.
 
-A benchmark landing exactly on one option's value is the signature of a
-retrofitted criterion. If it happens honestly, say why.
+Benchmark landing exactly on one option's value is the signature of a
+retrofitted criterion. Happens honestly -> say why.
 
 ## Direction, before any score
 
@@ -111,17 +111,17 @@ and kept in.
 Only structural guard against a high score on one criterion hiding a failing
 score on another. Works at the floor and nowhere above it.
 
-Record the drop with the criterion it failed. A silent drop and a rescued
+Record the drop with the criterion it failed. Silent drop and rescued
 favourite are indistinguishable in the output.
 
 ## Weights
 
-Criteria are almost never equally important. Weight them so weights sum to 100
+Criteria almost never equally important. Weight them so weights sum to 100
 percent, and state one line of rationale per weight.
 
-The rationale matters more than the numbers. A reader can argue with
-"compliance carries 40 percent because a DPA breach ends the contract". Nobody
-can argue with a column of unexplained percentages.
+Rationale matters more than the numbers. Reader can argue with "compliance
+carries 40 percent because a DPA breach ends the contract". Nobody can argue
+with a column of unexplained percentages.
 
 Operator gave a weighting instruction in words: quote it as the rationale's
 source rather than paraphrasing it into a number silently.
@@ -135,16 +135,16 @@ Restore time         25%     DR policy sets an RTO but tolerates overrun
 
 ## Freeze
 
-The set closes here. Takes no new member once options are on the table. Adding
-a criterion mid-analysis is how a preferred option gets rescued, and it is the
+Set closes here. Takes no new member once options are on the table. Adding a
+criterion mid-analysis is how a preferred option gets rescued, and it is the
 failure this whole step is ordered to prevent.
 
-Record the freeze point in the handover. The freeze binds criteria only; the
-fact notes stay open through step 7.
+Record the freeze point in the handover. Freeze binds criteria only; fact
+notes stay open through step 7.
 
 ### When the options arrived first
 
-Operators hand over named options all the time. The ordering the step demands
+Operators hand over named options all the time. The ordering this step demands
 is then already broken by the input, and pretending otherwise produces criteria
 reverse-engineered from a comparison sheet.
 

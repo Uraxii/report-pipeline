@@ -5,7 +5,7 @@ keep it open.
 
 ## Fact notes
 
-One artifact, one row per fact, built before any answer is formed. A thesis
+One artifact, one row per fact, built before any answer is formed. Thesis
 fixed first and supported afterwards has inverted the process, and the output
 looks identical to the honest version.
 
@@ -18,20 +18,20 @@ Renewal terms hold through FY27       renewal_terms.md    assumption
 
 Three rules on the rows.
 
-- Write each in your own words. Copying source text carries the source's
+- Write each in your own words. Copied source text carries the source's
   framing forward and defeats the whole artifact.
 - One source per fact, named specifically enough to reopen.
-- Mark the kind. Fact, assumption, or judgment. A judgment written in the
-  grammatical form of a fact is the most expensive error in the handover,
-  because nothing downstream can detect it.
+- Mark the kind. Fact, assumption, or judgment. Judgment written in the
+  grammatical form of a fact is the most expensive error in the handover:
+  nothing downstream can detect it.
 
 Table stays open through step 7. Facts surface while options are measured, and
-they belong here, not in a second list. The step 5 freeze binds criteria, not
+they belong here, not in a second list. Step 5 freeze binds criteria, not
 evidence.
 
 Do not drop a factor because it cannot be counted. Name the variables that
-resist measurement and assess their likely effect on the outcome from facts and
-stated assumptions. An unmeasurable factor left out is a factor the decision
+resist measurement, assess their likely effect on the outcome from facts and
+stated assumptions. Unmeasurable factor left out = factor the decision
 silently assumes is zero.
 
 Record what cuts against the emerging answer as you find it. Contrary evidence
@@ -41,8 +41,8 @@ do with the world.
 
 ## Source assessment
 
-One row per source. This is where a source's weakness gets attached to the
-judgments resting on it, the only place it can still change anything.
+One row per source. Here a source's weakness gets attached to the judgments
+resting on it. Only place it can still change anything.
 
 ```
 Source        What it is       Strengths       Weaknesses        Carries
@@ -55,8 +55,8 @@ Judge a source by whether it discriminates, not by whether it agrees. Evidence
 fitting the leading answer but fitting the alternatives equally well is worth
 nothing. Drop it from the reasoning even though it feels supportive.
 
-Give little weight to a single anecdote or case unless known to be typical.
-Prefer aggregate data where it exists.
+Little weight to a single anecdote or case unless known to be typical. Prefer
+aggregate data where it exists.
 
 Do not fully accept or fully reject a source of uncertain reliability. Carry
 the uncertainty through into the combined judgment.
@@ -69,17 +69,17 @@ Renewal price holds at list   Contract clause 4.2  Cost flips    yes
 Headcount flat through FY26   Verbal, unconfirmed  Timeline slip yes
 ```
 
-Every assumption states what follows if it is wrong. Critical ones marked. An
-assumption with no consequence written next to it has not been examined. It has
-been noticed.
+Every assumption states what follows if it is wrong. Critical ones marked.
+Assumption with no consequence written next to it has not been examined. It
+has been noticed.
 
 ## The key assumptions check
 
 Runs twice. Once at step 4, against the answer the question already presumes,
 before the analysis hardens. Once at step 8, against the answer you reached.
-Record both outputs. The first run is the valuable one and the easiest to skip,
-because at step 4 there is nothing to check it against except your own priors,
-which is exactly the point.
+Record both outputs. First run is the valuable one and the easiest to skip:
+at step 4 there is nothing to check against except your own priors, which is
+exactly the point.
 
 Each run asks, of every premise the analysis rests on:
 
@@ -88,17 +88,17 @@ Each run asks, of every premise the analysis rests on:
 - What evidence would show it is already false?
 - Who would disagree with it, and on what basis?
 
-A premise surviving both runs but still able to fail is an assumption. Belongs
+Premise surviving both runs but still able to fail is an assumption. Belongs
 in the register above, not in the fact notes.
 
 ## The evidence-sensitivity test
 
 Runs once, at step 8. Not the weight re-run, not cost sensitivity.
 
-Name the few items of evidence the conclusion leans on hardest. Per item, write
-what breaks if it turns out wrong, and whether the recommendation survives.
-Record the output. Recommendation does not survive the loss of one item: say so
-plainly. That is the most useful sentence in the handover.
+Name the few items of evidence the conclusion leans on hardest. Per item,
+write what breaks if it turns out wrong, and whether the recommendation
+survives. Record the output. Recommendation does not survive the loss of one
+item: say so plainly. Most useful sentence in the handover.
 
 ## Deriving a probability
 
@@ -129,8 +129,8 @@ likelihood. Not every question needs it.
   whether the opposite outcome would have surprised you at the time. Hindsight
   inflates remembered confidence.
 
-Calibration over many judgments needs records that outlive one run, and nothing
-here provides that. Do not claim calibration.
+Calibration over many judgments needs records that outlive one run, and
+nothing here provides that. Do not claim calibration.
 
 ## Likelihood and confidence
 
@@ -150,15 +150,15 @@ Very likely        80 to 95 percent
 Almost certain     95 to 99 percent
 ```
 
-**Confidence** is how much the evidence behind that number is worth: quality,
+**Confidence** is what the evidence behind that number is worth: quality,
 quantity, how much of it discriminates. Cap confidence at low where the
 judgment rests on a small body of evidence whose representativeness cannot be
 determined, however internally consistent that evidence looks. Internal
 consistency in a small sample is what a small sample does.
 
-Empty hedging is banned, calibrated probability required. "It would appear
-costs may rise" is the banned half. "Costs are likely, 55 to 80 percent, to
-rise" is the required half.
+Empty hedging banned, calibrated probability required. "It would appear costs
+may rise" is the banned half. "Costs are likely, 55 to 80 percent, to rise" is
+the required half.
 
 ## Falsifiers
 
@@ -166,7 +166,7 @@ Every major judgment names what would change it, and the falsifier names an
 observable, not a feeling. "More analysis" is not a falsifier. "Completion
 timestamps clustered at or after the churn dates" is.
 
-A judgment with no stated falsifier is not finished.
+Judgment with no stated falsifier is not finished.
 
 ## Hands forward
 

@@ -7,7 +7,7 @@ Environment first as its own product, then the problem.
 ## Step 1: the environment
 
 Write what bears on the decision across five kinds of condition. Not all five
-apply to every question; name the ones that do and say the rest are empty.
+apply to every question; name the ones that do, say the rest are empty.
 
 - Physical: place, hardware, capacity, distance, anything with a location.
 - Social: people affected, their relationships, what they will tolerate.
@@ -17,11 +17,11 @@ apply to every question; name the ones that do and say the rest are empty.
 - Infrastructural: systems and services the course would run on or break.
 
 Name which other parties' actions could degrade or block the course, not only
-which conditions favour it. A frame listing only tailwinds is not written yet.
+which conditions favour it. Frame listing only tailwinds is not written yet.
 
 ## The actors
 
-A table, one row per actor relevant to the decision.
+Table, one row per actor relevant to the decision.
 
 ```
 Actor              What it wants            Where that conflicts
@@ -29,8 +29,8 @@ Support team       Predictable hours        Coverage window the plan needs
 Finance            Flat headcount cost      Any option that adds staff
 ```
 
-Conflicts go both directions: between actors, and between an actor and the
-deciding organization's own goals. An actor with no conflict recorded is either
+Conflicts go both directions: actor against actor, and actor against the
+deciding organization's own goals. Actor with no conflict recorded is either
 irrelevant or under-examined; decide which and say so.
 
 ## Step 2: the problem
@@ -41,23 +41,23 @@ Three named parts. All three, in this order.
 2. Which elements of the environment must change to close it.
 3. The limitations that bound the response.
 
-A problem stated as a solution ("we need to migrate to X") is not a problem
+Problem stated as a solution ("we need to migrate to X") is not a problem
 statement. Rewrite it as the tension it stood in for.
 
 Then cast the same question a second way, as who, what, when, why, and how.
-The two shapes catch different omissions: the three-part version exposes a
-missing desired end state, the five-question version exposes a missing deadline
-or a missing owner. Write both.
+Two shapes catch different omissions: three-part version exposes a missing
+desired end state, five-question version exposes a missing deadline or missing
+owner. Write both.
 
 Question came from someone else: get the problem statement approved before
 working on it, record who approved it. Approval not sought: record that
-instead. An unrecorded approval field reads as approved, which is the wrong
+instead. Unrecorded approval field reads as approved, which is the wrong
 default.
 
 ### Terms
 
-Define terms the analysis leans on, short list. A term used with a narrower
-meaning than a reader would assume, or a term with contested meaning inside the
+Define terms the analysis leans on, short list. Term used with a narrower
+meaning than a reader would assume, or term with contested meaning inside the
 organization, goes here. Not a glossary of the obvious.
 
 ### The constraints list
@@ -91,7 +91,7 @@ produce.
 
 Scale the analysis to the problem, not to the format. Three things decide how
 much work a question earns: complexity, your experience with this kind of
-problem, time available. A simple problem gets a decision, not a full option
+problem, time available. Simple problem gets a decision, not a full option
 comparison.
 
 ### The depth tiers
@@ -124,10 +124,9 @@ confidence.
 **The four challenge techniques are not on this ladder.** Analysis of
 competing hypotheses, Team A and Team B, devil's advocacy, and red team run
 only when the operator names one. Never trigger one because the question looked
-contested. When one runs, it goes in the method log's other half, recorded with
-who named it. Confusing the two halves is how an auto-routed cost method ends
-up labelled as something the operator asked for. See
-challenge-techniques.md.
+contested. One runs -> method log's other half, recorded with who named it.
+Confuse the two halves and an auto-routed cost method ends up labelled as
+something the operator asked for. See challenge-techniques.md.
 
 ### Picking a technique
 
@@ -139,13 +138,13 @@ that does that task. Three jobs, not interchangeable.
 - **Imaginative** techniques produce new insight, other perspectives, other
   outcomes.
 
-Weigh cost before running. Brainstorming and devil's advocacy are cheap to
-understand and run. The rest demand more skill, more time, more commitment.
+Weigh cost before running. Brainstorming and devil's advocacy cheap to
+understand and run. Rest demand more skill, more time, more commitment.
 
 Routed to causation: pick the technique by the job. Table and procedures in
 method-root-cause.md.
 
 ## Hands forward
 
-Sections 1, 10. Section 10 opens here at step 3 and is written as you go, not
+Sections 1, 10. Section 10 opens here at step 3, written as you go, not
 reconstructed at the end.

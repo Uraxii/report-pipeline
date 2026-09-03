@@ -1,10 +1,9 @@
 # handover-check.md: the step 9 gate
 
-Run this against the assembled handover before you hand it over. This file is
-process, not precept. Work it top to bottom.
+Run against the assembled handover before you hand it over. Process, not
+precept. Work top to bottom.
 
-The handover contract is stated once, in SKILL.md. This file re-applies it as a
-gate.
+Handover contract stated once, in SKILL.md. This file re-applies it as a gate.
 
 Every check is pass or fail. A fail is a fix, not a note: go back to the step
 the check names, produce the missing thing, and run the check again. Each
@@ -17,9 +16,9 @@ block is the record of a fail, not a way to score one clean.
 
 ## The checks
 
-Some checks open with the condition they apply under. Where that condition
-does not hold, the check passes and its row still gets written. No check is
-skipped, and none returns a third verdict.
+Some checks open with the condition they apply under. Condition does not hold
+-> check passes, row still gets written. No check is skipped, none returns a
+third verdict.
 
 1. All twelve sections of the handover contract carry content. Count them
    against SKILL.md. A section that does not apply is named, with the reason
@@ -88,10 +87,9 @@ skipped, and none returns a third verdict.
     written as a premise, the source of that premise named, and, in place of a
     falsifier, what would have to change for the judgment to stop holding.
     Confidence still gets its own sentence either way.
-    Protects the reader from a number that hides how much it is worth, and
-    from an invented number on a judgment no observation could settle. A
-    judgment missing any of its three pieces is not finished; finish it or cut
-    it.
+    Protects reader from a number hiding what it is worth, and from an
+    invented number on a judgment no observation could settle. A judgment
+    missing any of its three pieces is not finished; finish it or cut it.
 
 11. Every assumption is marked as an assumption and states what follows if it
     is wrong. Critical assumptions are marked as critical.
@@ -125,17 +123,17 @@ skipped, and none returns a third verdict.
     matrix; under two survivors no matrix result is due. Where no option
     survived screening, the single change that would readmit an option is that
     one course, and an empty field handed over without that course fails here.
-    Protects the decision-maker's job, which is to approve or disapprove. A
-    sequenced package is one course only if it is named as one and its parts
-    are ordered.
+    Protects the decision-maker's job: approve or disapprove. A sequenced
+    package is one course only if it is named as one and its parts are
+    ordered.
 
 16. Each section is in the form its depth tier allows. At the cheap tier,
     sections 2, 3, 4, 6, 7, 8, 9 and 12 are tables or row sets, not
     paragraphs. Prose appears in section 1's environment and section 11's
     matrix result, and elsewhere only where a method escalated and its output
     fits no table.
-    Protects the consumer from reading twelve essays for a decision worth a
-    page. Convert the section to its table.
+    Protects consumer from twelve essays for a decision worth a page. Convert
+    the section to its table.
 
 17. Every check that stays failed appears in section 12 as its own deviation
     block, and so does every rule outside this list that an operator
@@ -159,8 +157,8 @@ skipped, and none returns a third verdict.
 ## What a fail looks like
 
 Check 10 against "We have high confidence the vendor is very likely to miss the
-Q3 date." One sentence, two axes, no falsifier. Fails on two counts. The fix is
-three pieces:
+Q3 date." One sentence, two axes, no falsifier. Fails twice. Fix is three
+pieces:
 
 - "The vendor misses the Q3 date: very likely, 80 to 95 percent."
 - "Confidence is low; the estimate rests on one unaudited status report."
