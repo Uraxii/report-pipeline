@@ -138,7 +138,7 @@ Five rulings an agent otherwise gets wrong: data plural, hedging versus
 calibration, conclusion-first versus a hostile reader, analysis order versus
 presentation order, a named format versus the exclusion list.
 references/collisions.md. Load when two rules here appear to conflict, or
-when the operator names a paper format.
+when the report uses a named paper format, whoever chose it.
 
 ## Failure modes
 
@@ -181,8 +181,8 @@ Load on demand. Each is this skill's own file.
   letter, and the paper formats above. Load when choosing a shape or building
   the skeleton.
 - references/skeletons.md. The staff-study five-part body and the
-  running-estimate format, verbatim. Load only when the operator names a staff
-  study or a running estimate.
+  running-estimate format, verbatim. Load when the report is a staff study or
+  a running estimate, whoever chose it.
 - references/style.md. The sentence layer, the numbers rules, the likelihood
   ladder, and the weasel list. Load when drafting or revising sentences, or
   when stating uncertainty.

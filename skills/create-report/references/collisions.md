@@ -1,7 +1,7 @@
 # Collisions: five tie-breaks
 
-Load when two rules in this skill appear to conflict, or when the operator
-names a paper format. One ruling each.
+Load when two rules in this skill appear to conflict, or when the report uses
+a named paper format, whoever chose it. One ruling each.
 
 - Data plural. Strunk rules "data" plural; Daniel routes around the fight.
   Adopt Daniel's dodge ("statistics are," "information is"). An agent has no
@@ -21,8 +21,9 @@ names a paper format. One ruling each.
   the reader's order.
 - A named format versus the exclusion list. A background paper is background
   by construction, and a staff study's Part 1 states the problem and its
-  Part 2 defines terms. Where the operator names a format, the format wins for
-  exactly the elements its skeleton requires, and the exclusion list governs
+  Part 2 defines terms. Where the report uses a named format, whoever chose
+  it, the format wins for exactly the elements its skeleton requires, and the
+  exclusion list governs
   everything else. Name in one line, in the format-elements note (the end
   matter check 2 defines), every excluded element the format claimed, by their
   names on the exclusion list, not by the format's part names. Every one the

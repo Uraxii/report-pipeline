@@ -59,9 +59,10 @@ The numbered checks:
 4. The conclusion is not buried past the first paragraph. [Part V]
 5. Exclusion scan against the exclusion list in SKILL.md, including the ban on
    stating an inference in the grammatical form of a fact.
-   Where the operator named a format whose skeleton requires an excluded
-   element, that element passes this check, and the report names every
-   excluded element the format claimed, by their names on the exclusion list.
+   Where the report uses a format whose skeleton requires an excluded
+   element, whoever chose that format, that element passes this check, and the
+   report names every excluded element the format claimed, by their names on
+   the exclusion list.
    All of them: count the excluded elements the skeleton claims, count the
    names in the note, and the two counts match or this check fails. Announcing
    the format's parts is not naming them. That naming goes in the
