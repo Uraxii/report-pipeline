@@ -18,6 +18,26 @@ done
 
 plugin_name=$(python3 -c "import json; print(json.load(open('.claude-plugin/plugin.json'))['name'])")
 
+# The anchor lives in .git/config, inside the checkout, so it catches an
+# unsynchronised rename, not a hostile edit (remote and manifests changed
+# together still pass).
+if ! origin_url=$(git remote get-url origin 2>&1); then
+	fail "cannot resolve repo name from git remote origin: $origin_url"
+fi
+repo_name=$origin_url
+while true; do
+	case "$repo_name" in
+	*.git) repo_name=${repo_name%.git} ;;
+	*/) repo_name=${repo_name%/} ;;
+	*) break ;;
+	esac
+done
+repo_name=${repo_name##*/}
+[ -n "$repo_name" ] ||
+	fail "cannot resolve repo name from git remote origin '$origin_url'"
+[ "$repo_name" = "$plugin_name" ] ||
+	fail ".claude-plugin/plugin.json name is '$plugin_name', want '$repo_name' (repo name via git remote origin, the external anchor)"
+
 mkt_name=$(python3 -c "import json; print(json.load(open('.claude-plugin/marketplace.json'))['name'])")
 [ "$mkt_name" != "Uraxii" ] ||
 	fail ".claude-plugin/marketplace.json name is Uraxii, collides with the dotai marketplace"
@@ -48,12 +68,31 @@ agents_ref=$(python3 -c "import json; print(json.load(open('.agents/plugins/mark
 [ "$agents_ref" = "main" ] ||
 	fail ".agents/plugins/marketplace.json ref is '$agents_ref', want main"
 
-for ref in $(grep -o 'Uraxii/[A-Za-z0-9_.-]*' README.md | sort -u); do
+[ -f README.md ] || fail "missing README.md"
+[ -r README.md ] || fail "cannot read README.md"
+
+# Match the command form (`plugin marketplace add Uraxii/<name>`), not a
+# bare 'Uraxii/<name>' token, so a profile link or prose mention can't
+# either false-trip this or hide a missing install section.
+# [[:space:]]+ between the verb words tolerates a stray tab or a doubled
+# space instead of reading a clean install line as a missing section.
+marketplace_refs=$(grep -oE 'plugin[[:space:]]+marketplace[[:space:]]+add[[:space:]]+Uraxii/[A-Za-z0-9_.-]+' README.md |
+	awk '{print $NF}' | sort -u || true)
+[ -n "$marketplace_refs" ] ||
+	fail "README.md has no 'plugin marketplace add Uraxii/<repo>' line (install section missing?)"
+for ref in $marketplace_refs; do
 	[ "$ref" = "Uraxii/$plugin_name" ] ||
 		fail "README.md installs from '$ref', want Uraxii/$plugin_name"
 done
 
-for ref in $(grep -oE '[A-Za-z0-9_.-]+@[A-Za-z0-9_.-]+' README.md | sort -u); do
+# Match the command form (`plugin install <name>@<name>` / `plugin add
+# <name>@<name>`), not a bare '<name>@<name>' string, so a pinned dependency
+# version or an email address in prose can't false-trip this.
+install_refs=$(grep -oE 'plugin[[:space:]]+(install|add)[[:space:]]+[A-Za-z0-9_.-]+@[A-Za-z0-9_.-]+' README.md |
+	awk '{print $NF}' | sort -u || true)
+[ -n "$install_refs" ] ||
+	fail "README.md has no 'plugin install/add <name>@<name>' command (install section missing?)"
+for ref in $install_refs; do
 	[ "$ref" = "$plugin_name@$plugin_name" ] ||
 		fail "README.md installs '$ref', want $plugin_name@$plugin_name"
 done
