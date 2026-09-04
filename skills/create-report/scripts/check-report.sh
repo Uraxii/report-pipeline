@@ -2,7 +2,7 @@
 # Diffs a report's deviations block and format-elements note against its
 # sibling scoreboard, <report-name>.checks.md. Design:
 # .nikki-agents/deviations-mechanism-design.md.
-# Run: bash <this-skill-directory>/scripts/check-report.sh <report.md>
+# Run: bash <this-skill-directory>/scripts/check-report.sh <report.md> <materials-dir>
 set -euo pipefail
 
 fail() {
@@ -13,11 +13,15 @@ fail() {
 SKILL_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 COLLISIONS="$SKILL_DIR/references/collisions.md"
 CHECK_COUNT=23
-# ponytail: exact contiguous match on normalized tokens, no fuzzy or
-# paraphrase-evasion detection. Raise this if short quotes start
-# false-flagging; add fuzzy matching only if paraphrase evasion shows up as
-# a real case, not before.
+# ponytail: difflib run-grouping over case- and whitespace-normalized tokens.
+# Ceiling: it joins matched runs separated by insertions of up to
+# RUN_GAP_WORDS, so padding a paste with "[sic]" no longer hides it, but a
+# rewrite that changes more than that between runs still passes. Real
+# paraphrase detection needs semantic matching, which this is not.
 VERBATIM_SPAN_WORDS=40
+MIN_RUN_WORDS=12
+RUN_GAP_WORDS=20
+QUESTION_EXEMPT_MAX_WORDS=80
 
 # ---- selftest fixtures -----------------------------------------------------
 # Fixtures live here, not under skills/ or .nikki-agents/: the former trips
@@ -118,52 +122,51 @@ $1
 EOF
 }
 
-run_fixture() {
-	# $1 name, $2 want_exit, $3 want_grep, $4 report content, $5 scoreboard
-	# content ("" to omit the scoreboard file entirely, for the msg-1 case).
-	local dir out status
+run_fixture_tree() {
+	# Builds a materials tree in a temp dir, runs the checker over it with
+	# that dir as the materials root, and asserts exit status and output.
+	# $1 name, $2 want_exit, $3 want_grep, $4 report path relative to the
+	# materials root, then relpath/content pairs for every other file.
+	# Content "BINARY" writes random bytes instead of text.
+	local name="$1" want="$2" want_grep="$3" rel="$4" dir out status
+	shift 4
 	dir=$(mktemp -d)
-	printf '%s\n' "$4" >"$dir/report.md"
-	[ -z "$5" ] || printf '%s\n' "$5" >"$dir/report.checks.md"
+	while [ $# -gt 0 ]; do
+		mkdir -p "$dir/$(dirname "$1")"
+		if [ "$2" = "BINARY" ]; then
+			head -c 64 /dev/urandom >"$dir/$1"
+		else
+			printf '%s\n' "$2" >"$dir/$1"
+		fi
+		shift 2
+	done
 	set +e
-	out=$(bash "$0" "$dir/report.md" 2>&1)
+	out=$(bash "$0" "$dir/$rel" "$dir" 2>&1)
 	status=$?
 	set -e
 	rm -rf "$dir"
-	if [ "$status" != "$2" ] || ! printf '%s' "$out" | grep -qF -- "$3"; then
-		echo "SELFTEST FAIL: $1 (exit=$status want=$2): $out" >&2
+	if [ "$status" != "$want" ] || ! printf '%s' "$out" | grep -qF -- "$want_grep"; then
+		echo "SELFTEST FAIL: $name (exit=$status want=$want): $out" >&2
 		exit 1
 	fi
-	echo "PASS: $1 (exit=$status)"
+	echo "PASS: $name (exit=$status)"
+}
+
+run_fixture() {
+	# $1 name, $2 want_exit, $3 want_grep, $4 report content, $5 scoreboard
+	# content ("" to omit the scoreboard file entirely, for the msg-1 case).
+	local args=("$1" "$2" "$3" "report.md" "report.md" "$4")
+	[ -z "$5" ] || args+=("report.checks.md" "$5")
+	run_fixture_tree "${args[@]}"
 }
 
 run_fixture_with_file() {
 	# Same as run_fixture, plus one extra sibling file beside the report.
-	# $1 name, $2 want_exit, $3 want_grep, $4 report content, $5 scoreboard
-	# content, $6 sibling relpath (skip write if empty), $7 sibling content
-	# ("BINARY" writes random bytes instead of text).
-	local dir out status
-	dir=$(mktemp -d)
-	printf '%s\n' "$4" >"$dir/report.md"
-	[ -z "$5" ] || printf '%s\n' "$5" >"$dir/report.checks.md"
-	if [ -n "$6" ]; then
-		mkdir -p "$dir/$(dirname "$6")"
-		if [ "$7" = "BINARY" ]; then
-			head -c 64 /dev/urandom >"$dir/$6"
-		else
-			printf '%s\n' "$7" >"$dir/$6"
-		fi
-	fi
-	set +e
-	out=$(bash "$0" "$dir/report.md" 2>&1)
-	status=$?
-	set -e
-	rm -rf "$dir"
-	if [ "$status" != "$2" ] || ! printf '%s' "$out" | grep -qF -- "$3"; then
-		echo "SELFTEST FAIL: $1 (exit=$status want=$2): $out" >&2
-		exit 1
-	fi
-	echo "PASS: $1 (exit=$status)"
+	# $6 sibling relpath (skip write if empty), $7 sibling content.
+	local args=("$1" "$2" "$3" "report.md" "report.md" "$4")
+	[ -z "$5" ] || args+=("report.checks.md" "$5")
+	[ -z "$6" ] || args+=("$6" "$7")
+	run_fixture_tree "${args[@]}"
 }
 
 fixture_clean() {
@@ -350,25 +353,239 @@ fixture_no_sibling_files() {
 		"$(clean_report)" "$(board "point paper")"
 }
 
-fixture_binary_sibling() {
-	run_fixture_with_file "unreadable binary sibling file does not crash" 0 \
-		"no undeclared verbatim span found" \
+fixture_unreadable_sibling() {
+	run_fixture_with_file "unreadable sibling file is named, not skipped" 1 \
+		"could not read 1 file under the materials root" \
 		"$(clean_report)" "$(board "point paper")" \
 		"sibling.bin" "BINARY"
 }
 
+clause_text() {
+	# Real legal clause prose, not distinct tokens: the fixtures below have
+	# to survive the ordinary English a difflib scan sees in every file.
+	cat <<'EOF'
+Subject to the limitations set forth in this Section, each party shall
+indemnify, defend and hold harmless the other party and its affiliates,
+officers, directors, employees and agents from and against any and all
+claims, demands, losses, liabilities, damages, costs and expenses, including
+reasonable attorneys fees, arising out of or resulting from any breach of the
+representations and warranties made by the indemnifying party under this
+Agreement, provided that the indemnified party gives prompt written notice of
+such claim and permits the indemnifying party to control the defense and
+settlement thereof, and further provided that no settlement imposing any
+obligation upon the indemnified party shall be entered into without its prior
+written consent, which consent shall not be unreasonably withheld, delayed or
+conditioned by the indemnified party in any circumstance whatsoever.
+EOF
+}
+
+operator_question() {
+	printf '%s' "Should Halden renew the master services agreement with Vantage on the current terms, or renegotiate the indemnity and liability provisions before the automatic renewal date of 31 March 2027, given the outage record of the past eighteen months and the pricing offered by the two alternative suppliers we approached in January?"
+}
+
+case5_report() {
+	# Round 5 case 5's recorded shape: a cover letter as front matter, the
+	# body, then the clause under an admissible ## Attachment: heading.
+	cat <<EOF
+## Cover letter
+
+For the general counsel, ahead of the 31 March renewal date.
+
+Halden should renegotiate before renewal, for reasons of cost and risk.
+
+## Body
+
+The indemnity provisions carry the exposure counsel asked about.
+
+## Sources
+
+- Vantage MSA, 2024.
+
+## Attachment: MSA clause 4.2 and referenced provisions
+
+$(clause_text)
+EOF
+}
+
 fixture_case5_verbatim() {
-	# Round 5 case 5's own shape: every check scored met, zero deviations,
-	# a sibling source file sharing a long span with the report's own
-	# Attachment section. No exemption for the Attachment heading: this is
-	# the shape the round found, and it must still fail.
-	local span
-	span="$(span_words "$VERBATIM_SPAN_WORDS")"
-	run_fixture_with_file "case 5: all checks met, 0 deviations, sibling shares an attached verbatim span" 1 \
-		"sibling.md shares ${VERBATIM_SPAN_WORDS}+ words verbatim with the report, opening: \"span01 span02" \
-		"$(report_with_attachment_span "$span")" \
-		"$(board "point paper")" \
-		"sibling.md" "$span"
+	# Round 5 case 5: report at the materials root beside its notes and
+	# scoreboard, sources in correspondence/ and analysis/, every check
+	# scored met, zero deviations, and the clause reproduced word for word
+	# under an ## Attachment: heading. The Attachment heading buys no
+	# exemption: recording the deviation is the point.
+	run_fixture_tree "case 5: all checks met, 0 deviations, attached clause copied from analysis/" 1 \
+		"shares ${VERBATIM_SPAN_WORDS}+ words verbatim with the report, opening: \"Subject to the limitations" \
+		"halden-position-paper.md" \
+		"halden-position-paper.md" "$(case5_report)" \
+		"halden-position-paper.checks.md" "$(board "position paper")" \
+		"halden-position-paper.notes.md" "# Notes
+
+- Renewal date 31 March 2027. Source: correspondence/notice_bundle.md
+- Indemnity exposure. Source: analysis/position_note.md" \
+		"correspondence/notice_bundle.md" "# Notice bundle
+
+Vantage gave notice on 2 February 2026." \
+		"analysis/position_note.md" "# Position note
+
+$(clause_text)"
+}
+
+fixture_paste_only_in_notes() {
+	# The paste never reaches the report: it sits in the notes file, copied
+	# out of the operator's own material. The notes file used to be
+	# exempted from this scan, which made it the safest place to hide one.
+	run_fixture_tree "clause pasted into the notes file only" 1 \
+		"msa.md shares ${VERBATIM_SPAN_WORDS}+ words verbatim with the report's notes file" \
+		"report.md" \
+		"report.md" "$(clean_report)" \
+		"report.checks.md" "$(board "point paper")" \
+		"report.notes.md" "# Notes
+
+$(clause_text)" \
+		"msa.md" "# Master agreement
+
+$(clause_text)"
+}
+
+fixture_paste_from_own_notes() {
+	# The route the old skip set left open in both directions: the clause
+	# reaches the report through the notes file, and the material it came
+	# from is no longer under the materials root to compare against.
+	run_fixture_tree "clause reaches the report through its own notes file" 1 \
+		"report.notes.md shares ${VERBATIM_SPAN_WORDS}+ words verbatim with the report" \
+		"report.md" \
+		"report.md" "$(report_with_span "$(clause_text)")" \
+		"report.checks.md" "$(board "point paper")" \
+		"report.notes.md" "# Notes
+
+$(clause_text)"
+}
+
+fixture_report_below_materials_root() {
+	# The writer's output directory is one level below the operator's
+	# folder, so scanning the report's own directory sees no source at all.
+	run_fixture_tree "report in out/, source one level up under the materials root" 1 \
+		"shares ${VERBATIM_SPAN_WORDS}+ words verbatim with the report" \
+		"out/report.md" \
+		"out/report.md" "$(report_with_span "$(clause_text)")" \
+		"out/report.checks.md" "$(board "point paper")" \
+		"msa.md" "# Master agreement
+
+$(clause_text)"
+}
+
+fixture_unreadable_source_of_a_paste() {
+	run_fixture_tree "source of the report's own text is unreadable" 1 \
+		"could not read 1 file under the materials root, so check 22's verbatim scan is incomplete: msa.pdf" \
+		"report.md" \
+		"report.md" "$(report_with_span "$(clause_text)")" \
+		"report.checks.md" "$(board "point paper")" \
+		"msa.pdf" "BINARY"
+}
+
+fixture_sic_padded_paste() {
+	# "[sic]" every 30 words breaks every contiguous window longer than 30
+	# and leaves the reproduction word for word.
+	local padded
+	padded=$(clause_text | tr -s '[:space:]' ' ' |
+		awk '{for(i=1;i<=NF;i++){printf "%s ",$i; if(i%30==0) printf "[sic] "}}')
+	run_fixture_tree "paste padded with [sic] every 30 words" 1 \
+		"msa.md shares ${VERBATIM_SPAN_WORDS}+ words verbatim with the report" \
+		"report.md" \
+		"report.md" "$(report_with_span "$padded")" \
+		"report.checks.md" "$(board "point paper")" \
+		"msa.md" "# Master agreement
+
+$(clause_text)"
+}
+
+fixture_operator_question_restated() {
+	# The report contract makes the written-out question govern the report,
+	# so restating it verbatim is required, not a paste. Check 22 bars
+	# session context, chat logs and raw source text; a question is none.
+	run_fixture_tree "report restates the operator's written-out question" 0 \
+		"no undeclared verbatim span found" \
+		"report.md" \
+		"report.md" "Halden should renegotiate before renewal. The written-out question this report answers is: $(operator_question) The reasons group into cost, risk and supplier readiness.
+
+## Body
+
+Uptime fell short of the promised level in six of the eighteen months reviewed.
+
+## Sources
+
+- Vantage MSA, 2024." \
+		"report.checks.md" "$(board "point paper")" \
+		"README.md" "# $(operator_question)
+
+Operator brief. Materials are in this folder."
+}
+
+fixture_clean_materials_tree() {
+	run_fixture_tree "paraphrased report over a realistic materials tree" 0 \
+		"no undeclared verbatim span found" \
+		"report.md" \
+		"report.md" "Halden should renegotiate before renewal.
+
+## Body
+
+Uptime fell short in six of eighteen months. Both alternative bids undercut
+the incumbent on unit price.
+
+## Sources
+
+- Vantage MSA, 2024." \
+		"report.checks.md" "$(board "point paper")" \
+		"report.notes.md" "# Notes
+
+- Uptime shortfall, 6 of 18 months. Source: analysis/position_note.md
+- Two bids undercut incumbent. Source: correspondence/notice_bundle.md" \
+		"correspondence/notice_bundle.md" "# Notice bundle
+
+$(clause_text)" \
+		"analysis/position_note.md" "# Position note
+
+$(clause_text)"
+}
+
+fixture_no_materials_dir_given() {
+	# The one-argument call the whole repo used to make. It must name the
+	# missing argument and must not print the clean line.
+	local dir out status
+	dir=$(mktemp -d)
+	printf '%s\n' "$(clean_report)" >"$dir/report.md"
+	printf '%s\n' "$(board "point paper")" >"$dir/report.checks.md"
+	set +e
+	out=$(bash "$0" "$dir/report.md" 2>&1)
+	status=$?
+	set -e
+	rm -rf "$dir"
+	if [ "$status" != 1 ] ||
+		! printf '%s' "$out" | grep -qF "materials directory not given" ||
+		printf '%s' "$out" | grep -qF "no undeclared verbatim span found"; then
+		echo "SELFTEST FAIL: no materials directory given (exit=$status): $out" >&2
+		exit 1
+	fi
+	echo "PASS: no materials directory given (exit=$status)"
+}
+
+fixture_materials_dir_beside_the_report() {
+	local dir out status
+	dir=$(mktemp -d)
+	mkdir -p "$dir/out" "$dir/elsewhere"
+	printf '%s\n' "$(clean_report)" >"$dir/out/report.md"
+	printf '%s\n' "$(board "point paper")" >"$dir/out/report.checks.md"
+	set +e
+	out=$(bash "$0" "$dir/out/report.md" "$dir/elsewhere" 2>&1)
+	status=$?
+	set -e
+	rm -rf "$dir"
+	if [ "$status" != 1 ] ||
+		! printf '%s' "$out" | grep -qF "does not contain the report's own directory"; then
+		echo "SELFTEST FAIL: materials directory beside the report (exit=$status): $out" >&2
+		exit 1
+	fi
+	echo "PASS: materials directory does not contain the report (exit=$status)"
 }
 
 selftest() {
@@ -391,9 +608,18 @@ selftest() {
 	fixture_verbatim_span_under_threshold
 	fixture_verbatim_span_case_whitespace
 	fixture_no_sibling_files
-	fixture_binary_sibling
+	fixture_unreadable_sibling
 	fixture_case5_verbatim
-	echo "OK: 21/21 selftest fixtures passed"
+	fixture_paste_only_in_notes
+	fixture_paste_from_own_notes
+	fixture_report_below_materials_root
+	fixture_unreadable_source_of_a_paste
+	fixture_sic_padded_paste
+	fixture_operator_question_restated
+	fixture_clean_materials_tree
+	fixture_no_materials_dir_given
+	fixture_materials_dir_beside_the_report
+	echo "OK: 30/30 selftest fixtures passed"
 }
 
 if [ "${1:-}" = "--selftest" ]; then
@@ -403,9 +629,20 @@ fi
 
 # ---- argument parse ---------------------------------------------------------
 
-[ $# -eq 1 ] || fail "usage: check-report.sh <report.md> | --selftest"
+case $# in
+2) : ;;
+1) fail "materials directory not given, so check 22's verbatim scan cannot run: check-report.sh <report.md> <materials-dir>, the folder the operator named" ;;
+*) fail "usage: check-report.sh <report.md> <materials-dir> | --selftest" ;;
+esac
 report="$1"
 [ -f "$report" ] || fail "no report: $report"
+[ -d "$2" ] || fail "no materials directory: $2"
+materials=$(cd "$2" && pwd)
+report_dir=$(cd "$(dirname "$report")" && pwd)
+case "$report_dir" in
+"$materials" | "$materials"/*) : ;;
+*) fail "materials directory $materials does not contain the report's own directory $report_dir, so the scan would miss the operator's files" ;;
+esac
 
 # ---- scoreboard guard --------------------------------------------------------
 
@@ -617,28 +854,33 @@ PYEOF
 		fail "format '$fmt' claims $claimed_n excluded elements, format-elements note names $named_n: missing $missing"
 fi
 
-# ---- verbatim-span test: no undeclared paste from a sibling file (check 22) -
+# ---- verbatim-span test: no undeclared paste from the operator's materials -
 # Round 5's case 5: a writer scored check 22 "met" on a report carrying 637
 # words of pasted source text, and the count test above passed because the
 # scoreboard and the (empty) deviations block agreed with each other. Neither
-# reads the report. This test does: it scans every other file in the report's
-# own directory, recursively, for a 40-plus-word span (VERBATIM_SPAN_WORDS)
-# that also appears in the report, whitespace and case normalized. A match
-# is not itself a fail — a verbatim clause the operator asked for is a legal
-# report — but it must be check 22 not-met with a recorded deviation, the
-# same as any other barred fix. An ## Attachment: section gets no exemption:
-# recording the deviation is the point even when the paste is the right call.
+# reads the report. This test does. It walks the materials directory the
+# operator named, not the output directory the writer chose, and compares the
+# report and its notes file against every file under it for a 40-plus-word
+# span (VERBATIM_SPAN_WORDS), whitespace and case normalized. A match is not
+# itself a fail — a verbatim clause the operator asked for is a legal report —
+# but it must be check 22 not-met with a recorded deviation, the same as any
+# other barred fix. An ## Attachment: section gets no exemption: recording the
+# deviation is the point even when the paste is the right call.
 
-python3 - "$report" "$VERBATIM_SPAN_WORDS" >"$work/span" <<'PYEOF'
-import os, re, sys
+python3 - "$report" "$materials" "$VERBATIM_SPAN_WORDS" "$MIN_RUN_WORDS" \
+	"$RUN_GAP_WORDS" "$QUESTION_EXEMPT_MAX_WORDS" >"$work/span" <<'PYEOF'
+import difflib, os, re, sys
 
-report_path = sys.argv[1]
-threshold = int(sys.argv[2])
+report_path, materials_dir = sys.argv[1], sys.argv[2]
+SPAN_WORDS, MIN_RUN_WORDS, RUN_GAP_WORDS, QUESTION_MAX_WORDS = (
+	int(a) for a in sys.argv[3:7])
+UNREADABLE_NAMES_SHOWN = 5
+SENTENCE_ENDS = (".", "!", "?")
 
 
-def read_words(path):
-	# None on anything unreadable as text (binary, permission-denied): a
-	# sibling file the mechanism can't read carries no undeclared prose.
+def read_tokens(path):
+	# None means the scan could not read this file at all. The caller
+	# reports those; it never treats them as carrying no source text.
 	try:
 		with open(path, encoding="utf-8") as f:
 			text = f.read()
@@ -647,49 +889,136 @@ def read_words(path):
 	return re.findall(r"\S+", text)
 
 
-report_abs = os.path.abspath(report_path)
-report_words = read_words(report_abs)
-if not report_words or len(report_words) < threshold:
-	sys.exit(0)
+def ngrams(tokens, size):
+	return {tuple(tokens[i:i + size]) for i in range(len(tokens) - size + 1)}
 
-report_windows = {}
-for i in range(len(report_words) - threshold + 1):
-	key = tuple(w.lower() for w in report_words[i:i + threshold])
-	report_windows.setdefault(key, i)
 
-skip = {report_abs}
+def matched_groups(source, target):
+	# autojunk=False: SequenceMatcher's default drops any token appearing in
+	# more than 1% of a long sequence, which throws away exactly the common
+	# words a pasted clause is made of.
+	blocks = [b for b in difflib.SequenceMatcher(
+		None, source, target, autojunk=False).get_matching_blocks()
+		if b.size >= MIN_RUN_WORDS]
+	groups = []
+	for b in blocks:
+		if groups:
+			src_start, src_end, tgt_start, tgt_end, total = groups[-1]
+			if b.a - src_end <= RUN_GAP_WORDS and b.b - tgt_end <= RUN_GAP_WORDS:
+				groups[-1] = (src_start, b.a + b.size, tgt_start,
+					b.b + b.size, total + b.size)
+				continue
+		groups.append((b.a, b.a + b.size, b.b, b.b + b.size, b.size))
+	return groups
+
+
+def is_one_question(tokens, start, end):
+	# Check 22 bars session context, chat logs and raw source text. The
+	# operator's written-out question is none of the three, and the report
+	# contract requires the report to restate it, so a group that sits
+	# inside a single interrogative sentence on the source side is not a
+	# paste. Any sentence end strictly inside the group disqualifies it.
+	for i in range(start, len(tokens)):
+		if tokens[i].endswith(SENTENCE_ENDS):
+			return i >= end - 1 and tokens[i].endswith("?")
+	return False
+
+
+unreadable = []
+compared_sides = []
+for label, path in (("the report", report_path),
+		("the report's notes file", report_path[:-len(".md")] + ".notes.md"
+			if report_path.endswith(".md") else "")):
+	path = os.path.abspath(path) if path else ""
+	if not path or not os.path.isfile(path):
+		continue
+	tokens = read_tokens(path)
+	if tokens is None:
+		unreadable.append(os.path.relpath(path, materials_dir))
+		continue
+	lowered = [w.lower() for w in tokens]
+	compared_sides.append((label, path, tokens, lowered,
+		ngrams(lowered, MIN_RUN_WORDS)))
+
+skip = {os.path.abspath(report_path)}
 if report_path.endswith(".md"):
-	base = report_path[:-len(".md")]
-	skip.add(os.path.abspath(base + ".notes.md"))
-	skip.add(os.path.abspath(base + ".checks.md"))
+	skip.add(os.path.abspath(report_path[:-len(".md")] + ".checks.md"))
 
-report_dir = os.path.dirname(report_abs) or "."
 candidates = []
-for root, dirs, files in os.walk(report_dir):
+for root, dirs, files in os.walk(materials_dir):
 	dirs.sort()
 	for fname in sorted(files):
 		path = os.path.abspath(os.path.join(root, fname))
 		if path not in skip:
 			candidates.append(path)
 
+compared_count = 0
+hit = None
 for path in candidates:
-	words = read_words(path)
-	if not words or len(words) < threshold:
+	tokens = read_tokens(path)
+	if tokens is None:
+		unreadable.append(os.path.relpath(path, materials_dir))
 		continue
-	for i in range(len(words) - threshold + 1):
-		key = tuple(w.lower() for w in words[i:i + threshold])
-		idx = report_windows.get(key)
-		if idx is not None:
-			opening = " ".join(report_words[idx:idx + 12])
-			relpath = os.path.relpath(path, report_dir)
-			print(relpath + "\x1f" + opening)
-			sys.exit(0)
+	compared_count += 1
+	if hit is not None:
+		continue
+	lowered = [w.lower() for w in tokens]
+	if len(lowered) < MIN_RUN_WORDS:
+		continue
+	cand_grams = ngrams(lowered, MIN_RUN_WORDS)
+	for label, side_path, side_tokens, side_lowered, side_grams in compared_sides:
+		if side_path == path or cand_grams.isdisjoint(side_grams):
+			continue
+		for src_start, src_end, tgt_start, _, total in matched_groups(
+				lowered, side_lowered):
+			if total < SPAN_WORDS:
+				continue
+			if total <= QUESTION_MAX_WORDS and is_one_question(
+					lowered, src_start, src_end):
+				continue
+			hit = (os.path.relpath(path, materials_dir), label,
+				" ".join(side_tokens[tgt_start:tgt_start + 12]))
+			break
+		if hit is not None:
+			break
+
+print("COMPARED\x1f%d" % compared_count)
+if unreadable:
+	shown = ", ".join(unreadable[:UNREADABLE_NAMES_SHOWN])
+	if len(unreadable) > UNREADABLE_NAMES_SHOWN:
+		shown += ", and %d more" % (len(unreadable) - UNREADABLE_NAMES_SHOWN)
+	print("UNREADABLE\x1fcould not read %d file%s under the materials root, so"
+		" check 22's verbatim scan is incomplete: %s (extract its text beside"
+		" it, or score check 22 not-met and record the deviation)"
+		% (len(unreadable), "" if len(unreadable) == 1 else "s", shown))
+if hit is not None:
+	print("SPAN\x1f" + "\x1f".join(hit))
 PYEOF
 
-if [ -s "$work/span" ]; then
-	IFS=$'\x1f' read -r span_file span_opening <"$work/span"
+compared_count=0
+unreadable_msg=""
+span_file=""
+span_side=""
+span_opening=""
+while IFS=$'\x1f' read -r tag a b c; do
+	case "$tag" in
+	COMPARED) compared_count="$a" ;;
+	UNREADABLE) unreadable_msg="$a" ;;
+	SPAN)
+		span_file="$a"
+		span_side="$b"
+		span_opening="$c"
+		;;
+	esac
+done <"$work/span"
+
+# A file the scan could not read is never a clean result: the report below
+# would otherwise claim nothing was pasted out of material nobody compared.
+[ -z "$unreadable_msg" ] || fail "$unreadable_msg"
+
+if [ -n "$span_file" ]; then
 	[ "${verdict[22]:-}" = "not-met" ] ||
-		fail "$span_file shares ${VERBATIM_SPAN_WORDS}+ words verbatim with the report, opening: \"$span_opening\" (check 22 scored '${verdict[22]:-missing}', want not-met with a deviation)"
+		fail "$span_file shares ${VERBATIM_SPAN_WORDS}+ words verbatim with $span_side, opening: \"$span_opening\" (check 22 scored '${verdict[22]:-missing}', want not-met with a deviation)"
 fi
 
-echo "OK: scoreboard and deviations block agree, end matter is admissible, format elements are named, no undeclared verbatim span found. Every verdict on the scoreboard is the writer's own; this script re-scores none of them."
+echo "OK: scoreboard and deviations block agree, end matter is admissible, format elements are named, no undeclared verbatim span found (compared the report and any notes file against $compared_count files under $materials). Every verdict on the scoreboard is the writer's own; this script re-scores none of them."

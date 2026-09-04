@@ -127,8 +127,9 @@ visibly distinct.
    order: big picture, then paragraphs, then sentences and words.
 8. **Check.** Run references/checklist.md against the finished draft. Score
    every check on `<report-name>.checks.md` beside the report, then run
-   `bash <this-skill-directory>/scripts/check-report.sh <report>` and fix
-   what it names. Run the key assumptions check a second time and run the
+   `bash <this-skill-directory>/scripts/check-report.sh <report>
+   <materials-dir>`, passing the folder the operator named, and fix what
+   it names. Run the key assumptions check a second time and run the
    sensitivity test; record both outputs. The heavy challenge techniques
    (competing hypotheses, Team A and Team B, devil's advocacy, red team) run
    only when the operator asks for them, never as your default.

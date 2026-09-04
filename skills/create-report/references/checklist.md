@@ -14,9 +14,10 @@ Order of the step:
 3. Run the checks (below) against the draft and the artifacts. Score every
    one of them on the scoreboard (below) as you go, before you write the
    deviations block.
-4. Run `bash <this-skill-directory>/scripts/check-report.sh <report>`. Fix
-   what it names, then run it again. A report you send while it still fails
-   is unfinished.
+4. Run `bash <this-skill-directory>/scripts/check-report.sh <report>
+   <materials-dir>`, where the materials directory is the folder the
+   operator named. Fix what it names, then run it again. A report you send
+   while it still fails is unfinished.
 5. Run the three-pass edit, in order.
 
 ## The checks
@@ -70,16 +71,22 @@ once into the deviations block.
 Your working directory is the report's, not this skill's, so run the checker
 by this skill's own path:
 
-`bash <this-skill-directory>/scripts/check-report.sh <report>`
+`bash <this-skill-directory>/scripts/check-report.sh <report> <materials-dir>`
+
+The materials directory is the folder the operator named. It has to hold
+the report's own directory, so a report written into an `out/` subfolder
+still gets compared against everything above it. The checker refuses to run
+without it rather than fall back to the directory you chose yourself.
 
 It diffs the deviations block against the `not-met` rows, checks every
 end-matter item against the five admissible types (check 2), checks the
 format-elements note against what the format claims (check 5), and scans
-every other file beside the report for a 40-plus-word span pasted into it
-verbatim (check 22). The scan is the one test here that reads the report
-itself rather than the scoreboard the writer filled in; a matching span is
-not itself a fail, but check 22 must then be scored `not-met` with the
-deviation recorded, an `## Attachment:` section included. Fix what it names.
+the materials directory for a 40-plus-word span pasted verbatim into the
+report or into its notes file (check 22). The scan is the one test here
+that reads the report itself rather than the scoreboard the writer filled
+in; a matching span is not itself a fail, but check 22 must then be scored
+`not-met` with the deviation recorded, an `## Attachment:` section
+included. Fix what it names.
 
 The numbered checks:
 
@@ -202,10 +209,17 @@ The numbered checks:
     came from. One that traces to no such line was manufactured while
     drafting, and it fails this check. The remedy is the send-back in step 5,
     never a line added to the notes to cover it.
-    scripts/check-report.sh scans every other file beside the report,
-    recursively, for a 40-plus-word span that also appears in the report,
-    whitespace and case normalized, and fails unless this check is scored
-    `not-met` with the deviation recorded. An operator instruction can
+    scripts/check-report.sh walks the materials directory the operator
+    named, recursively, for a 40-plus-word span that also appears in the
+    report or in its notes file, whitespace and case normalized, and fails
+    unless this check is scored `not-met` with the deviation recorded. The
+    notes file is scanned like any other: a clause that reaches the report
+    by way of the notes is still untransformed source text. Matching
+    tolerates small insertions, so padding a paste with `[sic]` does not
+    hide it. A file the scan cannot read, a PDF among them, is named and
+    fails the run; it is never passed over in silence, because a clean
+    result over material nobody compared is a false one. Extract such a
+    file's text beside it and run again. An operator instruction can
     authorise the paste; it cannot excuse recording it, and a verbatim
     clause under an `## Attachment:` heading gets no exemption from that.
     (The notes discipline is step 3.) [contract, Part III]
