@@ -1,0 +1,13 @@
+{
+  "name": "report-pipeline",
+  "owner": {
+    "name": "Uraxii"
+  },
+  "plugins": [
+    {
+      "name": "report-pipeline",
+      "source": "./",
+      "description": "Research a question, analyze it, then draft the report for a reader who was not in the session."
+    }
+  ]
+}
