@@ -13,3 +13,7 @@
 # Agent scratch space
 .nikki-agents/
 evals/
+
+# Zips built for manual upload to Claude's web app
+/dist/
+.nikki-agents/decisions.tsv
