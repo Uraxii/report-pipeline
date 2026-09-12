@@ -73,8 +73,14 @@ def fail(message: str) -> NoReturn:
 
 
 def lines_of(path: str | Path) -> Iterator[str]:
-    with open(path, encoding="utf-8") as handle:
-        yield from handle
+    """A file the checks cannot read as text is named, the same as the
+    verbatim scan names one it could not read: never a traceback."""
+    try:
+        with open(path, encoding="utf-8") as handle:
+            yield from handle
+    except (UnicodeDecodeError, OSError):
+        fail(f"could not read {path} as text, so the checks cannot run: "
+             "UTF-8 expected")
 
 
 # ---- scoreboard ------------------------------------------------------------
@@ -884,6 +890,20 @@ def fixtures() -> list[Fixture]:
             clean_report(),
             board("point paper"),
             ("sibling.bin", BINARY),
+        ),
+        report_fixture(
+            "report is not UTF-8 text",
+            1,
+            "report.md as text, so the checks cannot run",
+            BINARY,
+            board("point paper"),
+        ),
+        report_fixture(
+            "scoreboard is not UTF-8 text",
+            1,
+            "report.checks.md as text, so the checks cannot run",
+            clean_report(),
+            BINARY,
         ),
         # Round 5 case 5: report at the materials root beside its notes and
         # scoreboard, sources in correspondence/ and analysis/, every check scored
