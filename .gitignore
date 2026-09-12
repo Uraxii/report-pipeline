@@ -17,3 +17,7 @@ evals/
 # Zips built for manual upload to Claude's web app
 /dist/
 .nikki-agents/decisions.tsv
+
+# Python bytecode cache, left behind by importing a skill script.
+__pycache__/
+*.pyc
