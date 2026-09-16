@@ -1,41 +1,33 @@
 # Causal claims about a program
 
-Escalation method. Load when question attributes an outcome to a program or
-intervention rather than to one event. Runs inside step 7 per-option analysis,
-not beside it. Record that it ran and which trigger fired.
+Classify the question: process, outcome, or net impact. Only net impact
+licenses comparing an observed outcome to an estimated counterfactual. Process
+and outcome findings describe; they never attribute cause.
 
-Classify the question first: process, outcome, or net impact. Only a net-impact
-question licenses comparing an observed outcome to an estimated counterfactual.
-Process and outcome findings describe. They do not attribute cause.
+Name the comparison group, or state that there is none. No comparison group
+caps the claim at "associated with", never "caused by".
 
-Name the comparison group used, or state its absence explicitly. No comparison
-group caps the claim at "associated with". Never reaches "caused by".
+A causal claim needs both stated: the outcome changed after the purported
+cause, and identified external factors were controlled for. Missing either,
+the claim is correlational.
 
-License a causal claim only when both conditions are stated: outcome changed
-after the purported cause, and identified external factors were controlled for.
-Missing either downgrades the claim to correlational.
+Before selecting a design, name at least one external influence it must rule
+out. Full or mandatory coverage leaves no untreated population and requires a
+single-group design; flag a comparison-group design against it as a category
+error and do not run it.
 
-Before selecting a design, name at least one external influence the design must
-rule out. A design naming none has not engaged the causal question.
+Randomly assigned units: report the pre-exposure equivalence check, without
+which the design has not controlled for confounds. Non-random comparison
+group: name selection bias and state the adjustment, or flag the claim as
+unadjusted. Either way, confirm the groups stayed separate, with no crossover
+access or cross-group communication, and name contamination as a threat you
+checked.
 
-Match design to program shape. Full or mandatory coverage with no untreated
-population forecloses randomized and matched-comparison designs and requires a
-single-group design. Proposing a comparison-group design against a universally
-delivered program is a category error to flag, not a design to run.
+More than one program targets the same outcome: run at least one
+falsification check before crediting this one. Narrow the outcome measure, or
+name an outcome that should not move if this program is the cause.
 
-Units randomly assigned: report the pre-exposure equivalence check between
-groups. Unverified equivalence check voids the design's claim to have
-controlled for confounds. Comparison group not randomly assigned: name
-selection bias explicitly and state the adjustment applied, or flag the claim
-as unadjusted. Either way, confirm groups' experiences stayed separate, no
-crossover access, no cross-group communication. Name contamination as a threat
-you checked, not one you assumed away.
-
-More than one program targets same outcome: run at least one falsification
-check before crediting this one. Narrow the outcome measure, or name an outcome
-that should not move if this program rather than a co-occurring one is cause.
-
-Grade the claim by the design that produced it, state the tier in the finding.
+State in the finding the tier of the design that produced it:
 
 ```
 Randomized controlled experiment
@@ -44,5 +36,5 @@ Randomized controlled experiment
   above  before-and-after with no controls, which licenses no causal claim
 ```
 
-State limitations as part of the finding, not as optional caveat: how
-conclusive the design is, what trade-offs were made, what remains unaddressed.
+State limitations in the finding: how conclusive the design is, the
+trade-offs made, and what remains unaddressed.

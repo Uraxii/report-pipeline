@@ -48,6 +48,6 @@ This writes `dist/research.zip`, `dist/analyze.zip`, and
 `dist/create-report.zip`. In the web app, go to Settings >
 Capabilities > Skills and upload each zip one at a time.
 
-`create-report` bundles a shell script, so its skill needs "Code
+`create-report` bundles a Python script, so its skill needs "Code
 execution and file creation" turned on in Settings > Capabilities, or
 the web app will not run it.

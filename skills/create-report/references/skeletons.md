@@ -1,17 +1,9 @@
 # Skeletons: the staff study body and the running estimate
 
-Two verbatim public-domain skeletons. Load when the report is a staff study or
-a running estimate, whoever chose it. Every other shape rule:
-references/structure.md. Skeleton bodies below are the source's own words;
-never restyle them.
+Follow each skeleton's parts, order, and headings. Its body text instructs the
+writer and is never pasted into the report. Never restyle it.
 
 ## Skeleton: the staff study body (verbatim)
-
-Reproduced verbatim from the public-domain source, a US government work. Words
-and punctuation are the source's; line breaks are rewrapped to 80 columns and
-curly quotes are shown straight. Source digest:
-`998664c6e1cad93e7faac46f47480939014d764da393aa4754729cc9b3aed6f2`
-[TQ-17 / `998664c6e1ca`].
 
 The body contains five parts: (1) Problem, (2) Factors Bearing on the Problem,
 (3) Discussion, (4) Conclusion and (5) Action Recommended.
@@ -78,19 +70,10 @@ The body contains five parts: (1) Problem, (2) Factors Bearing on the Problem,
    implemented" indicate the decision maker picked the wrong person to do the
    study.
 
-Long support goes to attachments, tabbed so the reader can find one item; body
-must read on its own. Criteria and decision matrix that feed the Discussion
-are built in references/recommendation.md; never rebuild them here.
-
 ## Skeleton: the running estimate (verbatim)
 
-For a standing or recurring report updated as a situation moves. Source is
-military; read "courses of action" as the options under comparison and
-"functional area" as the report's own remit. Reproduced verbatim from the
-public-domain source, a US government work; line breaks rewrapped to 80
-columns. Source digest:
-`2d50bb6cfe3d1ccbb1e27251f839bc3331c66972d96e2a177a08c56e36e3e948`
-[FM-appC / `2d50bb6cfe3d`].
+Read "courses of action" as the options under comparison and "functional
+area" as the report's own remit.
 
 GENERIC BASE RUNNING ESTIMATE FORMAT
 
@@ -140,3 +123,6 @@ GENERIC BASE RUNNING ESTIMATE FORMAT
       perspective.
    b. Prioritize and list issues, deficiencies, and risks and provide
       recommendations on how to mitigate them.
+
+The criteria and decision matrix these skeletons name come from the analysis
+handover; never build them.

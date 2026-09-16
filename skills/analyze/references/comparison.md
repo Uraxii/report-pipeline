@@ -1,11 +1,6 @@
-# Comparison, commitment, and the handover
+# Comparing options and committing to one course
 
-Step 8. Every option already measured alone. Nothing new joins the criteria set
-here.
-
-## The decision matrix
-
-Options across, criteria down, a rank or score per cell, both totals shown.
+## Decision matrix
 
 ```
 Criterion (weight):   Compliance(40) Cost(35) Restore(25)
@@ -16,29 +11,20 @@ Option A total:  5 unweighted, 160 weighted
 Option C total:  4 unweighted, 140 weighted
 ```
 
-Rank each option per criterion, lower rank preferred. Add ranks across for the
-unweighted total. Multiply each rank by its criterion's weight and add those
-across for the weighted total. Show both.
+Rank each option per criterion, lower rank preferred. Add ranks for the
+unweighted total. Multiply each rank by its criterion's weight and add for the
+weighted total. Say in the text where the judgment was subjective. Carry the
+precision of the least precise input, and say so.
 
-Weighted total is plain arithmetic, multiply and sum. Stated here as arithmetic
-and nothing more. No method behind it decides what a correct weight is, what a
-correct scale is, or what to do when the arithmetic misbehaves. The three ways
-it misbehaves are named at the end of this file.
+A high score on one criterion can offset a failing score on another above the
+mandatory floor, and the total hides it.
 
-Matrix is where the decision starts, not where it ends. Say in the text where
-the judgment was subjective. Option-by-option on one criterion is often more
-useful to a reader than two totals.
+## Weight re-run
 
-## The weight re-run
-
-Re-score the matrix under plausibly different weights and record whether the
-ranking held. Required step, not an optional check.
-
-"Plausibly different" means a weighting a reasonable person could have argued
-for at step 5, not a weighting reverse-engineered to flip the answer. Move the
-largest weight and the smallest, one at a time.
-
-Record the result either way.
+Re-score under plausibly different weights: ones a reasonable person could
+have argued for at step 5, never reverse-engineered to flip the answer. Move
+the largest weight and the smallest, one at a time. Record whether the ranking
+held.
 
 ```
 Weight re-run
@@ -46,112 +32,63 @@ Weight re-run
   Compliance 40 -> 55, Cost 35 -> 25:  ranking flipped, A ahead
 ```
 
-Ranking that flips under a defensible reweighting is a close call. Go to the
-close-call clause below.
+A flip under a defensible reweighting is a close call.
 
-## The option-set check
+## Option-set check
 
-Drop each non-winning option from the matrix in turn and recompute. Ranking of
-the remaining options changes: disclose it in the handover. This is rank
-reversal, no guard exists against it, and disclosure is the whole response.
+Drop each non-winning option in turn and recompute. If the ranking of the
+rest changes, that is rank reversal: disclose it in section 11. Section 8
+carries this check.
 
 ## Breaking a tie
 
-Two options finish level on the weighted total: break it on the criteria, not
-on a fresh overall judgment. In order:
+Level weighted totals: break on the criteria, not a fresh overall judgment. In
+order:
 
 1. The higher-weighted criterion where they differ.
-2. Which option survives more of the alternative futures.
-3. Which option consumes fewer of the constraints, leaving more room for the
-   next decision.
+2. The option that survives more alternative futures.
+3. The option that consumes fewer constraints.
 
-This ordering is a design decision. No source supplies a tie-break for options
-on a decision matrix. Label it as such where you use it.
+Label this ordering as a design decision where you use it.
 
-## Commit to one course
+## Committing
 
-Having compared, commit. Recommend one course and make the decision-maker's job
-approval or disapproval, nothing more. Answers, not questions.
+**Package.** An ill-structured problem may need several measures together or
+in sequence. Name the package as one course, order its parts, and say which
+comes first and what triggers the next. Independent parallel recommendations
+are a menu.
 
-"Recommend further study" and "either A or B" both hand the decision back.
-Neither is a recommendation.
+**Close call.** Totals inside the noise, or the weight re-run flipped the
+ranking: still name one, and in the same place:
 
-Two shapes this rule is often misread as forbidding, and does not.
+- State that the margin is inside the noise.
+- Name the observable that would break the tie. "Their Q4 incident
+  postmortem, if it shows more than two Sev-1s" is one. "Further
+  investigation" is not.
+- Hand the runner-up over with what it would take to prefer it.
 
-**The package.** Ill-structured problem may need several measures applied
-together or in sequence. That package is one course. Name it as one, order its
-parts, say which part comes first and what triggers the next. Decision-maker
-approves the package. Four independent recommendations is a menu; a sequenced
-package is a course.
+**Empty field.** Screening killed every option:
 
-**The close call.** Leading totals sit inside the noise, or the weight re-run
-flipped the ranking: still name one. Then, in the same breath:
+1. Record the screen each option failed.
+2. Recommend the single change that would readmit an option, ordered as a
+   course like a package.
+3. Several changes would work: take the one cheapest to reach, with one line
+   on why the others lose.
+4. Section 8 says the matrix does not apply.
 
-- State that the margin is inside the noise. Do not present a coin-flip as a
-  clear win.
-- Name the observable that would break the tie. An observable, not "more
-  analysis". "Their Q4 incident postmortem, if it shows more than two Sev-1s"
-  is a tie-breaker. "Further investigation" is not.
-- Hand the runner-up over alongside, with what it would take to prefer it.
+Never soften a screen to keep an option alive, and never hand over the empty
+field with no course attached.
 
-Never hand over an unresolved pair. Disclosure is the concession, not
-abstention.
+## Second-order pass
 
-## What still goes over with it
+On the recommended course only. Per actor in the frame, name one concrete
+change once the course is taken. Per constraint, say whether the course
+consumes it.
 
-- **Surviving disagreement.** Real disagreement outlasted the comparison: name
-  it and put it in front of the decision-maker rather than smoothing it away.
-  Committing to one course is not the same as hiding that the call was close or
-  contested.
-- **The losing options.** With their scores and why they lost.
-- **The contrary evidence.** Everything found that cuts against the
-  recommendation, from the fact notes. Showing only what supports the answer is
-  stacked evidence, the failure hardest to detect from outside.
+## Section 11
 
-## The matrix result in prose
-
-Write the matrix result as a paragraph a reader can act on without opening the
-table: which option won, by what margin, on which criteria, and where the
-judgment was subjective. Reader who has to reconstruct the answer from a grid
-has been handed homework.
-
-## Closing the run
-
-Three things before the handover goes out.
-
-1. Run the key assumptions check a second time, now against the answer you
-   reached rather than the one the question presumed. Record the output
-   alongside the first run.
-2. Run the evidence-sensitivity test. Name the evidence the conclusion leans
-   on hardest and what breaks if each item is wrong. Record it.
-3. Write the thesis: one sentence, the answer to the question as asked. It is
-   written now, after the fact notes and after the comparison, never earlier.
-   A thesis fixed at the start and supported afterwards is the failure the
-   whole ordering exists to prevent.
-
-Then assemble handover sections 1 to 11. Section 12 fills at step 9, as the
-gate runs. Where a section does not apply, say which and why. Section quietly
-absent and section that does not apply look identical from outside, and only
-one of them is acceptable.
-
-## Where the arithmetic misbehaves
-
-Three known pathologies. Named because none has a method here.
-
-- **Rank reversal.** Adding or removing an option changes the ranking of the
-  others. No guard exists. The option-set check above surfaces it.
-- **Compensability.** High score on one criterion offsets a failing score on
-  another, and the total hides it. Guarded only at the floor, by the mandatory
-  criterion gate. Above that floor, an option can be quietly terrible at one
-  thing and still win.
-- **Normalization across unlike units.** Constrained only by fixing numeric
-  thresholds before scoring. Scheme choice is yours and should be stated as
-  yours.
-
-Rounding and significant figures have no standard behind them either. Carry the
-precision of the least precise input and say that is what you did.
-
-## Hands forward
-
-Sections 8, 11. Section 8 also carries the option-set check. Sections 9 and 10
-close here at step 8.
+Write the thesis now, after the comparison. The matrix-result paragraph names
+the winner, the margin, the deciding criteria, and where judgment was
+subjective. The losing options go over with their scores and why they lost.
+Name surviving disagreement rather than smoothing it away, and include
+everything in the fact notes that cuts against the recommendation.
