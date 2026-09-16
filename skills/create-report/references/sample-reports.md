@@ -1,23 +1,10 @@
 # Sample reports: one bad, one good
 
-Worked example of the report contract. Two versions of the same internal
-recommendation, written from the same facts. First breaks the contract on
-purpose. Second obeys it. After each, a list ties specific lines to the rule
-they break or satisfy. The pair is original writing, not reproduced from any
-source.
-
-Report shapes referenced below: references/structure.md. Likelihood ladder and
-weasel list: references/style.md. Numbered checks:
-references/checklist.md.
-
 ## The facts both versions use
 
-Scaffolding for this example, not part of either report. Both report bodies
-below are written as business prose, the register this skill produces, not the
-register this file's own commentary uses. RadixParts ships about 8,000
-regional parcels a month. Its carrier contract is expiring and one carrier
-must be chosen for the coming year. Three candidates, from the same data both
-versions draw on:
+RadixParts ships about 8,000 regional parcels a month. Its carrier contract
+is expiring and one carrier must be chosen for the coming year. Three
+candidates:
 
 - Meridian Freight: $7.20 per parcel, 94 percent on time, 2.1 days transit.
 - Coastal Parcel: $6.40 per parcel, 89 percent on time, 2.8 days transit.
@@ -28,7 +15,7 @@ Prices come from the carriers' rate cards. On-time and transit figures come
 from an independent scorecard. Incumbent figures also come from RadixParts's
 own shipping logs.
 
-## The bad report, as written
+## The bad report
 
 **Regional Carrier Costs**
 
@@ -73,67 +60,39 @@ go with. Meridian is the best value.[1]
 P.S. I forgot to mention above, Coastal also has a fuel surcharge that changes
 the cost picture, but I will leave that note here at the end.
 
-## What the bad report breaks
+## Where the bad report fails, by check
 
-Failure modes, the skill's four named ones:
+1. First paragraph restates the problem; no grouped reasons.
+2. No order announced, so the body follows none.
+3. Subheads name topics, state no sub-conclusion.
+4. Conclusion sits in the last line.
+5. Restated problem, research announcement, background summary, term
+   definition, explained calculation, self-footnote, and an inference stated
+   as a fact.
+6. "$7.20. Coastal is $6.40. Union is $7.90" listed, not compared.
+7. "significantly," "appears," "substantial."
+8. "Figure 1: Costs" titled by topic.
+9. Sources are "websites" and "a report someone shared"; one kind.
+10. Rival claims never weighed against each other.
+12. "lower then ours," "will effect our budget": blind spots the read-aloud
+    pass would catch.
+13. "highly confident it is very likely" pairs confidence with likelihood,
+    on no published ladder.
+14. "serious possibility," "may well," "doubtless," "reportedly."
+15. "Our volume is 8,000 parcels a month" stated as bare fact.
+16. No criteria, no weights, no decision matrix.
+17. "it is really up to you" hands the decision back.
+18. Nothing says what breaks if the fuel surcharge closes the $0.70 gap.
+19. Typos and the append show no three-pass edit ran.
+20. Coastal's weakness and the losing options are never faced.
+21. "Meridian will keep its 94 percent on-time rate" and "Meridian is the best
+    value" name nothing that would change either.
+22. "in Tuesday's standup" and "As I said in Slack this morning" paste
+    session context; "websites and a report someone in ops shared with me" is
+    the whole sourcing, with no notes file behind any figure.
+23. Most checks above fail and not one is recorded as a deviation.
 
-- Context bleed: "in Tuesday's standup," "As I said in Slack this morning."
-  Session talk pasted in, not transformed notes.
-- Agent narration: "I completed a review," "Just to restate the problem," the
-  step-by-step multiplication, the footnote on its own conclusion.
-- Revision as append: "P.S." bolts a cost fact onto the end, outside an order
-  the opening never promised.
-- False confidence: "Meridian will keep its 94 percent on-time rate" states an
-  inference as a fact; "highly confident it is very likely" gives a conclusion
-  with no calibrated likelihood.
-
-Checklist coverage. Each check catches at least the line named here.
-
-| Check | Where the bad report trips it |
-|---|---|
-| 1 | First paragraph restates the problem; no grouped reasons |
-| 2 | No order announced, so the body follows none |
-| 3 | Subheads name topics, state no sub-conclusion |
-| 4 | Conclusion sits in the last line, not the first paragraph |
-| 5 | Restated problem, research announcement, background summary, term |
-|   | definition, explained calculation, self-footnote, and an inference |
-|   | stated in the form of a fact, all present |
-| 6 | "$7.20. Coastal is $6.40. Union is $7.90" listed, not compared |
-| 7 | "significantly," "appears," "substantial" |
-| 8 | "Figure 1: Costs" titled by topic, no thesis |
-| 9 | Sources are "websites" and "a report someone shared"; one kind |
-| 10 | Rival claims never weighed against each other |
-| 11 | Title "Regional Carrier Costs" states a topic, not a conclusion |
-| 12 | "lower then ours," "will effect our budget," spell-checker blind |
-|   | spots the read-aloud pass would have caught |
-| 13 | "highly confident it is very likely" pairs confidence with |
-|   | likelihood in one sentence, and uses no published ladder |
-| 14 | "serious possibility," "may well," "doubtless," "reportedly" |
-| 15 | "Our volume is 8,000 parcels a month" stated as bare fact |
-| 16 | No criteria, no weights, no decision matrix |
-| 17 | "it is really up to you" hands the decision back |
-| 18 | Volume stated with no assumptions check behind it; the whole cost |
-|    | case rests on the $0.70 gap and nothing says what breaks if the |
-|    | fuel surcharge closes it |
-| 19 | Typos and the append show no three-pass edit ran |
-| 20 | Coastal's weakness and the losing options are never faced |
-| 21 | "Meridian will keep its 94 percent on-time rate" and "Meridian is |
-|    | the best value" name nothing that would change either |
-| 22 | "in Tuesday's standup" and "As I said in Slack this morning" paste |
-|    | session context; "websites and a report someone in ops shared with |
-|    | me" is the whole sourcing, with no notes file behind any figure |
-| 23 | The report misses most of the checks above and records not one of |
-|    | them as an authorised deviation |
-
-Checks 18, 19 and 23 are process checks, not lines of report text. Bad report
-fails them by evidence: unmarked volume figure shows no assumptions check
-informed it, no "if X is wrong, Y breaks" line shows the sensitivity test ran,
-blind-spot typos plus the append show the edit passes never ran, absent
-deviations block shows nothing was authorised. Check 22 is half text check,
-half process check: pasted session talk is on the page, missing notes file is
-not.
-
-## The good report, as written
+## The good report
 
 **Standardize regional shipping on Meridian Freight for the coming year**
 
@@ -161,8 +120,7 @@ transit averages 2.8 days against Meridian's 2.1 and Union's 1.9, so Coastal's
 lower price comes with both the slowest and the least reliable service.
 Meridian is likely (55 to 80 percent) to hold its 94 percent rate at the
 current volume; the rate has stayed between 93 and 95 percent across the two
-quarters on record. The ladder this figure sits on is published in
-references/style.md. Confidence in the judgment is moderate, since it rests on
+quarters on record. Confidence in the judgment is moderate, since it rests on
 two quarters of an independent scorecard rather than a full year.
 
 **Weighing the three against the criteria**
@@ -209,28 +167,3 @@ scorecard, second quarter 2026; incumbent cost and service figures from
 RadixParts shipping logs, January to June 2026. Prices come from the carriers'
 rate cards; the on-time figures come from the independent scorecard, not any
 carrier's own marketing.
-
-## What the good report satisfies
-
-| Check | Where the good report satisfies it |
-|---|---|
-| 1, 2 | First paragraph carries the conclusion plus reasons in three |
-|   | categories, cost, reliability, and one risk, and announces the |
-|   | order the body follows |
-| 3, 4 | The title states the conclusion; every subhead states a |
-|   | sub-conclusion that carries the argument read alone |
-| 6 | Every number compared: $7.20 against $7.90, $6.40 against $7.20, 94 |
-|   | against 96 against 89 |
-| 7 | No vague evaluative terms stand in for the comparison |
-| 9 | Sources precise, dated, and varied in kind, with the note on why the |
-|   | on-time figures come from the scorecard and not carrier marketing |
-| 13, 14 | "likely (55 to 80 percent)" with confidence in its own |
-|   | sentence, and no weasels |
-| 15 | The volume assumption is marked, and its consequence stated in both |
-|   | directions |
-| 16 | Criteria, the weights with their rationale, and both totals |
-|   | summarized in the body |
-| 17 | Commits to one course; the reader approves or declines |
-| 18 | The visible assumption is the assumptions check's residue |
-| 19 | The clean prose is the edit passes' residue |
-| 21 | The 92 percent falsifier |
